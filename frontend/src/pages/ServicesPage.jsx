@@ -1,163 +1,216 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
-  Plane, 
-  MapPin, 
-  FileText, 
-  HeartHandshake, 
-  Building2, 
-  Sparkles, 
-  ShieldCheck, 
-  Compass, 
+  Palmtree, 
+  Heart, 
+  Globe2, 
+  Stamp, 
+  Landmark, 
+  BookUser, 
+  PartyPopper, 
+  Bus,
+  GraduationCap,
+  Ship, 
+  Wallet, 
+  Plane,
   ArrowRight,
   MessageSquare,
-  CheckCircle2
+  ChevronRight
 } from 'lucide-react';
 import travelData from '../data/travelData';
 
 export default function ServicesPage({ onOpenCustomTrip }) {
   const navigate = useNavigate();
-  const { services, siteConfig } = travelData;
+  const { siteConfig } = travelData;
 
-  const iconMap = {
-    Plane: <Plane className="h-6 w-6 text-white" />,
-    MapPin: <MapPin className="h-6 w-6 text-white" />,
-    FileText: <FileText className="h-6 w-6 text-white" />,
-    HeartHandshake: <HeartHandshake className="h-6 w-6 text-white" />,
-    Building2: <Building2 className="h-6 w-6 text-white" />,
-    Sparkles: <Sparkles className="h-6 w-6 text-white" />,
-    ShieldCheck: <ShieldCheck className="h-6 w-6 text-white" />,
-    Compass: <Compass className="h-6 w-6 text-white" />
-  };
+  const servicesList = [
+    {
+      title: "Holiday Packages",
+      description: "Handpicked domestic and international holidays planned around your dates and budget.",
+      icon: <Palmtree className="h-6 w-6" />,
+      actionType: "tour",
+      travelType: "Holiday"
+    },
+    {
+      title: "Honeymoon Packages",
+      description: "Romantic escapes with private villas, candle-light dinners and thoughtful surprises.",
+      icon: <Heart className="h-6 w-6" />,
+      actionType: "tour",
+      travelType: "Honeymoon"
+    },
+    {
+      title: "India & International Tours",
+      description: "From Kashmir to Kuala Lumpur — guided and private tours across 25+ countries.",
+      icon: <Globe2 className="h-6 w-6" />,
+      actionType: "route",
+      to: "/tours"
+    },
+    {
+      title: "Visa Related Services",
+      description: "Fast-track tourist, business, transit and family visas with document guidance.",
+      icon: <Stamp className="h-6 w-6" />,
+      actionType: "route",
+      to: "/visa"
+    },
+    {
+      title: "Pilgrim Tours",
+      description: "Comfortable, well-timed yatras to Tirupati, Varanasi, Shirdi, Char Dham and more.",
+      icon: <Landmark className="h-6 w-6" />,
+      actionType: "tour",
+      travelType: "Pilgrimage"
+    },
+    {
+      title: "Passport Assistance",
+      description: "New passports, renewals, appointment booking and application support.",
+      icon: <BookUser className="h-6 w-6" />,
+      actionType: "route",
+      to: "/visa"
+    },
+    {
+      title: "Events",
+      description: "Destination weddings, family functions and corporate offsites, fully coordinated.",
+      icon: <PartyPopper className="h-6 w-6" />,
+      actionType: "route",
+      to: "/contact"
+    },
+    {
+      title: "Car & Bus Travels",
+      description: "Sedans, SUVs, tempo travellers and coaches with experienced drivers.",
+      icon: <Bus className="h-6 w-6" />,
+      actionType: "route",
+      to: "/contact"
+    },
+    {
+      title: "School / College Tours",
+      description: "Safe, educational group trips and industrial visits with full supervision support.",
+      icon: <GraduationCap className="h-6 w-6" />,
+      actionType: "tour",
+      travelType: "School/College Tour"
+    },
+    {
+      title: "Cruise",
+      description: "Ocean and river cruises — Cordelia, Royal Caribbean, Star Cruises and more.",
+      icon: <Ship className="h-6 w-6" />,
+      actionType: "tour",
+      travelType: "Cruise"
+    },
+    {
+      title: "Domestic Ticketing",
+      description: "Flight, train and bus bookings across India at the best available fares.",
+      icon: <Wallet className="h-6 w-6" />,
+      actionType: "route",
+      to: "/contact"
+    },
+    {
+      title: "International Ticketing",
+      description: "International flights with flexible routing, baggage and fare guidance.",
+      icon: <Plane className="h-6 w-6" />,
+      actionType: "route",
+      to: "/contact"
+    }
+  ];
 
-  const handleAction = (service) => {
-    if (service.section === 'visa') {
-      navigate('/visa');
-    } else if (service.travelType) {
-      navigate(`/tours?travelType=${encodeURIComponent(service.travelType)}`);
+  const handleClick = (srv) => {
+    if (srv.actionType === 'route' && srv.to) {
+      navigate(srv.to);
+    } else if (srv.actionType === 'tour' && srv.travelType) {
+      navigate(`/tours?travelType=${encodeURIComponent(srv.travelType)}`);
     } else {
       onOpenCustomTrip();
     }
   };
 
-  const handleWhatsApp = (serviceTitle) => {
-    const text = encodeURIComponent(
-      `Hello Travel Care 4 All,\nI would like more information on your "${serviceTitle}" service.`
-    );
-    window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
-  };
-
   return (
-    <div className="min-h-screen bg-[#0d1612] text-white">
-      {/* 1. Header Hero matching sujjusoftwaresolutions format */}
-      <section className="relative overflow-hidden pt-36 pb-20 sm:pt-40 sm:pb-24 text-center">
-        {/* Subtle radial glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#168447]/20 blur-[130px] rounded-full pointer-events-none" />
+    <div className="min-h-screen bg-[#fafbf9] text-[#17231d]">
+      {/* 1. Breadcrumb Strip */}
+      <div className="pt-28 pb-4 bg-[#eef8f1] border-b border-[#17231d]/5">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-[#17231d]/60">
+            <Link to="/" className="hover:text-[#168447] transition">Home</Link>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <span className="font-semibold text-[#17231d]">Services</span>
+          </nav>
+        </div>
+      </div>
 
-        <div className="mx-auto max-w-4xl px-5 sm:px-8 relative z-10">
+      {/* 2. Scenic Header Banner */}
+      <section className="relative overflow-hidden bg-[#17231d] pt-16 pb-20 sm:pt-20 sm:pb-24 text-white">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="/images/hero.png"
+            alt="Travel Care 4 All Services"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#17231d] via-[#17231d]/75 to-[#17231d]/85" />
+        </div>
+
+        <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center relative z-10">
           <p className="eyebrow justify-center mb-3 text-amber-300">
             <span className="h-px w-6 bg-[#e66a2c]" />
-            Complete Travel Solutions
+            What We Do
           </p>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-display tracking-tight text-white">
-            Comprehensive <span className="text-amber-300 font-display">Travel Services</span>
+            Our Services
           </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/75 leading-relaxed">
-            From flight bookings and fast-track visas to personalized domestic and international holiday packages — we curate every single detail of your journey.
+          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/80 leading-relaxed">
+            Complete travel solutions under one roof — holiday itineraries, visas, passports, flights, cruises and luxury transfers.
           </p>
         </div>
       </section>
 
-      {/* 2. Grid of Service Cards matching format */}
-      <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-8 relative z-10">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
+      {/* 3. 12 Services Grid matching Screenshot 3 */}
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {servicesList.map((srv) => (
             <div
-              key={service.title}
-              className="group relative flex flex-col justify-between rounded-3xl bg-white/[0.04] p-7 ring-1 ring-white/10 backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:bg-white/[0.07] hover:ring-[#168447]/50 shadow-card"
+              key={srv.title}
+              onClick={() => handleClick(srv)}
+              className="group flex h-full flex-col rounded-3xl bg-white p-6 shadow-card ring-1 ring-[#17231d]/5 transition-[transform,box-shadow] duration-300 hover:-translate-y-1.5 hover:shadow-lift cursor-pointer"
             >
-              <div>
-                {/* Header Icon & Tag */}
-                <div className="flex items-center justify-between gap-4 mb-5">
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#168447] text-white shadow-md shadow-[#168447]/30">
-                    {iconMap[service.icon] || <Sparkles className="h-6 w-6 text-white" />}
-                  </div>
-                  <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-amber-300 ring-1 ring-white/15">
-                    {service.tag || 'Standard & Premium'}
-                  </span>
-                </div>
+              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-[#168447] to-[#075c35] text-white shadow-lg shadow-[#168447]/30 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[-4deg]">
+                {srv.icon}
+              </span>
 
-                {/* Service Title */}
-                <h3 className="text-xl font-semibold font-display text-white group-hover:text-amber-300 transition-colors">
-                  {service.title}
-                </h3>
+              <h3 className="mt-5 font-sans text-lg font-bold text-[#17231d]">
+                {srv.title}
+              </h3>
 
-                {/* Description */}
-                <p className="mt-3 text-sm text-white/70 leading-relaxed">
-                  {service.description}
-                </p>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-[#17231d]/65">
+                {srv.description}
+              </p>
 
-                {/* Features list */}
-                {service.features && (
-                  <ul className="mt-5 space-y-2 text-xs text-white/60 border-t border-white/5 pt-4">
-                    {service.features.map((feat, i) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <CheckCircle2 className="h-3.5 w-3.5 text-[#168447] shrink-0" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-
-              {/* Action Buttons matching the reference site */}
-              <div className="mt-8 grid grid-cols-2 gap-2.5 pt-4 border-t border-white/10">
-                <button
-                  type="button"
-                  onClick={() => handleAction(service)}
-                  className="rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold py-2.5 px-3 transition text-center"
-                >
-                  Explore Details
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleWhatsApp(service.title)}
-                  className="rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 text-xs font-extrabold py-2.5 px-3 transition text-center shadow-md flex items-center justify-center gap-1"
-                >
-                  <span>Enquire Now</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </button>
-              </div>
+              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#e66a2c]">
+                <span>Learn More</span>
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+              </span>
             </div>
           ))}
         </div>
 
-        {/* Custom Itinerary Banner */}
-        <div className="mt-16 rounded-3xl bg-gradient-to-r from-[#075c35] to-[#168447] p-8 sm:p-12 text-center text-white shadow-2xl relative overflow-hidden">
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <h2 className="text-2xl sm:text-4xl font-display font-bold">
-              Need a Custom Tailored Itinerary?
-            </h2>
-            <p className="mt-3 text-sm sm:text-base text-white/85">
-              Talk directly with B. Vidya Sagar at our Vijayawada office for group corporate tours, family holidays, or destination weddings.
-            </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <button
-                onClick={onOpenCustomTrip}
-                className="btn btn-primary !bg-white !text-[#075c35] hover:!bg-amber-300 !border-0 font-bold"
-              >
-                Plan Custom Trip
-              </button>
-              <a
-                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Hello Travel Care 4 All, I would like to plan a custom trip.')}`}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-wa"
-              >
-                <MessageSquare className="h-4 w-4 mr-1.5" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
+        {/* Custom Itinerary Callout */}
+        <div className="mt-16 rounded-3xl bg-[#eef8f1] border border-[#168447]/20 p-8 sm:p-12 text-center shadow-sm">
+          <h2 className="text-2xl sm:text-3xl font-display font-bold text-[#075c35]">
+            Need a Customized Itinerary or Group Booking?
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-[#17231d]/75 max-w-2xl mx-auto">
+            Our Vijayawada office coordinates customized family vacations, industrial visits, destination weddings, and corporate offsites with tailored quotes.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <button
+              onClick={onOpenCustomTrip}
+              className="btn btn-primary"
+            >
+              Plan a Custom Trip
+            </button>
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent('Hello Travel Care 4 All, I would like to plan a custom trip.')}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-wa"
+            >
+              <MessageSquare className="h-4 w-4 mr-1.5" />
+              <span>Chat on WhatsApp</span>
+            </a>
           </div>
         </div>
       </section>

@@ -10,7 +10,8 @@ import {
   MessageSquare, 
   Phone,
   CheckCircle2,
-  Award
+  Award,
+  ChevronRight
 } from 'lucide-react';
 import travelData from '../data/travelData';
 import StatsSection from '../components/StatsSection';
@@ -28,40 +29,58 @@ export default function AboutPage({ onOpenCustomTrip }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#0d1612] text-white">
-      {/* 1. Header Hero matching sujjusoftwaresolutions format */}
-      <section className="relative overflow-hidden pt-36 pb-20 sm:pt-40 sm:pb-24 text-center">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#168447]/20 blur-[130px] rounded-full pointer-events-none" />
+    <div className="min-h-screen bg-[#fafbf9] text-[#17231d]">
+      {/* 1. Breadcrumb Strip */}
+      <div className="pt-28 pb-4 bg-[#eef8f1] border-b border-[#17231d]/5">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-[#17231d]/60">
+            <Link to="/" className="hover:text-[#168447] transition">Home</Link>
+            <ChevronRight className="h-3.5 w-3.5" />
+            <span className="font-semibold text-[#17231d]">About Us</span>
+          </nav>
+        </div>
+      </div>
 
-        <div className="mx-auto max-w-4xl px-5 sm:px-8 relative z-10">
+      {/* 2. Scenic Header Banner */}
+      <section className="relative overflow-hidden bg-[#17231d] pt-16 pb-20 sm:pt-20 sm:pb-24 text-white">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="/images/kashmir.png"
+            alt="About Travel Care 4 All"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#17231d] via-[#17231d]/75 to-[#17231d]/85" />
+        </div>
+
+        <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center relative z-10">
           <p className="eyebrow justify-center mb-3 text-amber-300">
             <span className="h-px w-6 bg-[#e66a2c]" />
             Our Story &amp; Values
           </p>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-display tracking-tight text-white">
-            About <span className="text-amber-300 font-display">Travel Care 4 All</span>
+            About Travel Care 4 All
           </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/75 leading-relaxed">
+          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/80 leading-relaxed">
             Headquartered in Vijayawada, Andhra Pradesh, guiding your journeys worldwide with personalized care, transparent pricing, and fast-track visa assistance.
           </p>
         </div>
       </section>
 
-      {/* 2. Consultant & Agency Profile */}
-      <section className="mx-auto max-w-7xl px-5 pb-20 sm:px-8 relative z-10">
-        <div className="rounded-3xl bg-white/[0.04] p-8 sm:p-12 ring-1 ring-white/10 backdrop-blur-md shadow-2xl grid gap-8 lg:grid-cols-2 items-center">
+      {/* 3. Consultant & Agency Profile */}
+      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="rounded-3xl bg-white p-8 sm:p-12 shadow-card ring-1 ring-[#17231d]/5 grid gap-8 lg:grid-cols-2 items-center">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#168447]/20 px-3 py-1 text-xs font-bold text-amber-300 ring-1 ring-[#168447]/40 mb-4">
-              <Award className="h-3.5 w-3.5" />
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eef8f1] px-3.5 py-1 text-xs font-bold text-[#075c35] ring-1 ring-[#168447]/20 mb-4">
+              <Award className="h-3.5 w-3.5 text-[#168447]" />
               Verified Travel Agency · Vijayawada
             </span>
-            <h2 className="text-2xl sm:text-4xl font-display font-bold text-white leading-tight">
-              Personalized Travel Experience Led by <span className="text-amber-300">B. Vidya Sagar</span>
+            <h2 className="text-2xl sm:text-4xl font-display font-bold text-[#17231d] leading-tight">
+              Personalized Travel Experience Led by <span className="text-[#168447]">B. Vidya Sagar</span>
             </h2>
-            <p className="mt-4 text-sm sm:text-base text-white/80 leading-relaxed">
+            <p className="mt-4 text-sm sm:text-base text-[#17231d]/75 leading-relaxed">
               At Travel Care 4 All, we believe that traveling should be seamless, inspiring, and completely worry-free. Every itinerary is individually crafted to ensure top-notch hotel stays, comfortable private transfers, and genuine local experiences.
             </p>
-            <p className="mt-3 text-sm sm:text-base text-white/70 leading-relaxed">
+            <p className="mt-3 text-sm sm:text-base text-[#17231d]/65 leading-relaxed">
               Whether you are planning a romantic honeymoon to Maldives, an adventurous expedition across Southeast Asia, or a sacred yatra with elderly parents, our dedicated desk handles tickets, visas, permits, and day-by-day itineraries.
             </p>
 
@@ -84,16 +103,16 @@ export default function AboutPage({ onOpenCustomTrip }) {
             </div>
           </div>
 
-          <div className="relative rounded-3xl overflow-hidden h-[340px] sm:h-[420px] ring-1 ring-white/10">
+          <div className="relative rounded-3xl overflow-hidden h-[340px] sm:h-[400px] shadow-lg">
             <img
-              src="/images/kashmir.png"
+              src="/images/himachal.png"
               alt="Travel Care 4 All Destinations"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0d1612]/90 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#17231d]/90 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white">
               <p className="text-xs font-bold uppercase tracking-wider text-amber-300">Office Location</p>
-              <p className="text-sm font-semibold text-white/90 mt-1">
+              <p className="text-sm font-semibold text-white/95 mt-1">
                 Ramavarappadu Ring, Upstairs Union Bank, Vijayawada - 520 004
               </p>
             </div>
@@ -101,47 +120,47 @@ export default function AboutPage({ onOpenCustomTrip }) {
         </div>
       </section>
 
-      {/* 3. Why Choose Us Grid matching card layout */}
-      <section className="mx-auto max-w-7xl px-5 pb-24 sm:px-8 relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="eyebrow justify-center mb-2 text-amber-300">
-            <span className="h-px w-6 bg-[#e66a2c]" />
-            The Travel Care Advantage
-          </p>
-          <h2 className="text-2xl sm:text-4xl font-display font-bold text-white">
-            Why Travellers Choose Us
-          </h2>
-        </div>
+      {/* 4. Why Choose Us Grid */}
+      <section className="bg-[#eef8f1] py-16 sm:py-24 border-t border-slate-100">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <p className="eyebrow justify-center mb-2">
+              <span className="h-px w-6 bg-[#e66a2c]" />
+              The Travel Care Advantage
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#17231d]">
+              Why Travellers Choose Us
+            </h2>
+          </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {whyChooseUs.map((item, idx) => (
-            <div
-              key={item.title}
-              className="rounded-3xl bg-white/[0.04] p-7 ring-1 ring-white/10 backdrop-blur-md shadow-card hover:-translate-y-1.5 transition-all duration-300 hover:bg-white/[0.07]"
-            >
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#168447] text-white mb-5 shadow-md shadow-[#168447]/30">
-                {iconMap[item.icon] || <ShieldCheck className="h-6 w-6 text-white" />}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-3xl bg-white p-7 shadow-card ring-1 ring-[#17231d]/5 hover:-translate-y-1.5 transition-all duration-300 hover:shadow-lift"
+              >
+                <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#168447] to-[#075c35] text-white mb-5 shadow-md shadow-[#168447]/30">
+                  {iconMap[item.icon] || <ShieldCheck className="h-6 w-6 text-white" />}
+                </div>
+                <h3 className="text-xl font-display font-semibold text-[#17231d]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm text-[#17231d]/65 leading-relaxed">
+                  {item.description}
+                </p>
               </div>
-              <h3 className="text-xl font-display font-semibold text-white">
-                {item.title}
-              </h3>
-              <p className="mt-3 text-sm text-white/70 leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 4. Stats Counter Bar */}
-      <div className="border-t border-b border-white/10 bg-white/[0.02]">
+      {/* 5. Stats Counter Bar */}
+      <div className="border-t border-b border-slate-100 bg-white">
         <StatsSection />
       </div>
 
-      {/* 5. Verified Reviews */}
-      <div className="bg-white text-[#17231d]">
-        <Testimonials />
-      </div>
+      {/* 6. Verified Reviews */}
+      <Testimonials />
     </div>
   );
 }
