@@ -18,10 +18,10 @@
   --shadow-lift: 0 2px 4px rgba(23, 35, 29, 0.06), 0 24px 48px -20px rgba(7, 92, 53, 0.35);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@layer base {
+  *, ::after, ::before {
+    box-sizing: border-box;
+  }
 }
 
 /* Centered layout container - 1380px max width reproducing 220px margins on 1824px screens */

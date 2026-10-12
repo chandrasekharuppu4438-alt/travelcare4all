@@ -15,40 +15,37 @@ export default function DestinationsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-[#fafbf9] text-[#17231d]">
-      {/* 1. Breadcrumb Strip */}
-      <div className="pt-28 pb-4 bg-[#eef8f1] border-b border-[#17231d]/5">
-        <div className="container mx-auto">
-          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-[#17231d]/60">
-            <Link to="/" className="hover:text-[#168447] transition">Home</Link>
-            <ChevronRight className="h-3.5 w-3.5" />
-            <span className="font-semibold text-[#17231d]">Destinations</span>
-          </nav>
-        </div>
-      </div>
-
-      {/* 2. Scenic Header Banner */}
-      <section className="relative overflow-hidden bg-[#17231d] pt-16 pb-20 sm:pt-20 sm:pb-24 text-white">
+    <div className="w-full bg-[#fafbf9] text-[#17231d]">
+      {/* 1. Scenic Header Banner with Integrated Breadcrumb */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#06180f] via-[#0b2819] to-[#123623] pt-36 sm:pt-44 pb-16 sm:pb-24 text-white">
         <div className="absolute inset-0 -z-10">
           <img
             src="/images/bali.png"
             alt="Scenic Destinations"
-            className="w-full h-full object-cover opacity-35"
+            className="w-full h-full object-cover opacity-20 mix-blend-luminosity"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#17231d] via-[#17231d]/75 to-[#17231d]/85" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06180f] via-[#06180f]/75 to-[#06180f]/85" />
         </div>
 
-        <div className="container mx-auto text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10 px-4">
           <div className="max-w-4xl mx-auto">
-            <p className="eyebrow justify-center mb-3 text-amber-300">
+            {/* Integrated Breadcrumb */}
+            <nav aria-label="Breadcrumb" className="inline-flex items-center gap-2 text-xs sm:text-sm text-white/70 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full mb-6 border border-white/15">
+              <Link to="/" className="hover:text-amber-300 transition-colors">Home</Link>
+              <ChevronRight className="h-3 w-3 text-white/50" />
+              <span className="font-semibold text-white">Destinations</span>
+            </nav>
+
+            <p className="eyebrow justify-center mb-3 text-amber-300 text-xs font-bold tracking-widest uppercase">
               <span className="h-px w-6 bg-[#e66a2c]" />
-              Where to Next
+              WHERE TO NEXT
+              <span className="h-px w-6 bg-[#e66a2c]" />
             </p>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-display tracking-tight text-white">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white leading-tight">
               Popular Destinations
             </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/80 leading-relaxed">
-              Our most-requested escapes from Vijayawada — each one bookable as a ready package or a fully custom trip.
+            <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/85 leading-relaxed font-sans">
+              Our most-requested holiday escapes from Vijayawada — each one bookable as a ready package or an individually tailored itinerary.
             </p>
           </div>
         </div>

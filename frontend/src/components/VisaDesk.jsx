@@ -24,6 +24,8 @@ export default function VisaDesk() {
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [inquiryId, setInquiryId] = useState('');
+  const [error, setError] = useState('');
 
   const iconMap = {
     Palmtree: <Palmtree className="h-5 w-5" />,
@@ -35,27 +37,27 @@ export default function VisaDesk() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
 
     try {
-      await api.submitVisaInquiry({
+      const res = await api.submitVisaInquiry({
         name: formData.name,
         phone: formData.phone,
         destination: formData.destination,
         visaType: formData.visaType,
         travelDate: formData.date
       });
-      setSuccess(true);
+      if (res.success) {
+        setSuccess(true);
+        setInquiryId(res.inquiry?.inquiryId || '');
+      } else {
+        setError(res.message || 'Submission could not be completed.');
+      }
     } catch (err) {
-      console.error(err);
+      setError(err.message || 'Network error submitting inquiry.');
     } finally {
       setLoading(false);
     }
-
-    // Also open WhatsApp prefilled
-    const text = encodeURIComponent(
-      `Hello Travel Care 4 All Visa Desk,\nName: ${formData.name}\nPhone: ${formData.phone}\nDestination: ${formData.destination}\nVisa Type: ${formData.visaType}\nTravel date: ${formData.date || 'Flexible'}`
-    );
-    window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
   };
 
   return (
@@ -112,22 +114,59 @@ export default function VisaDesk() {
           </p>
 
           {success ? (
-            <div className="mt-6 p-6 rounded-2xl bg-[#eef8f1] text-center space-y-2">
+            <div className="mt-6 p-6 rounded-2xl bg-[#eef8f1] text-center space-y-3">
               <CheckCircle2 className="h-10 w-10 text-[#168447] mx-auto" />
-              <h4 className="font-bold text-[#075c35] text-lg font-display">Enquiry Submitted!</h4>
-              <p className="text-xs text-[#17231d]/70">
-                Opening WhatsApp to connect directly with the visa officer.
+              <h4 className="font-bold text-[#075c35] text-lg font-display">Visa Enquiry Registered!</h4>
+              {inquiryId && (
+                <div className="inline-block px-3 py-1 bg-white rounded-full text-xs font-mono font-bold text-[#075c35] border border-[#168447]/20">
+                  Reference: {inquiryId}
+                </div>
+              )}
+              <p className="text-xs text-[#17231d]/70 max-w-sm mx-auto">
+                Your application details have been recorded. Click below to share your passport &amp; document specifications directly on WhatsApp with our visa officer.
               </p>
-              <button
-                type="button"
-                onClick={() => setSuccess(false)}
-                className="btn btn-outline text-xs mt-3"
-              >
-                Send another enquiry
-              </button>
+              <div className="pt-2 flex flex-col sm:flex-row gap-2 justify-center">
+                <button
+                  type="button"
+                  onClick={() => {
+                    const text = encodeURIComponent(
+                      `Hello Travel Care 4 All Visa Desk,\nI submitted visa enquiry ${inquiryId}.\nName: ${formData.name}\nPhone: ${formData.phone}\nDestination: ${formData.destination}\nVisa Type: ${formData.visaType}\nTravel Date: ${formData.date || 'Flexible'}\nPlease share document checklist.`
+                    );
+                    window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
+                  }}
+                  className="btn btn-wa text-xs font-bold"
+                >
+                  <MessageSquare className="w-4 h-4 mr-1" />
+                  <span>Chat on WhatsApp</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setSuccess(false)}
+                  className="btn btn-outline text-xs"
+                >
+                  Submit Another
+                </button>
+              </div>
             </div>
           ) : (
             <>
+              {error && (
+                <div className="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-center justify-between">
+                  <span>{error}</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const text = encodeURIComponent(
+                        `Hello Travel Care 4 All Visa Desk,\nName: ${formData.name}\nDestination: ${formData.destination}\nVisa Type: ${formData.visaType}`
+                      );
+                      window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
+                    }}
+                    className="text-[#075c35] underline font-bold ml-2 shrink-0"
+                  >
+                    Send on WhatsApp
+                  </button>
+                </div>
+              )}
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <label className="sm:col-span-2">
                   <span className="mb-1.5 block text-sm font-semibold text-[#17231d]">Full Name</span>

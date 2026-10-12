@@ -2,8 +2,212 @@ import travelData from '../data/travelData';
 
 const API_BASE = '/api';
 
+// Helper for JWT Token Storage
+export const authStorage = {
+  getToken: () => localStorage.getItem('tc4a_admin_token'),
+  setToken: (token) => localStorage.setItem('tc4a_admin_token', token),
+  removeToken: () => localStorage.removeItem('tc4a_admin_token'),
+  getAdmin: () => {
+    try {
+      const data = localStorage.getItem('tc4a_admin_profile');
+      return data ? JSON.parse(data) : null;
+    } catch {
+      return null;
+    }
+  },
+  setAdmin: (profile) => localStorage.setItem('tc4a_admin_profile', JSON.stringify(profile)),
+  removeAdmin: () => localStorage.removeItem('tc4a_admin_profile')
+};
+
+const getAuthHeaders = () => {
+  const token = authStorage.getToken();
+  const headers = { 'Content-Type': 'application/json' };
+  if (token) {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+  return headers;
+};
+
 export const api = {
-  // Get all tours with filters
+  // ----------------------------------------
+  // System Health
+  // ----------------------------------------
+  async getHealth() {
+    try {
+      const res = await fetch(`${API_BASE}/health`);
+      return await res.json();
+    } catch (err) {
+      return { status: 'offline', error: err.message };
+    }
+  },
+
+  // ----------------------------------------
+  // Administrator Authentication
+  // ----------------------------------------
+  async adminLogin(email, password) {
+    try {
+      const res = await fetch(`${API_BASE}/auth/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Login failed');
+
+      if (data.token) {
+        authStorage.setToken(data.token);
+        if (data.admin) authStorage.setAdmin(data.admin);
+      }
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  },
+
+  async getAdminMe() {
+    try {
+      const res = await fetch(`${API_BASE}/auth/me`, {
+        headers: getAuthHeaders()
+      });
+      if (!res.ok) throw new Error('Not authenticated');
+      return await res.json();
+    } catch (err) {
+      authStorage.removeToken();
+      authStorage.removeAdmin();
+      throw err;
+    }
+  },
+
+  async adminLogout() {
+    try {
+      await fetch(`${API_BASE}/auth/logout`, {
+        method: 'POST',
+        headers: getAuthHeaders()
+      });
+    } catch {
+      // Ignore network errors on logout
+    } finally {
+      authStorage.removeToken();
+      authStorage.removeAdmin();
+    }
+  },
+
+  // ----------------------------------------
+  // Protected Admin Operations
+  // ----------------------------------------
+  async getDashboardStats() {
+    const res = await fetch(`${API_BASE}/admin/dashboard`, {
+      headers: getAuthHeaders()
+    });
+    if (!res.ok) throw new Error('Failed to load dashboard metrics');
+    return await res.json();
+  },
+
+  async getAdminBookings(params = {}) {
+    const query = new URLSearchParams(params).toString();
+    const res = await fetch(`${API_BASE}/admin/bookings?${query}`, {
+      headers: getAuthHeaders()
+    });
+    if (!res.ok) throw new Error('Failed to load bookings');
+    return await res.json();
+  },
+
+  async updateBookingStatus(id, status, note = '') {
+    const res = await fetch(`${API_BASE}/admin/bookings/${id}/status`, {
+      method: 'PATCH',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({ status, note })
+    });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.message || 'Failed to update booking status');
+    }
+    return await res.json();
+  },
+
+  async updateBookingNotes(id, internalNotes, quotedAmount) {
+    const res = await fetch(`${API_BASE}/admin/bookings/${id}/notes`, {
+      method: 'PATCH',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({ internalNotes, quotedAmount })
+    });
+    if (!res.ok) throw new Error('Failed to update booking notes');
+    return await res.json();
+  },
+
+  async getAdminVisa(params = {}) {
+    const query = new URLSearchParams(params).toString();
+    const res = await fetch(`${API_BASE}/admin/visa?${query}`, {
+      headers: getAuthHeaders()
+    });
+    if (!res.ok) throw new Error('Failed to load visa enquiries');
+    return await res.json();
+  },
+
+  async updateVisaStatus(id, status, internalNotes) {
+    const res = await fetch(`${API_BASE}/admin/visa/${id}/status`, {
+      method: 'PATCH',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({ status, internalNotes })
+    });
+    if (!res.ok) throw new Error('Failed to update visa inquiry status');
+    return await res.json();
+  },
+
+  async getAdminEnquiries(params = {}) {
+    const query = new URLSearchParams(params).toString();
+    const res = await fetch(`${API_BASE}/admin/enquiries?${query}`, {
+      headers: getAuthHeaders()
+    });
+    if (!res.ok) throw new Error('Failed to load CRM enquiries');
+    return await res.json();
+  },
+
+  async updateEnquiryStatus(id, status, internalNotes, followUpDate) {
+    const res = await fetch(`${API_BASE}/admin/enquiries/${id}/status`, {
+      method: 'PATCH',
+      headers: getAuthHeaders(),
+      body: JSON.stringify({ status, internalNotes, followUpDate })
+    });
+    if (!res.ok) throw new Error('Failed to update enquiry status');
+    return await res.json();
+  },
+
+  async createPackage(packageData) {
+    const res = await fetch(`${API_BASE}/admin/packages`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(packageData)
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || 'Failed to create tour package');
+    return data;
+  },
+
+  async updatePackage(id, packageData) {
+    const res = await fetch(`${API_BASE}/admin/packages/${id}`, {
+      method: 'PATCH',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(packageData)
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || 'Failed to update tour package');
+    return data;
+  },
+
+  async deletePackage(id) {
+    const res = await fetch(`${API_BASE}/admin/packages/${id}`, {
+      method: 'DELETE',
+      headers: getAuthHeaders()
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.message || 'Failed to delete tour package');
+    return data;
+  },
+
+  // ----------------------------------------
+  // Public Tours & Destinations
+  // ----------------------------------------
   async getTours(params = {}) {
     try {
       const query = new URLSearchParams();
@@ -15,10 +219,9 @@ export const api = {
 
       const res = await fetch(`${API_BASE}/tours?${query.toString()}`);
       if (!res.ok) throw new Error('Network error');
-      const data = await res.json();
-      return data;
+      return await res.json();
     } catch (err) {
-      console.warn('[API Fallback] Serving tours from local client data', err);
+      console.warn('[API Notice] Serving tours from curated local catalog', err);
       let results = [...travelData.tours];
 
       if (params.search) {
@@ -61,12 +264,12 @@ export const api = {
         total: results.length,
         page: 1,
         totalPages: 1,
-        tours: results
+        tours: results,
+        isClientFallback: true
       };
     }
   },
 
-  // Get single tour
   async getTourBySlug(slug) {
     try {
       const res = await fetch(`${API_BASE}/tours/${slug}`);
@@ -74,11 +277,10 @@ export const api = {
       return await res.json();
     } catch {
       const tour = travelData.tours.find(t => t.slug === slug);
-      return { success: !!tour, tour };
+      return { success: !!tour, tour, isClientFallback: true };
     }
   },
 
-  // Get destinations
   async getDestinations(region) {
     try {
       const query = region ? `?region=${region}` : '';
@@ -87,12 +289,14 @@ export const api = {
       return await res.json();
     } catch {
       let destinations = travelData.destinations;
-      if (region) destinations = destinations.filter(d => d.region === region);
-      return { success: true, count: destinations.length, destinations };
+      if (region && region !== 'All') destinations = destinations.filter(d => d.region === region);
+      return { success: true, count: destinations.length, destinations, isClientFallback: true };
     }
   },
 
-  // Create booking
+  // ----------------------------------------
+  // Public Form Submissions
+  // ----------------------------------------
   async createBooking(bookingData) {
     try {
       const res = await fetch(`${API_BASE}/bookings`, {
@@ -101,76 +305,26 @@ export const api = {
         body: JSON.stringify(bookingData)
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message || 'Booking submission failed');
+      if (!res.ok) {
+        return {
+          success: false,
+          status: res.status,
+          message: data.message || 'Booking submission could not be processed.',
+          canFallbackToWhatsApp: data.canFallbackToWhatsApp || true,
+          bookingDetails: data.bookingDetails || bookingData
+        };
+      }
       return data;
     } catch (err) {
-      console.warn('[API Fallback] Local mock booking registered', err);
       return {
-        success: true,
-        message: 'Booking request registered successfully! Our team will contact you shortly.',
-        booking: {
-          ...bookingData,
-          bookingId: 'TC4A-' + Math.floor(100000 + Math.random() * 900000),
-          status: 'Pending',
-          createdAt: new Date().toISOString()
-        }
+        success: false,
+        message: 'Could not connect to the booking server. Please connect with our team on WhatsApp or Phone to confirm your trip.',
+        canFallbackToWhatsApp: true,
+        bookingDetails: bookingData
       };
     }
   },
 
-  // Get all bookings (admin view)
-  async getBookings() {
-    try {
-      const res = await fetch(`${API_BASE}/bookings`);
-      if (!res.ok) throw new Error('Network error');
-      return await res.json();
-    } catch {
-      return {
-        success: true,
-        count: 2,
-        bookings: [
-          {
-            _id: 'mock-1',
-            bookingId: 'TC4A-839201',
-            tourTitle: 'Maldives Honeymoon',
-            customerName: 'Karthik Varma',
-            phone: '+91 98480 12345',
-            travelDate: '2026-11-15',
-            travellers: 2,
-            status: 'Confirmed'
-          },
-          {
-            _id: 'mock-2',
-            bookingId: 'TC4A-492104',
-            tourTitle: 'Dubai Highlights & Desert Safari',
-            customerName: 'Praveen Kumar',
-            phone: '+91 97000 54321',
-            travelDate: '2026-12-05',
-            travellers: 4,
-            status: 'Pending'
-          }
-        ]
-      };
-    }
-  },
-
-  // Update booking status
-  async updateBookingStatus(id, status) {
-    try {
-      const res = await fetch(`${API_BASE}/bookings/${id}/status`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status })
-      });
-      if (!res.ok) throw new Error('Status update failed');
-      return await res.json();
-    } catch (err) {
-      console.warn('[API Fallback] Local mock status updated', err);
-      return { success: true, message: 'Status updated locally' };
-    }
-  },
-
-  // Submit Fast Track Visa enquiry
   async submitVisaInquiry(visaData) {
     try {
       const res = await fetch(`${API_BASE}/visa`, {
@@ -179,50 +333,26 @@ export const api = {
         body: JSON.stringify(visaData)
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message || 'Visa submission failed');
+      if (!res.ok) {
+        return {
+          success: false,
+          status: res.status,
+          message: data.message || 'Visa inquiry submission failed.',
+          canFallbackToWhatsApp: data.canFallbackToWhatsApp || true,
+          details: data.details || visaData
+        };
+      }
       return data;
     } catch (err) {
-      console.warn('[API Fallback] Local mock visa registered', err);
       return {
-        success: true,
-        message: 'Visa enquiry submitted! Our Fast Track Visa desk will call you or WhatsApp you shortly.',
-        inquiry: {
-          ...visaData,
-          inquiryId: 'VISA-' + Math.floor(100000 + Math.random() * 900000),
-          status: 'New'
-        }
+        success: false,
+        message: 'Connection to Visa Desk server failed. Please submit directly via WhatsApp for immediate assistance.',
+        canFallbackToWhatsApp: true,
+        details: visaData
       };
     }
   },
 
-  // Get visa enquiries (admin view)
-  async getVisaInquiries() {
-    try {
-      const res = await fetch(`${API_BASE}/visa`);
-      if (!res.ok) throw new Error('Network error');
-      return await res.json();
-    } catch {
-      return {
-        success: true,
-        count: 1,
-        inquiries: [
-          {
-            _id: 'visa-demo-1',
-            inquiryId: 'VISA-391024',
-            name: 'Srinivasa Rao',
-            phone: '+91 94401 23456',
-            destination: 'Dubai',
-            visaType: 'Tourist Visa',
-            travelDate: '2026-11-20',
-            status: 'In Review',
-            createdAt: new Date().toISOString()
-          }
-        ]
-      };
-    }
-  },
-
-  // Submit Contact message
   async submitContact(contactData) {
     try {
       const res = await fetch(`${API_BASE}/contact`, {
@@ -231,10 +361,10 @@ export const api = {
         body: JSON.stringify(contactData)
       });
       return await res.json();
-    } catch {
+    } catch (err) {
       return {
-        success: true,
-        message: 'Thank you! Your message has been received. Our Vijayawada team will contact you shortly.'
+        success: false,
+        message: 'Could not send contact message over network. Please reach out via WhatsApp.'
       };
     }
   }

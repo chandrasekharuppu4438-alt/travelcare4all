@@ -147,9 +147,24 @@ export default function BookingModal({ tour, isOpen, onClose }) {
             /* Booking Form */
             <form onSubmit={handleSubmit} className="space-y-4">
               {error && (
-                <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <span>{error}</span>
+                <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-amber-900 text-xs space-y-2.5">
+                  <div className="flex items-start gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0 text-amber-600 mt-0.5" />
+                    <span>{error}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const text = encodeURIComponent(
+                        `Hello Travel Care 4 All,\nI would like to book: ${tour ? tour.title : 'Custom Trip'}\nName: ${formData.customerName || 'Traveller'}\nPhone: ${formData.phone || ''}\nTravel Date: ${formData.travelDate || 'Flexible'}\nTravellers: ${formData.travellers}\nSpecial Requests: ${formData.specialRequests || 'None'}`
+                      );
+                      window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
+                    }}
+                    className="btn btn-wa !py-1.5 !px-3 text-xs w-full font-bold"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 mr-1" />
+                    <span>Confirm Directly via WhatsApp</span>
+                  </button>
                 </div>
               )}
 

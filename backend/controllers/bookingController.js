@@ -1,39 +1,7 @@
 const Booking = require('../models/Booking');
 const { isDBConnected } = require('../config/db');
 
-// In-memory bookings store for resilient fallback
-let inMemoryBookings = [
-  {
-    _id: 'sample-1',
-    bookingId: 'TC4A-839201',
-    tourSlug: 'maldives-honeymoon',
-    tourTitle: 'Maldives Honeymoon',
-    customerName: 'Karthik Varma',
-    email: 'karthik.v@example.com',
-    phone: '+91 98480 12345',
-    travelDate: '2026-11-15',
-    travellers: 2,
-    specialRequests: 'Beach pool villa requested & vegetarian meal plan',
-    totalAmount: 179998,
-    status: 'Confirmed',
-    createdAt: new Date().toISOString()
-  },
-  {
-    _id: 'sample-2',
-    bookingId: 'TC4A-492104',
-    tourSlug: 'dubai-experience',
-    tourTitle: 'Dubai Highlights & Desert Safari',
-    customerName: 'Praveen Kumar',
-    email: 'praveen.k@example.com',
-    phone: '+91 97000 54321',
-    travelDate: '2026-12-05',
-    travellers: 4,
-    specialRequests: 'Need fast track visa processing for 2 kids',
-    totalAmount: 199996,
-    status: 'Pending',
-    createdAt: new Date().toISOString()
-  }
-];
+let inMemoryBookings = [];
 
 const createBooking = async (req, res) => {
   try {
@@ -45,65 +13,101 @@ const createBooking = async (req, res) => {
       phone,
       travelDate,
       travellers = 2,
-      specialRequests,
-      totalAmount
+      specialRequests = '',
+      totalAmount = 0
     } = req.body;
 
     if (!tourSlug || !customerName || !phone || !travelDate) {
       return res.status(400).json({
         success: false,
-        message: 'Please provide tour, name, phone number, and travel date.'
+        message: 'Please provide tour, full name, phone number, and travel date.'
+      });
+    }
+
+    // Validate phone number format (at least 10 digits)
+    const phoneDigits = phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please enter a valid phone number with at least 10 digits.'
       });
     }
 
     const bookingId = 'TC4A-' + Math.floor(100000 + Math.random() * 900000);
 
+    // 1. Persistent MongoDB Storage
     if (isDBConnected()) {
-      const newBooking = await Booking.create({
+      const booking = await Booking.create({
         bookingId,
         tourSlug,
-        tourTitle: tourTitle || tourSlug,
-        customerName,
-        email: email || '',
-        phone,
+        tourTitle,
+        customerName: customerName.trim(),
+        email: email ? email.trim().toLowerCase() : `${phoneDigits}@travelcare4all.guest`,
+        phone: phone.trim(),
         travelDate,
         travellers: Number(travellers) || 2,
         specialRequests,
-        totalAmount: Number(totalAmount) || 0
+        totalAmount: Number(totalAmount) || 0,
+        status: 'Pending',
+        statusHistory: [
+          { status: 'Pending', changedAt: new Date(), note: 'Booking enquiry submitted online' }
+        ]
       });
 
       return res.status(201).json({
         success: true,
-        message: 'Booking request registered successfully! Our team will contact you shortly.',
-        booking: newBooking
+        message: 'Your booking enquiry has been registered! Our team will contact you shortly to confirm arrangements.',
+        booking
       });
     }
 
-    // In-memory fallback
-    const newBooking = {
-      _id: 'local-' + Date.now(),
+    // 2. Database Disconnected Handling
+    if (process.env.NODE_ENV === 'production') {
+      return res.status(503).json({
+        success: false,
+        message: 'Our reservation system is currently undergoing scheduled maintenance. Please connect directly via WhatsApp at +91 73861 33399 so our Vijayawada desk can confirm your booking without delay.',
+        canFallbackToWhatsApp: true,
+        bookingDetails: {
+          tourTitle,
+          customerName,
+          phone,
+          travelDate,
+          travellers
+        }
+      });
+    }
+
+    // 3. Local Development Mode with explicit transparency
+    const demoBooking = {
+      _id: 'local-demo-' + Date.now(),
       bookingId,
       tourSlug,
-      tourTitle: tourTitle || tourSlug,
+      tourTitle,
       customerName,
       email: email || '',
       phone,
       travelDate,
       travellers: Number(travellers) || 2,
       specialRequests,
-      totalAmount: Number(totalAmount) || 0,
+      totalAmount,
       status: 'Pending',
       createdAt: new Date().toISOString()
     };
-    inMemoryBookings.unshift(newBooking);
+    inMemoryBookings.unshift(demoBooking);
 
-    res.status(201).json({
+    res.set('X-Database-Fallback', 'in-memory-volatile');
+    return res.status(201).json({
       success: true,
-      message: 'Booking request registered successfully! Our team will contact you shortly.',
-      booking: newBooking
+      isDemoSession: true,
+      message: 'Booking enquiry recorded (Development Mode - MongoDB is offline. Connect MongoDB Atlas to persist permanently).',
+      booking: demoBooking
     });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    console.error('[Create Booking Error]', error);
+    res.status(500).json({
+      success: false,
+      message: error.message || 'An error occurred while submitting your booking enquiry.'
+    });
   }
 };
 
@@ -113,36 +117,10 @@ const getBookings = async (req, res) => {
       const bookings = await Booking.find().sort({ createdAt: -1 });
       return res.json({ success: true, count: bookings.length, bookings });
     }
-    res.json({ success: true, count: inMemoryBookings.length, bookings: inMemoryBookings });
+    return res.json({ success: true, count: inMemoryBookings.length, bookings: inMemoryBookings });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: 'Failed to retrieve bookings.' });
   }
 };
 
-const updateBookingStatus = async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { status } = req.body;
-
-    if (isDBConnected()) {
-      const booking = await Booking.findByIdAndUpdate(id, { status }, { new: true });
-      if (booking) return res.json({ success: true, booking });
-    }
-
-    const idx = inMemoryBookings.findIndex(b => b._id === id || b.bookingId === id);
-    if (idx !== -1) {
-      inMemoryBookings[idx].status = status;
-      return res.json({ success: true, booking: inMemoryBookings[idx] });
-    }
-
-    res.status(404).json({ success: false, message: 'Booking not found' });
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
-  }
-};
-
-module.exports = {
-  createBooking,
-  getBookings,
-  updateBookingStatus
-};
+module.exports = { createBooking, getBookings };
