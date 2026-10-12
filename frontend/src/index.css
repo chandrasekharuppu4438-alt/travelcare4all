@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+
+  --color-brand: #168447;
+  --color-brand-dark: #075c35;
+  --color-accent: #e66a2c;
+  --color-accent-dark: #c9551d;
+  --color-mint: #eef8f1;
+  --color-ink: #17231d;
+  --color-paper: #f7f9f7;
+  --color-maroon: #a71932;
+  --color-white: #ffffff;
+
+  --shadow-card: 0 1px 2px rgba(23, 35, 29, 0.05), 0 8px 24px -12px rgba(23, 35, 29, 0.18);
+  --shadow-lift: 0 2px 4px rgba(23, 35, 29, 0.06), 0 24px 48px -20px rgba(7, 92, 53, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: #ffffff;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  font-optical-sizing: auto;
+}
+
+/* Button styles matching travelcare4all.netlify.app */
+.btn {
+  will-change: transform;
+  border-radius: 9999px;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s, color 0.2s;
+  display: inline-flex;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #ffffff;
+  box-shadow: 0 10px 24px -10px rgba(230, 106, 44, 0.7);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-dark);
+}
+
+.btn-green {
+  background: var(--color-brand);
+  color: #ffffff;
+  box-shadow: 0 10px 24px -10px rgba(22, 132, 71, 0.7);
+}
+
+.btn-green:hover {
+  background: var(--color-brand-dark);
+}
+
+.btn-ghost {
+  color: #ffffff;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.btn-outline {
+  border: 1.5px solid var(--color-brand);
+  color: var(--color-brand);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--color-brand);
+  color: #ffffff;
+}
+
+.btn-wa {
+  color: #ffffff;
+  background: #1fa855;
+  box-shadow: 0 10px 24px -10px rgba(31, 168, 85, 0.7);
+}
+
+.btn-wa:hover {
+  background: #17904a;
+}
+
+.link-u {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  transition: background-size 0.3s;
+}
+
+.link-u:hover, .link-u[data-status="active"] {
+  background-size: 100% 1.5px;
+}
+
+.eyebrow {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-flex;
+}
+
+.field {
+  width: 100%;
+  color: var(--color-ink);
+  background: #ffffff;
+  border: 1px solid rgba(23, 35, 29, 0.12);
+  border-radius: 0.875rem;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.925rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.field:focus {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 4px rgba(22, 132, 71, 0.12);
+}
+
+.hero-zoom {
+  animation: 18s ease-out forwards hero-zoom;
+}
+@keyframes hero-zoom {
+  0% { transform: scale(1.14); }
+  100% { transform: scale(1); }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
