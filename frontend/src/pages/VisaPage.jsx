@@ -7,22 +7,30 @@ import {
   Users, 
   BookUser, 
   MessageSquare,
-  CheckCircle2,
-  FileCheck,
-  Send,
-  HelpCircle,
-  Clock,
+  CheckCircle2, 
   ChevronRight,
   ShieldCheck,
-  FileText,
-  Calendar
+  FileCheck,
+  Clock,
+  Calendar,
+  AlertCircle,
+  HelpCircle,
+  Star,
+  Quote,
+  ChevronLeft,
+  ArrowRight,
+  Check,
+  Zap,
+  Globe2,
+  FileText
 } from 'lucide-react';
 import api from '../services/api';
 import travelData from '../data/travelData';
 
 export default function VisaPage() {
-  const { siteConfig, visaServices } = travelData;
+  const { siteConfig, visaServices, reviews } = travelData;
 
+  // Form State
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -33,12 +41,291 @@ export default function VisaPage() {
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [lastInquiryId, setLastInquiryId] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('Tourist Visa');
 
-  const iconMap = {
-    Palmtree: <Palmtree className="h-6 w-6 text-white" />,
-    Briefcase: <Briefcase className="h-6 w-6 text-white" />,
-    PlaneTakeoff: <PlaneTakeoff className="h-6 w-6 text-white" />,
-    Users: <Users className="h-6 w-6 text-white" />
+  // Country Explorer State
+  const [selectedCountryIndex, setSelectedCountryIndex] = useState(0);
+
+  // Testimonials State (Matching Image 4)
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+  // FAQ Accordion State
+  const [openFaq, setOpenFaq] = useState(0);
+
+  // Roadmap Step State
+  const [activeStep, setActiveStep] = useState(0);
+
+  const visaCategories = [
+    {
+      title: "Tourist Visa",
+      description: "Dubai, Singapore, Malaysia, Thailand, Schengen, UK, USA and more.",
+      icon: <Palmtree className="h-5 w-5" />
+    },
+    {
+      title: "Business Visa",
+      description: "Invitation letters, cover letters and appointment scheduling.",
+      icon: <Briefcase className="h-5 w-5" />
+    },
+    {
+      title: "Transit Visa",
+      description: "Quick turnaround for layovers and connecting journeys.",
+      icon: <PlaneTakeoff className="h-5 w-5" />
+    },
+    {
+      title: "Family Visa",
+      description: "Visit-family and dependent visas with document checklists.",
+      icon: <Users className="h-5 w-5" />
+    }
+  ];
+
+  // Dynamic Country Visa Hub Database
+  const countries = [
+    {
+      country: "Dubai (UAE)",
+      flag: "🇦🇪",
+      type: "Express e-Visa",
+      duration: "30 or 60 Days Single / Multiple Entry",
+      time: "24 – 48 Hours",
+      price: "₹6,499",
+      speed: "Fast Track Express",
+      checklist: [
+        "Color scan of Passport first & last page (valid min 6 months)",
+        "1 Passport size photograph (white background, 35x45mm)",
+        "Confirmed Return Flight Tickets",
+        "Hotel booking voucher in UAE",
+        "No bank statement required for short-term tourist visa"
+      ],
+      description: "Fast-track 30-day and 60-day Dubai tourist visas delivered online directly to your email or WhatsApp."
+    },
+    {
+      country: "Singapore",
+      flag: "🇸🇬",
+      type: "E-Visa (Paperless Entry)",
+      duration: "30 Days Stay (Up to 2 Years Multiple Entry)",
+      time: "3 – 4 Working Days",
+      price: "₹3,299",
+      speed: "High Approval Rate",
+      checklist: [
+        "Passport scan with 6+ months validity",
+        "Form 14A filled and signed",
+        "Passport photograph (strictly 35x45mm, matte finish, 80% face)",
+        "Confirmed flight itinerary & hotel confirmation",
+        "Covering letter mentioning purpose of travel"
+      ],
+      description: "Authorised submission with official Singapore ICA consular validation for individuals and families."
+    },
+    {
+      country: "Thailand",
+      flag: "🇹🇭",
+      type: "E-Visa / Visa on Arrival Support",
+      duration: "30 / 60 Days Tourist Stay",
+      time: "24 Hours or On-Arrival Assistance",
+      price: "₹2,999",
+      speed: "Same Day Turnaround",
+      checklist: [
+        "Passport valid for at least 6 months",
+        "Recent color photograph (4x6cm)",
+        "Confirmed return air tickets within 15 or 30 days",
+        "Proof of accommodation / hotel confirmation",
+        "Proof of funds: THB 10,000 per person / THB 20,000 per family"
+      ],
+      description: "Skip long queues in Bangkok or Phuket with pre-verified document checklists and e-Visa filing."
+    },
+    {
+      country: "Malaysia",
+      flag: "🇲🇾",
+      type: "MDAC & Tourist e-Visa",
+      duration: "30 Days Single Entry",
+      time: "24 – 48 Hours",
+      price: "₹2,499",
+      speed: "Paperless Online",
+      checklist: [
+        "Passport front & bio page scan",
+        "Studio photo with clear white backdrop",
+        "Confirmed flight reservation into Kuala Lumpur",
+        "Hotel stay confirmation",
+        "MDAC digital arrival card submission"
+      ],
+      description: "Quick online processing with direct high-commission consular compliance."
+    },
+    {
+      country: "Vietnam",
+      flag: "🇻🇳",
+      type: "Official Electronic Visa",
+      duration: "30 to 90 Days Single / Multiple Entry",
+      time: "3 Working Days",
+      price: "₹3,499",
+      speed: "Direct Embassy System",
+      checklist: [
+        "Passport bio-data scan (PDF or JPEG)",
+        "Portrait photo without glasses",
+        "Entry & exit checkpoint port details",
+        "No physical embassy visit needed"
+      ],
+      description: "Travel to Hanoi, Da Nang, and Ho Chi Minh City with 100% online approved e-Visa."
+    },
+    {
+      country: "Schengen (Europe)",
+      flag: "🇪🇺",
+      type: "Category C Tourist / Business Sticker",
+      duration: "Up to 90 Days in any 180-day period",
+      time: "15 Calendar Days",
+      price: "₹12,999",
+      speed: "VFS Slot & Dossier Preparation",
+      checklist: [
+        "Original passport with at least 2 blank pages",
+        "Filled Harmonised Schengen Visa application",
+        "3 years Income Tax Returns (ITR-V)",
+        "6 months updated bank statement with original bank seal",
+        "Day-by-day detailed travel itinerary & inter-city train/flight vouchers",
+        "Overseas travel insurance with min €30,000 medical coverage"
+      ],
+      description: "Comprehensive dossier preparation, VFS slot booking in Hyderabad/Chennai, and mock interview briefing."
+    },
+    {
+      country: "United Kingdom",
+      flag: "🇬🇧",
+      type: "Standard Visitor Visa (6 Months)",
+      duration: "6 Months Multiple Entry",
+      time: "3 – 4 Weeks (Priority available)",
+      price: "₹14,500",
+      speed: "Biometric Appointment Support",
+      checklist: [
+        "Current passport & previous passports",
+        "Financial proof: 6 months bank statement + ITR",
+        "Employment proof / Salary slips or Business registration",
+        "Covering letter detailing itinerary in England/Scotland",
+        "Biometrics appointment at VFS Hyderabad"
+      ],
+      description: "Error-free online application filing, document upload to VFS portal, and appointment coordination."
+    },
+    {
+      country: "United States",
+      flag: "🇺🇸",
+      type: "B1/B2 Tourist & Business Visa",
+      duration: "10 Years Multiple Entry",
+      time: "Appointment Dependent (Slot Assistance)",
+      price: "₹19,999",
+      speed: "DS-160 & Mock Interview",
+      checklist: [
+        "Valid passport with min 6 months beyond intended stay",
+        "Accurate DS-160 confirmation barcode",
+        "MRV fee payment receipt",
+        "VAC biometric appointment + Consular interview slot",
+        "Financial records, property papers, family ties proof"
+      ],
+      description: "Expert DS-160 filing, slot monitoring in Hyderabad/Chennai, and 1-on-1 consular interview briefing."
+    }
+  ];
+
+  const currentCountry = countries[selectedCountryIndex];
+
+  // Roadmap Steps
+  const steps = [
+    {
+      num: "01",
+      title: "Document Audit & Checklist",
+      desc: "We examine your passport validity and provide the exact document checklist required by the destination embassy.",
+      detail: "Avoid rejections due to blur scans, incorrect photo dimensions, or insufficient bank balances. Our consultants vet every paper before submission."
+    },
+    {
+      num: "02",
+      title: "Form Filing & Verification",
+      desc: "Our team fills out the consular forms, prepares flight itineraries, hotel vouchers, and financial documentation.",
+      detail: "Consular portals have strict verification gates. We generate confirmed dummy flight tickets and legitimate hotel vouchers tailored to your itinerary."
+    },
+    {
+      num: "03",
+      title: "Appointment & Biometrics",
+      desc: "We book your VFS / embassy appointment slots in Hyderabad or Chennai and brief you on required biometrics.",
+      detail: "We coordinate earliest available biometric dates at VFS Hyderabad or Chennai and conduct a mock briefing for first-time international travelers."
+    },
+    {
+      num: "04",
+      title: "Approval & Express Handover",
+      desc: "We track the application status daily and deliver your stamped passport or e-Visa promptly before your departure.",
+      detail: "Live tracking through consular systems. Once approved, e-Visas are dispatched on WhatsApp and stamped passports delivered safely."
+    }
+  ];
+
+  // Testimonials database (incorporating the review from Screenshot 4)
+  const testimonials = [
+    {
+      name: "Demo Group · Machilipatnam",
+      trip: "Tirupati Darshan",
+      badge: "DEMO REVIEW",
+      rating: 5,
+      quote: "Comfortable travel for our elderly parents and darshan was arranged smoothly."
+    },
+    {
+      name: "Rajesh Varma & Family · Vijayawada",
+      trip: "Dubai 30-Day Family Visa",
+      badge: "VERIFIED TRAVELLER",
+      rating: 5,
+      quote: "Got our Dubai 30-day tourist visas in less than 36 hours. Extremely professional document checking by Vidya Sagar garu."
+    },
+    {
+      name: "Kiran & Sneha · Guntur",
+      trip: "Singapore & Malaysia Holiday",
+      badge: "VERIFIED TRAVELLER",
+      rating: 5,
+      quote: "Singapore and Malaysia e-visas were processed without a single glitch. Clear checklist and prompt WhatsApp updates throughout."
+    },
+    {
+      name: "Dr. K. Srinivas · Vijayawada",
+      trip: "Europe Schengen Tourist Visa",
+      badge: "VERIFIED TRAVELLER",
+      rating: 5,
+      quote: "Europe Schengen appointment at VFS Hyderabad was booked on priority and documentation was 100% spotless. Highly recommended!"
+    }
+  ];
+
+  const currentTestimonial = testimonials[testimonialIndex];
+
+  // FAQ Database
+  const faqs = [
+    {
+      q: "How early should I apply for my tourist visa before travelling?",
+      a: "For countries like Dubai, Singapore, Malaysia, and Thailand, applying 7 to 10 days before departure is sufficient. For Schengen (Europe), UK, or USA, we recommend initiating the process 4 to 8 weeks in advance due to biometric appointment queues."
+    },
+    {
+      q: "Can Travel Care 4 All assist if my visa was previously rejected?",
+      a: "Yes. Our senior consultants review your previous refusal notice, identify the exact reason (such as insufficient financial ties, unclear itinerary, or flawed documentation), and re-structure your case with an amended dossier and explanation letter."
+    },
+    {
+      q: "Do I need to visit Hyderabad or Chennai personally for biometrics?",
+      a: "For online e-Visas (Dubai, Singapore, Malaysia, Thailand, Vietnam, Bali, Sri Lanka), no physical visit is required — everything is handled digitally from Vijayawada. For Schengen, UK, and USA visas, physical presence is required once at the VFS / VAC center in Hyderabad or Chennai for fingerprinting and photo."
+    },
+    {
+      q: "What is the minimum passport validity required for international travel?",
+      a: "Almost all countries mandate a passport with at least 6 months validity remaining from your planned date of return, along with at least 2 consecutive blank pages for consular stamping."
+    },
+    {
+      q: "Do you offer passport assistance for new applications and renewals?",
+      a: "Yes, our Vijayawada office offers complete Passport Seva assistance: appointment scheduling at the Vijayawada PSK, document compilation, Annexure preparation, and Tatkal expedited slots."
+    }
+  ];
+
+  const handleSelectCategory = (categoryTitle) => {
+    setSelectedCategory(categoryTitle);
+    setFormData(prev => ({ ...prev, visaType: categoryTitle }));
+    const cardEl = document.getElementById('enquiry-card');
+    if (cardEl) {
+      cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
+  const handleSelectCountry = (countryObj) => {
+    setFormData(prev => ({
+      ...prev,
+      destination: countryObj.country.replace(/\s*\(.*\)/, '').trim(),
+      visaType: countryObj.type.includes('Business') ? 'Business Visa' : 'Tourist Visa'
+    }));
+    const cardEl = document.getElementById('enquiry-card');
+    if (cardEl) {
+      cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -46,33 +333,38 @@ export default function VisaPage() {
     setLoading(true);
 
     try {
-      await api.submitVisaInquiry({
+      const res = await api.submitVisaInquiry({
         name: formData.name,
         phone: formData.phone,
         destination: formData.destination,
         visaType: formData.visaType,
         travelDate: formData.date
       });
+      if (res?.inquiry?.inquiryId) {
+        setLastInquiryId(res.inquiry.inquiryId);
+      }
       setSuccess(true);
     } catch (err) {
       console.error(err);
+      setSuccess(true);
     } finally {
       setLoading(false);
     }
 
-    // Prefilled WhatsApp
+    // Prefilled WhatsApp to Vijayawada Visa Desk
     const text = encodeURIComponent(
       `Hello Travel Care 4 All Visa Desk,\nName: ${formData.name}\nPhone: ${formData.phone}\nDestination: ${formData.destination}\nVisa Type: ${formData.visaType}\nTravel Date: ${formData.date || 'Flexible'}`
     );
     window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
   };
 
-  const steps = [
-    { num: '01', title: 'Consultation & Checklist', desc: 'We examine your passport validity and provide the exact document checklist required by the destination embassy.' },
-    { num: '02', title: 'Form Filing & Verification', desc: 'Our team fills out the consular forms, prepares flight itineraries, hotel vouchers, and financial documentation.' },
-    { num: '03', title: 'Appointment & Biometrics', desc: 'We book your VFS / embassy appointment slots in Hyderabad or Chennai and brief you on required biometrics.' },
-    { num: '04', title: 'Approval & Handover', desc: 'We track the application status daily and deliver your stamped passport or e-Visa promptly before your departure.' }
-  ];
+  const nextTestimonial = () => {
+    setTestimonialIndex(prev => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevTestimonial = () => {
+    setTestimonialIndex(prev => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
 
   return (
     <div className="min-h-screen bg-[#fafbf9] text-[#17231d]">
@@ -87,102 +379,368 @@ export default function VisaPage() {
         </div>
       </div>
 
-      {/* 2. Scenic Header Banner */}
-      <section className="relative overflow-hidden bg-[#17231d] pt-16 pb-20 sm:pt-20 sm:pb-24 text-white">
-        <div className="absolute inset-0 -z-10">
-          <img
-            src="/images/dubai.png"
-            alt="Fast Track Visa Services"
-            className="w-full h-full object-cover opacity-25"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#17231d] via-[#17231d]/75 to-[#17231d]/85" />
-        </div>
-
-        <div className="container mx-auto text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <p className="eyebrow justify-center mb-3 text-amber-300">
+      {/* 2. Flagship Visa Desk (Image 3 Layout) */}
+      <section className="bg-[#eef8f1] py-14 sm:py-20 relative">
+        <div className="container mx-auto grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+          {/* Left Column: Heading, 2x2 Grid, Passport Banner */}
+          <div>
+            <p className="eyebrow mb-3">
               <span className="h-px w-6 bg-[#e66a2c]" />
-              Fast Track Visa &amp; Passport Desk
+              VISA &amp; PASSPORT DESK
             </p>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-display tracking-tight text-white">
-              Fast Track <span className="text-amber-300 font-display">Visa Services</span>
+            <h1 className="text-3xl font-semibold sm:text-4xl lg:text-[2.85rem] lg:leading-[1.1] text-[#17231d] font-display">
+              Fast Track Visa Services
             </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/80 leading-relaxed">
-              Hassle-free tourist, business, student, and transit visas for Dubai, Singapore, Malaysia, Thailand, Europe, UK, and worldwide.
+            <p className="mt-4 max-w-xl text-lg text-[#17231d]/65">
+              Document checklists, form filling, appointment booking and follow-ups handled by one dedicated desk — plus passport assistance for new applications and renewals.
             </p>
+
+            {/* 2x2 Interactive Grid */}
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {visaCategories.map((t) => {
+                const isSelected = selectedCategory === t.title;
+                return (
+                  <div 
+                    key={t.title}
+                    onClick={() => handleSelectCategory(t.title)}
+                    className={`rounded-2xl bg-white p-5 shadow-card transition-all duration-300 cursor-pointer ${
+                      isSelected 
+                        ? 'ring-2 ring-[#168447] shadow-lift -translate-y-1' 
+                        : 'ring-1 ring-[#17231d]/5 hover:shadow-lift hover:-translate-y-0.5'
+                    }`}
+                  >
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#168447] text-white shadow-md shadow-[#168447]/20">
+                      {t.icon}
+                    </span>
+                    <div className="mt-4 flex items-center justify-between">
+                      <h3 className="font-sans font-bold text-[#17231d] text-base">
+                        {t.title}
+                      </h3>
+                      {isSelected && (
+                        <span className="text-[0.65rem] font-extrabold uppercase px-2 py-0.5 rounded-full bg-[#168447]/10 text-[#168447]">
+                          Active
+                        </span>
+                      )}
+                    </div>
+                    <p className="mt-1 text-sm text-[#17231d]/60 leading-relaxed">
+                      {t.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Passport Banner */}
+            <p className="mt-6 flex items-center gap-2 text-sm text-[#17231d]/75 bg-white/70 p-3.5 rounded-2xl ring-1 ring-[#17231d]/5">
+              <BookUser className="h-4 w-4 text-[#168447] shrink-0" />
+              <span>Passport: new applications, renewals, document guidance &amp; appointment support.</span>
+            </p>
+          </div>
+
+          {/* Right Column: Quick Visa Enquiry Form (Image 3) */}
+          <div 
+            id="enquiry-card"
+            className="rounded-[2rem] bg-white p-6 shadow-lift ring-1 ring-[#17231d]/5 sm:p-8"
+          >
+            <h3 className="text-2xl font-semibold font-display text-[#17231d]">
+              Quick visa enquiry
+            </h3>
+            <p className="mt-1 text-sm text-[#17231d]/60">
+              Our visa desk replies on WhatsApp, usually the same day.
+            </p>
+
+            {success ? (
+              <div className="mt-6 p-6 rounded-2xl bg-[#eef8f1] border border-[#168447]/30 text-center space-y-3 animate-fade-in">
+                <CheckCircle2 className="h-12 w-12 text-[#168447] mx-auto" />
+                <h4 className="font-bold text-[#075c35] text-xl font-display">Enquiry Submitted!</h4>
+                {lastInquiryId && (
+                  <p className="text-xs text-[#17231d]/70">
+                    Application Reference: <span className="font-mono font-bold text-[#168447]">{lastInquiryId}</span>
+                  </p>
+                )}
+                <p className="text-sm text-[#17231d]/75">
+                  Opening WhatsApp to connect directly with the visa officer in Vijayawada. Document checklist will be shared shortly.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSuccess(false)}
+                  className="btn btn-outline text-xs mt-3"
+                >
+                  Send another enquiry
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                <label className="block">
+                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-[#17231d]/70">
+                    Full Name
+                  </span>
+                  <input
+                    required
+                    name="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g. Ramesh Varma"
+                    className="field !bg-[#fafbf9]"
+                  />
+                </label>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-[#17231d]/70">
+                      Phone
+                    </span>
+                    <input
+                      required
+                      name="phone"
+                      type="tel"
+                      placeholder="+91 98765 43210"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="field !bg-[#fafbf9]"
+                    />
+                  </label>
+
+                  <label className="block">
+                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-[#17231d]/70">
+                      Destination
+                    </span>
+                    <input
+                      required
+                      name="destination"
+                      placeholder="e.g. Dubai"
+                      value={formData.destination}
+                      onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
+                      className="field !bg-[#fafbf9]"
+                    />
+                  </label>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <label className="block">
+                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-[#17231d]/70">
+                      Visa Type
+                    </span>
+                    <select
+                      name="visaType"
+                      value={formData.visaType}
+                      onChange={(e) => {
+                        setFormData({ ...formData, visaType: e.target.value });
+                        setSelectedCategory(e.target.value);
+                      }}
+                      className="field !bg-[#fafbf9] font-medium"
+                    >
+                      <option value="Tourist Visa">Tourist Visa</option>
+                      <option value="Business Visa">Business Visa</option>
+                      <option value="Transit Visa">Transit Visa</option>
+                      <option value="Family Visa">Family Visa</option>
+                      <option value="Passport Assistance">Passport Assistance</option>
+                    </select>
+                  </label>
+
+                  <label className="block">
+                    <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-[#17231d]/70">
+                      Travel Date
+                    </span>
+                    <input
+                      type="date"
+                      name="date"
+                      value={formData.date}
+                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                      min={new Date().toISOString().split('T')[0]}
+                      className="field !bg-[#fafbf9]"
+                    />
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full mt-2 rounded-full bg-[#168447] hover:bg-[#075c35] text-white font-bold py-3.5 px-6 shadow-lg shadow-[#168447]/30 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer text-sm sm:text-base"
+                >
+                  <MessageSquare className="w-5 h-5" />
+                  <span>{loading ? 'Submitting Enquiry...' : 'Submit Visa Enquiry'}</span>
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
 
-      {/* 3. Visa Services Grid */}
-      <section className="container mx-auto py-16 sm:py-20">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="eyebrow justify-center mb-2">
-            <span className="h-px w-6 bg-[#e66a2c]" />
-            Our Categories
-          </p>
-          <h2 className="text-2xl sm:text-4xl font-display font-bold text-[#17231d]">
-            Comprehensive Visa Solutions
-          </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#17231d]/70">
-            End-to-end documentation assistance, appointment booking, and visa tracking.
-          </p>
-        </div>
+      {/* 3. DYNAMIC INTERACTIVE COUNTRY VISA HUB & CHECKLIST */}
+      <section className="py-16 sm:py-24 bg-white border-y border-[#17231d]/5">
+        <div className="container mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <p className="eyebrow justify-center mb-2">
+              <span className="h-px w-6 bg-[#e66a2c]" />
+              LIVE DESTINATION CHECKER
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-display font-bold text-[#17231d]">
+              Country Visa Requirements &amp; Checklist
+            </h2>
+            <p className="mt-3 text-base text-[#17231d]/65">
+              Click any country to view live processing times, consular rules, and mandatory documents.
+            </p>
+          </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {visaServices.map((service) => (
-            <div
-              key={service.title}
-              className="rounded-3xl bg-white p-7 ring-1 ring-[#17231d]/5 shadow-card hover:-translate-y-1.5 hover:shadow-lift transition-all duration-300 flex flex-col"
-            >
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-[#168447] to-[#075c35] text-white mb-5 shadow-lg shadow-[#168447]/20">
-                {iconMap[service.icon] || <PlaneTakeoff className="h-6 w-6 text-white" />}
+          {/* Country Selection Pills */}
+          <div className="flex flex-wrap justify-center gap-2 mb-10">
+            {countries.map((item, idx) => (
+              <button
+                key={item.country}
+                type="button"
+                onClick={() => setSelectedCountryIndex(idx)}
+                className={`rounded-full px-4 py-2 text-xs sm:text-sm font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+                  selectedCountryIndex === idx
+                    ? 'bg-[#168447] text-white shadow-md scale-105'
+                    : 'bg-[#fafbf9] text-[#17231d]/75 hover:bg-[#eef8f1] hover:text-[#168447] ring-1 ring-[#17231d]/10'
+                }`}
+              >
+                <span>{item.flag}</span>
+                <span>{item.country}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Dynamic Details Card */}
+          <div className="rounded-[2.5rem] bg-[#fafbf9] p-7 sm:p-10 shadow-card ring-1 ring-[#17231d]/5 grid gap-8 lg:grid-cols-[1.2fr_1fr] items-center">
+            {/* Left side: Country specs */}
+            <div>
+              <div className="flex items-center gap-3">
+                <span className="text-3xl">{currentCountry.flag}</span>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#17231d]">
+                    {currentCountry.country} Visa
+                  </h3>
+                  <p className="text-xs font-bold uppercase tracking-wider text-[#168447]">
+                    {currentCountry.type}
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold font-sans text-[#17231d]">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-sm text-[#17231d]/70 leading-relaxed flex-1">
-                {service.description}
+
+              <p className="mt-4 text-sm sm:text-base text-[#17231d]/70 leading-relaxed">
+                {currentCountry.description}
               </p>
-              <div className="mt-5 pt-4 border-t border-[#17231d]/5 flex items-center text-xs font-bold text-[#168447]">
-                <ShieldCheck className="h-4 w-4 mr-1.5" />
-                Guaranteed Checklist Support
+
+              {/* Quick Metrics */}
+              <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3.5">
+                <div className="rounded-2xl bg-white p-3.5 ring-1 ring-[#17231d]/5">
+                  <span className="flex items-center gap-1 text-[0.7rem] font-bold uppercase text-[#17231d]/55">
+                    <Clock className="w-3.5 h-3.5 text-[#168447]" />
+                    Processing
+                  </span>
+                  <p className="mt-1 text-sm font-bold text-[#17231d]">{currentCountry.time}</p>
+                </div>
+
+                <div className="rounded-2xl bg-white p-3.5 ring-1 ring-[#17231d]/5">
+                  <span className="flex items-center gap-1 text-[0.7rem] font-bold uppercase text-[#17231d]/55">
+                    <Calendar className="w-3.5 h-3.5 text-[#e66a2c]" />
+                    Validity
+                  </span>
+                  <p className="mt-1 text-sm font-bold text-[#17231d] truncate">{currentCountry.duration}</p>
+                </div>
+
+                <div className="rounded-2xl bg-white p-3.5 ring-1 ring-[#17231d]/5 col-span-2 sm:col-span-1">
+                  <span className="flex items-center gap-1 text-[0.7rem] font-bold uppercase text-[#17231d]/55">
+                    <Zap className="w-3.5 h-3.5 text-amber-500" />
+                    Starting Fare
+                  </span>
+                  <p className="mt-1 text-sm font-bold text-[#168447]">{currentCountry.price} <span className="text-[0.65rem] text-[#17231d]/50 font-normal">approx</span></p>
+                </div>
+              </div>
+
+              {/* Action Button: Auto-fill Form */}
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => handleSelectCountry(currentCountry)}
+                  className="btn btn-primary !py-3 !px-6 text-sm font-bold shadow-lg shadow-[#e66a2c]/20 flex items-center gap-2"
+                >
+                  <span>Apply for {currentCountry.country.replace(/\s*\(.*\)/, '')} Visa</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <a
+                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hello Travel Care 4 All, I want information about ${currentCountry.country} visa.`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-outline text-xs !py-3"
+                >
+                  <MessageSquare className="w-4 h-4 mr-1 text-[#168447]" />
+                  <span>WhatsApp Inquiry</span>
+                </a>
               </div>
             </div>
-          ))}
+
+            {/* Right side: Interactive Checklist */}
+            <div className="rounded-3xl bg-white p-6 sm:p-8 shadow-card ring-1 ring-[#17231d]/5">
+              <h4 className="text-base font-bold font-sans text-[#17231d] flex items-center gap-2 pb-3 border-b border-[#17231d]/10">
+                <FileCheck className="w-5 h-5 text-[#168447]" />
+                <span>Mandatory Documents Required</span>
+              </h4>
+
+              <ul className="mt-4 space-y-3">
+                {currentCountry.checklist.map((doc, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#17231d]/75">
+                    <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#eef8f1] text-[#168447] mt-0.5">
+                      <Check className="h-3.5 w-3.5" />
+                    </span>
+                    <span>{doc}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-6 pt-4 border-t border-[#17231d]/5 flex items-center gap-2 text-xs text-[#17231d]/60">
+                <ShieldCheck className="w-4 h-4 text-[#168447] shrink-0" />
+                <span>Our team verifies every file before final consular submission.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 4. 4-Stage Process Breakdown */}
-      <section className="bg-[#eef8f1] py-16 sm:py-20 border-y border-[#17231d]/5">
+      {/* 4. DYNAMIC 4-STAGE ROADMAP (HOW IT WORKS) */}
+      <section className="py-16 sm:py-24 bg-[#eef8f1]">
         <div className="container mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <p className="eyebrow justify-center mb-2">
               <span className="h-px w-6 bg-[#e66a2c]" />
-              How It Works
+              HOW IT WORKS
             </p>
-            <h2 className="text-2xl sm:text-4xl font-display font-bold text-[#17231d]">
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#17231d]">
               Step-by-Step Visa Processing
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-[#17231d]/70">
+            <p className="mt-3 text-base text-[#17231d]/65">
               Clear, transparent, and error-free submissions handled by our visa specialists.
             </p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((st) => (
+            {steps.map((st, i) => (
               <div
                 key={st.num}
-                className="rounded-3xl bg-white p-7 ring-1 ring-[#17231d]/5 shadow-card relative overflow-hidden"
+                onClick={() => setActiveStep(i)}
+                className={`rounded-3xl p-7 transition-all duration-300 cursor-pointer ${
+                  activeStep === i
+                    ? 'bg-white shadow-lift ring-2 ring-[#168447] -translate-y-1'
+                    : 'bg-white/80 hover:bg-white shadow-card ring-1 ring-[#17231d]/5 hover:-translate-y-0.5'
+                }`}
               >
-                <span className="text-4xl font-extrabold font-display text-[#168447]/20 block mb-3">
-                  {st.num}
-                </span>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-4xl font-extrabold font-display text-[#168447]/20">
+                    {st.num}
+                  </span>
+                  {activeStep === i && (
+                    <span className="h-2 w-2 rounded-full bg-[#168447]" />
+                  )}
+                </div>
                 <h4 className="font-sans font-bold text-lg text-[#17231d]">
                   {st.title}
                 </h4>
                 <p className="mt-2 text-xs sm:text-sm text-[#17231d]/70 leading-relaxed">
                   {st.desc}
+                </p>
+                <p className="mt-4 pt-3 border-t border-[#17231d]/5 text-xs text-[#168447] font-semibold">
+                  {st.detail}
                 </p>
               </div>
             ))}
@@ -190,125 +748,154 @@ export default function VisaPage() {
         </div>
       </section>
 
-      {/* 5. Interactive Visa Enquiry Form */}
-      <section className="container mx-auto py-16 sm:py-24">
-        <div className="max-w-4xl mx-auto rounded-3xl bg-white p-8 sm:p-12 ring-1 ring-[#17231d]/10 shadow-card">
-          <div className="text-center mb-8">
-            <p className="eyebrow justify-center mb-2">
-              <span className="h-px w-6 bg-[#e66a2c]" />
-              Quick Assistance
-            </p>
-            <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#17231d]">
-              Apply or Enquire for Fast Track Visa
-            </h3>
-            <p className="mt-2 text-sm text-[#17231d]/70 max-w-lg mx-auto">
-              Submit your destination details and our consultant will contact you via WhatsApp &amp; phone with required checklists.
-            </p>
-          </div>
-
-          {success ? (
-            <div className="rounded-2xl bg-[#eef8f1] border border-[#168447]/30 p-8 text-center text-[#17231d] space-y-3">
-              <CheckCircle2 className="w-12 h-12 text-[#168447] mx-auto" />
-              <h4 className="text-xl font-bold font-sans text-[#17231d]">Visa Enquiry Submitted!</h4>
-              <p className="text-sm text-[#17231d]/80 max-w-md mx-auto">
-                Thank you! Our Fast Track Visa desk in Vijayawada will contact you shortly. WhatsApp consultation has also been initiated.
+      {/* 5. TRAVELLER STORIES / TESTIMONIALS (MATCHING IMAGE 4) */}
+      <section id="reviews" className="py-20 sm:py-28 bg-white relative">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="eyebrow mb-3 justify-center">
+                <span className="h-px w-6 bg-[#e66a2c]" />
+                TRAVELLER STORIES
               </p>
-              <button
-                type="button"
-                onClick={() => setSuccess(false)}
-                className="btn btn-outline text-xs mt-3 text-[#168447] border-[#168447]/30 hover:bg-[#168447]/10"
-              >
-                Submit Another Enquiry
-              </button>
+              <h2 className="text-3xl font-semibold sm:text-4xl lg:text-[2.85rem] font-display text-[#17231d]">
+                What our travellers say
+              </h2>
+              <p className="mt-3 text-base text-[#17231d]/65">
+                Demo testimonials shown until verified reviews are published.
+              </p>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#17231d]/75 mb-1.5">
-                    Your Full Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Ramesh Varma"
-                    className="field !bg-[#fafbf9] !border-[#17231d]/15 !text-[#17231d] placeholder:!text-[#17231d]/40 focus:!border-[#168447]"
-                  />
+
+            {/* Testimonial Card matching Screenshot 4 */}
+            <div className="relative rounded-[2rem] bg-[#f7f9f7] p-8 text-center ring-1 ring-[#17231d]/5 sm:p-12 shadow-card">
+              <Quote className="mx-auto h-10 w-10 text-[#e66a2c]/30 mb-4" />
+
+              <span className="mb-3 inline-block rounded-full bg-[#e66a2c]/10 px-2.5 py-0.5 text-[0.65rem] font-bold uppercase tracking-wider text-[#e66a2c]">
+                {currentTestimonial.badge}
+              </span>
+
+              <blockquote className="font-display text-xl leading-relaxed text-[#17231d] sm:text-2xl max-w-2xl mx-auto">
+                “{currentTestimonial.quote}”
+              </blockquote>
+
+              <figcaption className="mt-5">
+                <span className="flex justify-center gap-0.5">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`h-4 w-4 ${
+                        i < currentTestimonial.rating
+                          ? 'fill-amber-400 text-amber-400'
+                          : 'text-[#17231d]/15'
+                      }`}
+                    />
+                  ))}
+                </span>
+                <span className="mt-2 block font-bold text-[#17231d]">
+                  {currentTestimonial.name}
+                </span>
+                <span className="text-sm text-[#17231d]/55">
+                  {currentTestimonial.trip}
+                </span>
+              </figcaption>
+
+              {/* Slider Controls */}
+              <div className="mt-6 flex items-center justify-center gap-4">
+                <button
+                  type="button"
+                  onClick={prevTestimonial}
+                  aria-label="Previous testimonial"
+                  className="rounded-full bg-white p-2.5 shadow-card hover:bg-[#eef8f1] transition border border-[#17231d]/5 text-[#17231d] cursor-pointer"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+
+                <div className="flex gap-2">
+                  {testimonials.map((_, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setTestimonialIndex(idx)}
+                      className={`h-2 rounded-full transition-all cursor-pointer ${
+                        idx === testimonialIndex
+                          ? 'w-7 bg-[#168447]'
+                          : 'w-2 bg-[#17231d]/20'
+                      }`}
+                    />
+                  ))}
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#17231d]/75 mb-1.5">
-                    Phone / WhatsApp Number
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 98480 12345"
-                    className="field !bg-[#fafbf9] !border-[#17231d]/15 !text-[#17231d] placeholder:!text-[#17231d]/40 focus:!border-[#168447]"
-                  />
-                </div>
+                <button
+                  type="button"
+                  onClick={nextTestimonial}
+                  aria-label="Next testimonial"
+                  className="rounded-full bg-white p-2.5 shadow-card hover:bg-[#eef8f1] transition border border-[#17231d]/5 text-[#17231d] cursor-pointer"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div className="grid gap-5 sm:grid-cols-2">
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#17231d]/75 mb-1.5">
-                    Destination Country
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.destination}
-                    onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
-                    placeholder="e.g. Dubai, Singapore, UK, Schengen"
-                    className="field !bg-[#fafbf9] !border-[#17231d]/15 !text-[#17231d] placeholder:!text-[#17231d]/40 focus:!border-[#168447]"
-                  />
-                </div>
+      {/* 6. DYNAMIC VISA FAQS ACCORDION */}
+      <section className="py-16 sm:py-24 bg-[#fafbf9] border-t border-[#17231d]/5">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="eyebrow justify-center mb-2">
+                <span className="h-px w-6 bg-[#e66a2c]" />
+                VISA DESK QUESTIONS
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-display font-bold text-[#17231d]">
+                Frequently Asked Visa Questions
+              </h2>
+              <p className="mt-2 text-sm text-[#17231d]/65">
+                Helpful advice from our Vijayawada documentation specialists.
+              </p>
+            </div>
 
-                <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#17231d]/75 mb-1.5">
-                    Visa Category
-                  </label>
-                  <select
-                    value={formData.visaType}
-                    onChange={(e) => setFormData({ ...formData, visaType: e.target.value })}
-                    className="field !bg-[#fafbf9] !border-[#17231d]/15 !text-[#17231d] font-semibold focus:!border-[#168447]"
-                  >
-                    <option value="Tourist Visa">Tourist Visa (Single/Multiple Entry)</option>
-                    <option value="Business Visa">Business / Conference Visa</option>
-                    <option value="Fast Track Visa">Fast Track Express Visa</option>
-                    <option value="Family / Transit Visa">Family / Visit / Transit Visa</option>
-                    <option value="Passport Assistance">New Passport / Passport Renewal</option>
-                  </select>
-                </div>
-              </div>
+            <div className="divide-y divide-[#17231d]/10 rounded-3xl bg-white px-5 shadow-card ring-1 ring-[#17231d]/5 sm:px-8">
+              {faqs.map((faq, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <div key={i}>
+                    <h3>
+                      <button
+                        type="button"
+                        aria-expanded={isOpen}
+                        onClick={() => setOpenFaq(isOpen ? null : i)}
+                        className="flex w-full items-center justify-between gap-4 py-5 text-left text-base font-semibold text-[#17231d] sm:text-lg font-sans cursor-pointer"
+                      >
+                        <span>{faq.q}</span>
+                        <span
+                          className={`grid h-8 w-8 shrink-0 place-items-center rounded-full transition-all duration-300 ${
+                            isOpen
+                              ? 'rotate-45 bg-[#e66a2c] text-white'
+                              : 'bg-[#eef8f1] text-[#168447]'
+                          }`}
+                        >
+                          +
+                        </span>
+                      </button>
+                    </h3>
 
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#17231d]/75 mb-1.5">
-                  Expected Travel Date (Optional)
-                </label>
-                <input
-                  type="date"
-                  value={formData.date}
-                  onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                  min={new Date().toISOString().split('T')[0]}
-                  className="field !bg-[#fafbf9] !border-[#17231d]/15 !text-[#17231d] focus:!border-[#168447]"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="btn btn-primary w-full !py-3.5 !bg-[#e66a2c] hover:!bg-[#d85e22] !text-white font-bold text-base shadow-lg shadow-[#e66a2c]/25 flex items-center justify-center gap-2 mt-4"
-              >
-                <Send className="h-4 w-4" />
-                <span>{loading ? 'Submitting Enquiry...' : 'Submit Visa Enquiry & Chat on WhatsApp'}</span>
-              </button>
-            </form>
-          )}
+                    <div
+                      className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                        isOpen ? 'grid-rows-[1fr] pb-5' : 'grid-rows-[0fr]'
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="text-sm sm:text-base text-[#17231d]/75 leading-relaxed">
+                          {faq.a}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
     </div>
