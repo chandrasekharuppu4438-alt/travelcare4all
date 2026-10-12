@@ -89,8 +89,9 @@ export default function TourDetailPage({ onBookTour }) {
       <section className="relative overflow-hidden bg-[#17231d] text-white py-16 sm:py-24">
         <div className="absolute inset-0 -z-10">
           <img
-            src={`/images/${activeImage}.png`}
+            src={activeImage?.startsWith('/') || activeImage?.startsWith('http') ? activeImage : `/images/${activeImage || 'hero'}.png`}
             alt={tour.title}
+            onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#17231d] via-[#17231d]/75 to-transparent" />

@@ -44,8 +44,9 @@ export default function TourDetailsModal({ tour, onClose, onBookTour }) {
         {/* Banner with Active Image */}
         <div className="relative h-64 sm:h-80 overflow-hidden rounded-t-3xl bg-slate-900">
           <img
-            src={`/images/${activeImage}.png`}
+            src={activeImage?.startsWith('/') || activeImage?.startsWith('http') ? activeImage : `/images/${activeImage || 'hero'}.png`}
             alt={tour.title}
+            onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />

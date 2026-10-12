@@ -18,6 +18,10 @@ export default function TourCard({ tour, onSelectTour, onBookTour }) {
     window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
   };
 
+  const imageSrc = tour.image?.startsWith('/') || tour.image?.startsWith('http') 
+    ? tour.image 
+    : `/images/${tour.image || 'hero'}.png`;
+
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-[#17231d]/5 transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-lift">
       {/* Media Aspect Header */}
@@ -27,9 +31,10 @@ export default function TourCard({ tour, onSelectTour, onBookTour }) {
         aria-label={`View details for ${tour.title}`}
       >
         <img
-          src={`/images/${tour.image}.png`}
+          src={imageSrc}
           alt={`${tour.destination} — ${tour.title}`}
           loading="lazy"
+          onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#17231d]/50 via-transparent to-transparent" />
