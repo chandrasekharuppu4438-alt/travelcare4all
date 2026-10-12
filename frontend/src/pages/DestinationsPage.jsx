@@ -18,7 +18,7 @@ export default function DestinationsPage() {
     <div className="min-h-screen bg-[#fafbf9] text-[#17231d]">
       {/* 1. Breadcrumb Strip */}
       <div className="pt-28 pb-4 bg-[#eef8f1] border-b border-[#17231d]/5">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="container mx-auto">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-[#17231d]/60">
             <Link to="/" className="hover:text-[#168447] transition">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -38,22 +38,24 @@ export default function DestinationsPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#17231d] via-[#17231d]/75 to-[#17231d]/85" />
         </div>
 
-        <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center relative z-10">
-          <p className="eyebrow justify-center mb-3 text-amber-300">
-            <span className="h-px w-6 bg-[#e66a2c]" />
-            Where to Next
-          </p>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-display tracking-tight text-white">
-            Popular Destinations
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/80 leading-relaxed">
-            Our most-requested escapes from Vijayawada — each one bookable as a ready package or a fully custom trip.
-          </p>
+        <div className="container mx-auto text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <p className="eyebrow justify-center mb-3 text-amber-300">
+              <span className="h-px w-6 bg-[#e66a2c]" />
+              Where to Next
+            </p>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-display tracking-tight text-white">
+              Popular Destinations
+            </h1>
+            <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/80 leading-relaxed">
+              Our most-requested escapes from Vijayawada — each one bookable as a ready package or a fully custom trip.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* 3. Featured Bento Grid matching Screenshot 2 */}
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
+      <section className="container mx-auto py-16 sm:py-20">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="eyebrow mb-2">
@@ -121,7 +123,7 @@ export default function DestinationsPage() {
 
       {/* 4. Complete Destinations Catalog with Filter Tabs */}
       <section className="bg-[#f7f9f7] py-16 sm:py-24 border-t border-slate-100">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="container mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <p className="eyebrow justify-center mb-2">
               <span className="h-px w-6 bg-[#e66a2c]" />

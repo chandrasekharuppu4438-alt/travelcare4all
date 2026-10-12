@@ -28,7 +28,7 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#17231d]/70 to-transparent" />
 
         {/* Content container */}
-        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
+        <div className="container mx-auto w-full">
           <div className="max-w-3xl">
             {/* Tagline pill */}
             <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-amber-200 ring-1 ring-white/25 backdrop-blur">

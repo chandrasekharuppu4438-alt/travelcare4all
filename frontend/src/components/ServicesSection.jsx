@@ -120,7 +120,7 @@ export default function ServicesSection({ onSelectService }) {
 
   return (
     <section id="services" className="scroll-mt-24 bg-[#eef8f1] py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="container mx-auto">
         <div className="mb-12 flex flex-col gap-6 items-center text-center">
           <div className="max-w-2xl">
             <p className="eyebrow mb-3 justify-center">

@@ -14,7 +14,7 @@ export default function Footer({ onOpenAdmin }) {
 
   return (
     <footer id="contact" className="bg-[#080d0a] text-white border-t border-white/10">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
+      <div className="container mx-auto py-16 sm:py-20">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Col 1: Brand */}
           <div className="space-y-4">

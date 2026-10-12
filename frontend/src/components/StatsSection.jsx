@@ -13,7 +13,7 @@ export default function StatsSection() {
         className="absolute inset-0 -z-10 h-full w-full object-cover opacity-15"
       />
       
-      <dl className="mx-auto max-w-7xl px-5 sm:px-8 grid grid-cols-2 gap-8 lg:grid-cols-4">
+      <dl className="container mx-auto grid grid-cols-2 gap-8 lg:grid-cols-4">
         {stats.map((s) => (
           <div key={s.label} className="text-center">
             <dt className="order-2 mt-2 text-sm font-semibold uppercase tracking-[0.15em] text-white/70">

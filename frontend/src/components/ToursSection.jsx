@@ -87,7 +87,7 @@ export default function ToursSection({
   return (
     <section id="tours" className="scroll-mt-24 py-16 sm:py-24 bg-white relative">
       {/* Search Header Banner */}
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 mb-10 text-center">
+      <div className="container mx-auto mb-10 text-center">
         <p className="eyebrow mb-2">
           <span className="h-px w-6 bg-[#e66a2c]" />
           Tour Packages
@@ -119,7 +119,7 @@ export default function ToursSection({
       </div>
 
       {/* Main Grid: Sidebar Filters + Tour Results */}
-      <div className="mx-auto grid max-w-7xl gap-8 px-5 sm:px-8 lg:grid-cols-[290px_1fr] lg:py-4">
+      <div className="container mx-auto grid gap-8 lg:grid-cols-[290px_1fr] lg:py-4">
         {/* Mobile Filter Toggle */}
         <div className="flex lg:hidden items-center justify-between pb-2 border-b border-slate-100">
           <button

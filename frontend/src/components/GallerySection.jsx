@@ -14,7 +14,7 @@ export default function GallerySection() {
 
   return (
     <section id="gallery" className="scroll-mt-24 bg-[#f7f9f7] py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="container mx-auto">
         <div className="text-center mb-10">
           <p className="eyebrow mb-3">
             <span className="h-px w-6 bg-[#e66a2c]" />

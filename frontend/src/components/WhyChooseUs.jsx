@@ -24,7 +24,7 @@ export default function WhyChooseUs({ onOpenCustomTrip }) {
     <>
       {/* About Section */}
       <section id="about" className="scroll-mt-24 overflow-hidden bg-[#f7f9f7] py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 grid items-center gap-14 lg:grid-cols-2">
+        <div className="container mx-auto grid items-center gap-14 lg:grid-cols-2">
           {/* Left: Kerala image + Floating Vijayawada card */}
           <div className="relative">
             <div className="overflow-hidden rounded-[2rem]">
@@ -94,7 +94,7 @@ export default function WhyChooseUs({ onOpenCustomTrip }) {
         />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#17231d] via-[#17231d]/80 to-[#17231d]/30" />
 
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+        <div className="container mx-auto grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div>
             <p className="eyebrow mb-3 !text-amber-300">
               <span className="h-px w-6 bg-amber-300" />

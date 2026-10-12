@@ -55,7 +55,7 @@ export default function Navbar({ onOpenAdmin, onOpenCustomTrip }) {
     <header className="fixed inset-x-0 top-0 z-50 transition-all duration-300">
       {/* Top bar strip */}
       <div className="flex h-9 items-center bg-[#075c35] text-[0.78rem] text-white/90">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
+        <div className="container mx-auto flex w-full items-center justify-between gap-4">
           <p className="truncate">
             <span className="hidden sm:inline">Explore India &amp; International Destinations with Travel Care 4 All</span>
             <span className="sm:hidden">India &amp; International Tours · Visas</span>
@@ -83,7 +83,7 @@ export default function Navbar({ onOpenAdmin, onOpenCustomTrip }) {
       }`}>
         <nav 
           aria-label="Main" 
-          className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 transition-all duration-300 sm:px-8 h-20"
+          className="container mx-auto flex items-center justify-between gap-6 transition-all duration-300 h-20"
         >
           {/* Logo */}
           <Link aria-label="Travel Care 4 All home" className="shrink-0 flex items-center gap-2.5" to="/">

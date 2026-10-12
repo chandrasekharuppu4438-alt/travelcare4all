@@ -13,7 +13,8 @@ export default function FaqSection() {
 
   return (
     <section id="faqs" className="py-20 sm:py-28 bg-white relative">
-      <div className="mx-auto max-w-4xl px-5 sm:px-8">
+      <div className="container mx-auto">
+        <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <p className="eyebrow mb-3">
             <span className="h-px w-6 bg-[#e66a2c]" />
@@ -67,6 +68,7 @@ export default function FaqSection() {
               </div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>

@@ -26,7 +26,7 @@ export default function FeaturedTours({ onSelectTour, onBookTour }) {
 
   return (
     <section id="featured-tours" className="scroll-mt-24 py-16 sm:py-24 bg-[#fafbf9]">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="container mx-auto">
         {/* Section Header */}
         <div className="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>

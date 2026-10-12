@@ -221,7 +221,7 @@ export default function ToursPage({ onSelectTour, onBookTour }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#17231d] via-[#17231d]/60 to-[#17231d]/80" />
         </div>
 
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 text-center relative z-10">
+        <div className="container mx-auto text-center relative z-10">
           <p className="eyebrow justify-center mb-3 text-amber-300">
             <span className="h-px w-6 bg-[#e66a2c]" />
             Tour Packages
@@ -272,7 +272,7 @@ export default function ToursPage({ onSelectTour, onBookTour }) {
       </section>
 
       {/* 2. Main Content: Sidebar Filters + Tour Results Grid */}
-      <section id="results" className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
+      <section id="results" className="container mx-auto py-12 lg:py-16">
         <div className="grid gap-8 lg:grid-cols-[290px_1fr] items-start">
           {/* Desktop Left Sticky Filter Sidebar */}
           <aside className="hidden lg:block sticky top-28 space-y-6 rounded-3xl bg-white p-6 shadow-card ring-1 ring-[#17231d]/5">

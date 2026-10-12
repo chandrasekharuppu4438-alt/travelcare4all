@@ -24,6 +24,25 @@
   padding: 0;
 }
 
+/* Centered layout container - 1380px max width reproducing 220px margins on 1824px screens */
+.container,
+.site-container {
+  width: 100% !important;
+  max-width: 1380px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+@media (min-width: 640px) {
+  .container,
+  .site-container {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;

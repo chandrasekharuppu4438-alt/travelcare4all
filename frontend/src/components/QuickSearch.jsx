@@ -56,7 +56,7 @@ export default function QuickSearch({ onSearch }) {
   };
 
   return (
-    <div id="plan" className="relative z-10 mx-auto -mt-36 max-w-6xl scroll-mt-28 px-5 sm:-mt-28 sm:px-8">
+    <div id="plan" className="container relative z-10 mx-auto -mt-36 scroll-mt-28 sm:-mt-28">
       <form
         onSubmit={handleSubmit}
         className="grid gap-3 rounded-[1.75rem] bg-white p-4 shadow-[0_30px_80px_-30px_rgb(7_92_53/0.5)] ring-1 ring-[#17231d]/5 sm:grid-cols-2 sm:p-5 lg:grid-cols-[1.25fr_1.2fr_1fr_1fr_0.8fr_auto] lg:items-end"

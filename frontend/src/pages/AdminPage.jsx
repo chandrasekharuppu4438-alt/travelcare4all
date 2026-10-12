@@ -82,7 +82,7 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-[#fafbf9] pt-28 pb-20 text-[#17231d]">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="container mx-auto">
         {/* Top Breadcrumb & Title */}
         <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>

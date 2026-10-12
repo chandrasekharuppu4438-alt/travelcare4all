@@ -78,7 +78,7 @@ export default function VisaPage() {
     <div className="min-h-screen bg-[#fafbf9] text-[#17231d]">
       {/* 1. Breadcrumb Strip */}
       <div className="pt-28 pb-4 bg-[#eef8f1] border-b border-[#17231d]/5">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="container mx-auto">
           <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs sm:text-sm text-[#17231d]/60">
             <Link to="/" className="hover:text-[#168447] transition">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
@@ -98,22 +98,24 @@ export default function VisaPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#17231d] via-[#17231d]/75 to-[#17231d]/85" />
         </div>
 
-        <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center relative z-10">
-          <p className="eyebrow justify-center mb-3 text-amber-300">
-            <span className="h-px w-6 bg-[#e66a2c]" />
-            Fast Track Visa &amp; Passport Desk
-          </p>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-display tracking-tight text-white">
-            Fast Track <span className="text-amber-300 font-display">Visa Services</span>
-          </h1>
-          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/80 leading-relaxed">
-            Hassle-free tourist, business, student, and transit visas for Dubai, Singapore, Malaysia, Thailand, Europe, UK, and worldwide.
-          </p>
+        <div className="container mx-auto text-center relative z-10">
+          <div className="max-w-4xl mx-auto">
+            <p className="eyebrow justify-center mb-3 text-amber-300">
+              <span className="h-px w-6 bg-[#e66a2c]" />
+              Fast Track Visa &amp; Passport Desk
+            </p>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold font-display tracking-tight text-white">
+              Fast Track <span className="text-amber-300 font-display">Visa Services</span>
+            </h1>
+            <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-white/80 leading-relaxed">
+              Hassle-free tourist, business, student, and transit visas for Dubai, Singapore, Malaysia, Thailand, Europe, UK, and worldwide.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* 3. Visa Services Grid */}
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
+      <section className="container mx-auto py-16 sm:py-20">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <p className="eyebrow justify-center mb-2">
             <span className="h-px w-6 bg-[#e66a2c]" />
@@ -153,7 +155,7 @@ export default function VisaPage() {
 
       {/* 4. 4-Stage Process Breakdown */}
       <section className="bg-[#eef8f1] py-16 sm:py-20 border-y border-[#17231d]/5">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="container mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <p className="eyebrow justify-center mb-2">
               <span className="h-px w-6 bg-[#e66a2c]" />
@@ -189,8 +191,8 @@ export default function VisaPage() {
       </section>
 
       {/* 5. Interactive Visa Enquiry Form */}
-      <section className="mx-auto max-w-4xl px-5 py-16 sm:px-8 sm:py-24">
-        <div className="rounded-3xl bg-white p-8 sm:p-12 ring-1 ring-[#17231d]/10 shadow-card">
+      <section className="container mx-auto py-16 sm:py-24">
+        <div className="max-w-4xl mx-auto rounded-3xl bg-white p-8 sm:p-12 ring-1 ring-[#17231d]/10 shadow-card">
           <div className="text-center mb-8">
             <p className="eyebrow justify-center mb-2">
               <span className="h-px w-6 bg-[#e66a2c]" />

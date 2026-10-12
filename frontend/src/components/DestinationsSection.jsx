@@ -14,7 +14,7 @@ export default function DestinationsSection({ onSelectDestination }) {
     <>
       {/* 1. Bento Featured Destinations */}
       <section id="destinations" className="scroll-mt-24 py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="container mx-auto">
           <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-2xl">
               <p className="eyebrow mb-3">
@@ -88,7 +88,7 @@ export default function DestinationsSection({ onSelectDestination }) {
 
       {/* 2. Near & Far Region Explorer */}
       <section className="py-16 sm:py-24 bg-[#f7f9f7]">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="container mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <p className="eyebrow mb-3">
               <span className="h-px w-6 bg-[#e66a2c]" />

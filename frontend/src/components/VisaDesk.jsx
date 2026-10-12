@@ -60,7 +60,7 @@ export default function VisaDesk() {
 
   return (
     <section id="visa" className="scroll-mt-24 overflow-hidden bg-[#eef8f1] py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+      <div className="container mx-auto grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
         {/* Left Column */}
         <div>
           <p className="eyebrow mb-3">
