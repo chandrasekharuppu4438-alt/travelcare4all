@@ -3,18 +3,32 @@ import { Link, useLocation } from 'react-router-dom';
 import { Phone, MessageSquare, Menu, X, ClipboardList } from 'lucide-react';
 import travelData from '../data/travelData';
 
-export function BrandLogo({ className = "h-11 w-11 shrink-0" }) {
+export function BrandLogo({ className = "h-11 w-11 shrink-0", alt = "Travel Care 4 All" }) {
   return (
-    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
-      <path d="M8 46c10-9 26-14 46-12-15 1-29 6-40 15z" fill="#E66A2C"></path>
-      <path d="M50 30l8-3-2 4-6 1z" fill="#E66A2C"></path>
-      <path d="M31 50c1-10 0-19-3-28" stroke="#075C35" strokeWidth="3" strokeLinecap="round" fill="none"></path>
-      <path d="M28 22c-6-6-14-6-19-2 6-1 12 1 16 5z" fill="#168447"></path>
-      <path d="M28 22c2-8 9-12 16-11-6 2-10 6-12 12z" fill="#2E8B57"></path>
-      <path d="M28 22c7-3 15-1 19 4-6-2-12-2-17 1z" fill="#168447"></path>
-      <path d="M28 22c-4-7-3-14 1-18-1 6 0 11 2 16z" fill="#2E8B57"></path>
-      <path d="M28 22c-7 0-12 5-13 11 3-5 8-8 13-9z" fill="#075C35"></path>
-    </svg>
+    <img
+      src="/images/logo-mark.png"
+      alt={alt}
+      className={`object-contain ${className}`}
+      loading="eager"
+    />
+  );
+}
+
+export function BrandFullLogo({ className = "h-12 w-auto", variant = "horizontal-white", alt = "Travel Care 4 All" }) {
+  const src = variant === 'horizontal-white'
+    ? '/images/logo-horizontal-white.png'
+    : variant === 'horizontal'
+    ? '/images/logo-horizontal.png'
+    : variant === 'white'
+    ? '/images/logo-white.png'
+    : '/images/logo.png';
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={`object-contain ${className}`}
+      loading="eager"
+    />
   );
 }
 
@@ -86,16 +100,11 @@ export default function Navbar({ onOpenAdmin, onOpenCustomTrip }) {
           className="container mx-auto flex items-center justify-between gap-6 transition-all duration-300 h-20"
         >
           {/* Logo */}
-          <Link aria-label="Travel Care 4 All home" className="shrink-0 flex items-center gap-2.5" to="/">
-            <BrandLogo className="h-11 w-11 shrink-0 transition-all duration-300" />
-            <span className="leading-none">
-              <span className="block font-display font-bold tracking-tight text-xl text-white">
-                Travel Care
-              </span>
-              <span className="mt-0.5 block text-[0.7rem] font-extrabold uppercase tracking-[0.32em] text-[#e66a2c]">
-                4 All
-              </span>
-            </span>
+          <Link aria-label="Travel Care 4 All home" className="shrink-0 flex items-center gap-3 group py-1" to="/">
+            <BrandFullLogo
+              variant="horizontal-white"
+              className="h-12 sm:h-13 w-auto max-h-13 transition-transform duration-300 group-hover:scale-105 drop-shadow-sm"
+            />
           </Link>
 
           {/* Desktop links */}

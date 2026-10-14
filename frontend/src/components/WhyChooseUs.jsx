@@ -8,6 +8,7 @@ import {
   Check
 } from 'lucide-react';
 import travelData from '../data/travelData';
+import { getAssetImageUrl } from '../utils/imageHelper';
 
 export default function WhyChooseUs({ onOpenCustomTrip }) {
   const { siteConfig, whyChooseUs } = travelData;
@@ -152,9 +153,10 @@ export default function WhyChooseUs({ onOpenCustomTrip }) {
                 }`}
               >
                 <img
-                  src={`/images/${item.img}.png`}
+                  src={getAssetImageUrl(item.img)}
                   alt={item.name}
                   loading="lazy"
+                  onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-[#17231d]/80 to-transparent" />

@@ -1,0 +1,26 @@
+services:
+  # Travel Care 4 All — Unified Full-Stack MERN Service
+  - type: web
+    name: travelcare4all
+    runtime: node
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        value: https://travelcare4all.onrender.com
+      - key: INITIAL_ADMIN_NAME
+        value: B. Vidya Sagar
+      - key: INITIAL_ADMIN_EMAIL
+        value: admin@travelcare4all.com
+      - key: INITIAL_ADMIN_PASSWORD
+        value: Admin@TravelCare2026

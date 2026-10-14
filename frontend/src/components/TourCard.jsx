@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Star, BedDouble, MessageSquare, MapPin } from 'lucide-react';
 import travelData from '../data/travelData';
+import { getAssetImageUrl } from '../utils/imageHelper';
 
 export default function TourCard({ tour, onSelectTour, onBookTour }) {
   const { siteConfig } = travelData;
@@ -18,9 +19,7 @@ export default function TourCard({ tour, onSelectTour, onBookTour }) {
     window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${text}`, '_blank');
   };
 
-  const imageSrc = tour.image?.startsWith('/') || tour.image?.startsWith('http') 
-    ? tour.image 
-    : `/images/${tour.image || 'hero'}.png`;
+  const imageSrc = getAssetImageUrl(tour.image);
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-[#17231d]/5 transition-[transform,box-shadow] duration-300 hover:-translate-y-2 hover:shadow-lift">
@@ -40,20 +39,27 @@ export default function TourCard({ tour, onSelectTour, onBookTour }) {
         <div className="absolute inset-0 bg-gradient-to-t from-[#17231d]/50 via-transparent to-transparent" />
 
         {/* Destination badge */}
-        <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-[#075c35] shadow-sm">
+        <span className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-white/95 backdrop-blur-sm px-3 py-1 text-xs font-bold text-[#075c35] shadow-sm">
           <MapPin className="h-3.5 w-3.5" />
           <span>{tour.destination}</span>
         </span>
 
-        {/* Discount badge */}
-        {discount > 0 && (
-          <span className="absolute right-4 top-4 rounded-full bg-[#e66a2c] px-3 py-1 text-xs font-bold text-white shadow-sm">
-            {discount}% OFF
-          </span>
-        )}
+        {/* Right Badges: Featured & Discount */}
+        <div className="absolute right-4 top-4 flex items-center gap-1.5">
+          {tour.featured && (
+            <span className="rounded-full bg-amber-400 text-slate-900 px-2.5 py-0.5 text-[0.65rem] font-extrabold uppercase tracking-wider shadow-sm">
+              ★ Featured
+            </span>
+          )}
+          {discount > 0 && (
+            <span className="rounded-full bg-[#e66a2c] px-2.5 py-0.5 text-[0.68rem] font-extrabold text-white shadow-sm">
+              {discount}% OFF
+            </span>
+          )}
+        </div>
 
         {/* Duration */}
-        <span className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 text-xs font-semibold text-white">
+        <span className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 text-xs font-semibold text-white drop-shadow">
           <Clock className="h-3.5 w-3.5" />
           <span>{tour.days - 1}N / {tour.days}D</span>
         </span>
@@ -109,7 +115,7 @@ export default function TourCard({ tour, onSelectTour, onBookTour }) {
           <button
             onClick={handleWhatsApp}
             aria-label={`Ask about ${tour.title} on WhatsApp`}
-            className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#1fa855]/10 text-[#17904a] transition hover:bg-[#1fa855] hover:text-white"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#1fa855]/10 text-[#17904a] transition hover:bg-[#1fa855] hover:text-white cursor-pointer"
           >
             <MessageSquare className="h-5 w-5" />
           </button>
@@ -121,14 +127,14 @@ export default function TourCard({ tour, onSelectTour, onBookTour }) {
             <button
               type="button"
               onClick={() => onSelectTour(tour)}
-              className="btn btn-outline !py-2.5 !text-sm text-center"
+              className="btn btn-outline !py-2.5 !text-sm text-center cursor-pointer"
             >
               View Details
             </button>
           ) : (
             <Link
               to={`/tours/${tour.slug}`}
-              className="btn btn-outline !py-2.5 !text-sm text-center"
+              className="btn btn-outline !py-2.5 !text-sm text-center cursor-pointer"
             >
               View Details
             </Link>
@@ -137,7 +143,7 @@ export default function TourCard({ tour, onSelectTour, onBookTour }) {
           <button
             type="button"
             onClick={() => onBookTour ? onBookTour(tour) : null}
-            className="btn btn-primary !py-2.5 !text-sm text-center"
+            className="btn btn-primary !py-2.5 !text-sm text-center cursor-pointer"
           >
             Book Now
           </button>

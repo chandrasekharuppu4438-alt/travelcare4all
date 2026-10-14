@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -50,26 +51,38 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Root welcome
-app.get('/', (req, res) => {
-  res.json({
-    name: 'Travel Care 4 All MERN Backend API',
-    version: '1.0.0',
-    status: 'online',
-    endpoints: {
-      health: '/api/health',
-      auth: '/api/auth/login',
-      admin: '/api/admin/dashboard',
-      tours: '/api/tours',
-      destinations: '/api/destinations',
-      bookings: '/api/bookings',
-      visa: '/api/visa',
-      siteInfo: '/api/contact/info'
+// Static Frontend Serving (for Render full-stack deployment)
+const frontendDist = path.join(__dirname, '../frontend/dist');
+if (fs.existsSync(frontendDist)) {
+  app.use(express.static(frontendDist));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) {
+      return next();
     }
+    res.sendFile(path.join(frontendDist, 'index.html'));
   });
-});
+} else {
+  // Root welcome
+  app.get('/', (req, res) => {
+    res.json({
+      name: 'Travel Care 4 All MERN Backend API',
+      version: '1.0.0',
+      status: 'online',
+      endpoints: {
+        health: '/api/health',
+        auth: '/api/auth/login',
+        admin: '/api/admin/dashboard',
+        tours: '/api/tours',
+        destinations: '/api/destinations',
+        bookings: '/api/bookings',
+        visa: '/api/visa',
+        siteInfo: '/api/contact/info'
+      }
+    });
+  });
+}
 
-// 404 handler
+// 404 handler for API routes
 app.use((req, res) => {
   res.status(404).json({ success: false, message: `API Route not found: ${req.method} ${req.originalUrl}` });
 });

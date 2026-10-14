@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { Lock, Mail, ShieldCheck, ArrowRight, Eye, EyeOff, AlertCircle, Sparkles } from 'lucide-react';
-import { BrandLogo } from '../components/Navbar';
+import { BrandLogo, BrandFullLogo } from '../components/Navbar';
 import api from '../services/api';
 
 export default function AdminLoginPage() {
@@ -48,16 +48,11 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md relative z-10">
         {/* Brand Header */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-3 group">
-            <BrandLogo className="h-12 w-12 shrink-0 transition-transform group-hover:scale-105" />
-            <div className="text-left">
-              <span className="block font-display font-bold text-2xl text-white tracking-tight">
-                Travel Care
-              </span>
-              <span className="block text-[0.7rem] font-extrabold uppercase tracking-[0.3em] text-[#e66a2c]">
-                4 All
-              </span>
-            </div>
+          <Link to="/" className="inline-flex flex-col items-center justify-center gap-3 group">
+            <BrandFullLogo
+              variant="white"
+              className="h-20 w-auto max-h-24 mx-auto transition-transform group-hover:scale-105 drop-shadow-xl"
+            />
           </Link>
           <div className="mt-4 flex items-center justify-center gap-2 text-xs uppercase tracking-widest text-amber-300 font-semibold">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />

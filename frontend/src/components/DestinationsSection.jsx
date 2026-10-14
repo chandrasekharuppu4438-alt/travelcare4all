@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import travelData from '../data/travelData';
+import { getAssetImageUrl } from '../utils/imageHelper';
 
 export default function DestinationsSection({ onSelectDestination }) {
   const [activeRegion, setActiveRegion] = useState('International');
@@ -52,9 +53,10 @@ export default function DestinationsSection({ onSelectDestination }) {
                     }`}
                   >
                     <img
-                      src={`/images/${dest.image}.png`}
+                      src={getAssetImageUrl(dest.image)}
                       alt={`${dest.name}, ${dest.country}`}
                       loading="lazy"
+                      onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#17231d]/85 via-[#17231d]/20 to-transparent transition-opacity duration-500 group-hover:from-[#075c35]/90" />
@@ -128,9 +130,10 @@ export default function DestinationsSection({ onSelectDestination }) {
                 className="group relative block h-[320px] overflow-hidden rounded-3xl shadow-card transition-all duration-500 hover:-translate-y-1.5 hover:shadow-lift cursor-pointer"
               >
                 <img
-                  src={`/images/${d.image}.png`}
+                  src={getAssetImageUrl(d.image)}
                   alt={d.name}
                   loading="lazy"
+                  onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#17231d]/85 via-transparent to-transparent" />

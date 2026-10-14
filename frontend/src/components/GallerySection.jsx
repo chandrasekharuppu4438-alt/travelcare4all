@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import travelData from '../data/travelData';
+import { getAssetImageUrl } from '../utils/imageHelper';
 
 export default function GallerySection() {
   const { gallery } = travelData;
@@ -51,9 +52,10 @@ export default function GallerySection() {
               className="group relative aspect-[4/3] sm:aspect-square overflow-hidden rounded-2xl sm:rounded-3xl shadow-card ring-1 ring-[#17231d]/5"
             >
               <img
-                src={`/images/${item.image}.png`}
+                src={getAssetImageUrl(item.image)}
                 alt={item.title}
                 loading="lazy"
+                onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#17231d]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">

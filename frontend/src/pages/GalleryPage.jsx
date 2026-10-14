@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Camera, MapPin, Heart, ChevronRight, X, Sparkles } from 'lucide-react';
 import travelData from '../data/travelData';
+import { getAssetImageUrl } from '../utils/imageHelper';
 
 export default function GalleryPage() {
   const { gallery } = travelData;
@@ -101,9 +102,10 @@ export default function GalleryPage() {
               className="group relative h-[320px] overflow-hidden rounded-3xl bg-white ring-1 ring-[#17231d]/10 shadow-card transition-all duration-300 hover:-translate-y-2 hover:shadow-lift cursor-pointer"
             >
               <img
-                src={`/images/${photo.image}.png`}
+                src={getAssetImageUrl(photo.image)}
                 alt={photo.caption}
                 loading="lazy"
+                onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#17231d]/90 via-[#17231d]/25 to-transparent transition-opacity" />
@@ -147,8 +149,9 @@ export default function GalleryPage() {
             </button>
             <div className="relative aspect-[16/10] w-full bg-black">
               <img
-                src={`/images/${selectedPhoto.image}.png`}
+                src={getAssetImageUrl(selectedPhoto.image)}
                 alt={selectedPhoto.caption}
+                onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
                 className="w-full h-full object-contain"
               />
             </div>

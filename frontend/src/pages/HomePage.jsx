@@ -47,7 +47,7 @@ export default function HomePage({ onSelectTour, onBookTour, onOpenCustomTrip })
   return (
     <div>
       {/* Cinematic Hero */}
-      <Hero />
+      <Hero onOpenCustomTrip={onOpenCustomTrip} />
 
       {/* Interactive Quick Search Bar */}
       <QuickSearch onSearch={handleQuickSearch} />

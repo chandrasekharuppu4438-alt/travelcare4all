@@ -14,6 +14,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import travelData from '../data/travelData';
+import { getAssetImageUrl } from '../utils/imageHelper';
 
 export default function TourDetailsModal({ tour, onClose, onBookTour }) {
   if (!tour) return null;
@@ -44,7 +45,7 @@ export default function TourDetailsModal({ tour, onClose, onBookTour }) {
         {/* Banner with Active Image */}
         <div className="relative h-64 sm:h-80 overflow-hidden rounded-t-3xl bg-slate-900">
           <img
-            src={activeImage?.startsWith('/') || activeImage?.startsWith('http') ? activeImage : `/images/${activeImage || 'hero'}.png`}
+            src={getAssetImageUrl(activeImage)}
             alt={tour.title}
             onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
             className="w-full h-full object-cover"
@@ -81,7 +82,7 @@ export default function TourDetailsModal({ tour, onClose, onBookTour }) {
                   activeImage === img ? 'border-[#056839] scale-105' : 'border-transparent opacity-70 hover:opacity-100'
                 }`}
               >
-                <img src={`/images/${img}.png`} alt="thumbnail" className="w-full h-full object-cover" />
+                <img src={getAssetImageUrl(img)} alt="thumbnail" className="w-full h-full object-cover" />
               </button>
             ))}
           </div>

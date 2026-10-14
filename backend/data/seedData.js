@@ -28,7 +28,7 @@ module.exports = {
       "slug": "ultimate-phuket-phi-phi-island-getaway",
       "title": "Ultimate Phuket & Phi Phi Island Getaway",
       "destination": "Phuket",
-      "destinationSlug": "thailand",
+      "destinationSlug": "thailand.png",
       "country": "Thailand",
       "travelType": "International Tour",
       "packageType": "International",
@@ -39,11 +39,11 @@ module.exports = {
       "reviews": 142,
       "featured": true,
       "popular": true,
-      "image": "thailand",
+      "image": "thailand.png",
       "gallery": [
-        "thailand",
-        "bangkok",
-        "malaysia"
+        "thailand.png",
+        "bangkok.png",
+        "malaysia.png"
       ],
       "hotel": "3 Nights in 4★ Resort/Hotel – Phuket",
       "shortDescription": "Experience the tropical charm of Thailand with this refreshing Phuket holiday featuring a full-day Phi Phi Island excursion.",
@@ -61,7 +61,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Phuket & Beachside Relaxation",
           "description": "Arrive at Phuket International Airport, receive a warm greeting and private transfer to your hotel. Spend your evening soaking in the vibrant beach ambiance of Patong.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Beach Resort in Phuket",
           "meals": "Self / Welcome Drink"
         },
@@ -69,7 +69,7 @@ module.exports = {
           "day": 2,
           "title": "Full-Day Phi Phi Island & Maya Bay Speedboat Tour",
           "description": "Embark on an exhilarating speedboat tour to Phi Phi Don and Phi Phi Leh. Marvel at Maya Bay, swim at Pileh Lagoon, visit Viking Cave, and snorkel with colorful marine life. Buffet lunch included on the island.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Beach Resort in Phuket",
           "meals": "Breakfast & Island Buffet Lunch"
         },
@@ -77,7 +77,7 @@ module.exports = {
           "day": 3,
           "title": "James Bond Island & Phang Nga Bay Exploration",
           "description": "Cruise through the emerald waters of Phang Nga Bay. Canoe through mangrove sea caves, visit the floating Muslim village of Koh Panyee, and view the iconic limestone needle of Koh Tapu (James Bond Island).",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Beach Resort in Phuket",
           "meals": "Breakfast & Lunch"
         },
@@ -85,7 +85,7 @@ module.exports = {
           "day": 4,
           "title": "Leisure Morning & Phuket Departure",
           "description": "Enjoy a leisurely buffet breakfast at your resort. Enjoy last-minute shopping at local artisan markets before your private airport transfer for your departure flight.",
-          "image": "thailand",
+          "image": "thailand.png",
           "meals": "Buffet Breakfast"
         }
       ],
@@ -114,7 +114,7 @@ module.exports = {
       "slug": "splendid-bangkok-pattaya-with-safari-world",
       "title": "Splendid Bangkok & Pattaya with Safari World",
       "destination": "Bangkok & Pattaya",
-      "destinationSlug": "bangkok",
+      "destinationSlug": "bangkok.png",
       "country": "Thailand",
       "travelType": "International Tour",
       "packageType": "International",
@@ -125,11 +125,11 @@ module.exports = {
       "reviews": 188,
       "featured": true,
       "popular": true,
-      "image": "bangkok",
+      "image": "bangkok.png",
       "gallery": [
-        "bangkok",
-        "thailand",
-        "singapore"
+        "bangkok.png",
+        "thailand.png",
+        "singapore.png"
       ],
       "hotel": "2 Nights in Deluxe Hotel – Bangkok + 2 Nights in Deluxe Hotel – Pattaya",
       "shortDescription": "A thrilling Thai vacation combining Bangkok city sights, Safari World & Marine Park with Pattaya beaches and Coral Island.",
@@ -146,7 +146,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Bangkok – Transfer to Pattaya & Alcazar Show",
           "description": "Warm welcome at Bangkok Airport, scenic expressway transfer to Pattaya. Check into hotel and attend the world-famous Alcazar Cabaret Show with dazzling costumes and sound.",
-          "image": "bangkok",
+          "image": "bangkok.png",
           "hotel": "4★ Hotel in Pattaya",
           "meals": "Self / Welcome Drink"
         },
@@ -154,7 +154,7 @@ module.exports = {
           "day": 2,
           "title": "Coral Island (Koh Larn) Speedboat Adventure",
           "description": "Speedboat ride to Coral Island for parasailing, sea walking, and swimming in crystal waters. Enjoy a delicious Indian buffet lunch on the island.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Hotel in Pattaya",
           "meals": "Breakfast & Indian Buffet Lunch"
         },
@@ -162,7 +162,7 @@ module.exports = {
           "day": 3,
           "title": "Pattaya to Bangkok via Golden Buddha Temple",
           "description": "Scenic return drive to Bangkok. Guided tour of Wat Traimit (Golden Buddha) and Gems Gallery. Evening luxury Chao Phraya River dinner cruise.",
-          "image": "bangkok",
+          "image": "bangkok.png",
           "hotel": "4★ Hotel in Bangkok",
           "meals": "Breakfast & Dinner Cruise"
         },
@@ -170,7 +170,7 @@ module.exports = {
           "day": 4,
           "title": "Full Day Safari World & Marine Park",
           "description": "Drive through Safari Park for open-air wildlife encounters, followed by Marine Park with dolphin shows, sea lions, and spy war stunt shows with international buffet lunch.",
-          "image": "bangkok",
+          "image": "bangkok.png",
           "hotel": "4★ Hotel in Bangkok",
           "meals": "Breakfast & Buffet Lunch"
         },
@@ -178,7 +178,7 @@ module.exports = {
           "day": 5,
           "title": "Shopping at Pratunam & Bangkok Departure",
           "description": "Morning shopping at Platinum Fashion Mall or CentralWorld. Private transfer to Suvarnabhumi Airport for your return flight.",
-          "image": "bangkok",
+          "image": "bangkok.png",
           "meals": "Buffet Breakfast"
         }
       ],
@@ -208,7 +208,7 @@ module.exports = {
       "slug": "thailand-grand-discovery-tour-bangkok-phuket-krabi",
       "title": "Thailand Grand Discovery Tour – Bangkok, Phuket & Krabi",
       "destination": "Bangkok, Phuket & Krabi",
-      "destinationSlug": "thailand",
+      "destinationSlug": "thailand.png",
       "country": "Thailand",
       "travelType": "International Tour",
       "packageType": "International",
@@ -219,11 +219,11 @@ module.exports = {
       "reviews": 215,
       "featured": true,
       "popular": true,
-      "image": "thailand",
+      "image": "thailand.png",
       "gallery": [
-        "thailand",
-        "bangkok",
-        "malaysia"
+        "thailand.png",
+        "bangkok.png",
+        "malaysia.png"
       ],
       "hotel": "2 Nights Bangkok + 3 Nights Phuket + 2 Nights Krabi",
       "shortDescription": "The ultimate 8-day Thailand odyssey linking Bangkok temples, Phuket island hopping, and Krabi limestone cliffs.",
@@ -240,7 +240,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Phuket",
           "description": "Airport transfer to beach resort in Phuket. Evening at leisure strolling along Patong Beach.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Beach Resort in Phuket",
           "meals": "Self"
         },
@@ -248,7 +248,7 @@ module.exports = {
           "day": 2,
           "title": "Phi Phi Islands & Bamboo Island Excursion",
           "description": "Speedboat cruise to Phi Phi Leh, swimming in Maya Bay, snorkeling over coral reefs, and buffet lunch.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Beach Resort in Phuket",
           "meals": "Breakfast & Island Lunch"
         },
@@ -256,7 +256,7 @@ module.exports = {
           "day": 3,
           "title": "Phuket City Highlights & Promthep Sunset",
           "description": "Visit Big Buddha, Wat Chalong, Old Phuket Town Sino-Portuguese architecture, and Promthep Cape sunset.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Beach Resort in Phuket",
           "meals": "Breakfast"
         },
@@ -264,7 +264,7 @@ module.exports = {
           "day": 4,
           "title": "Transfer to Krabi via Phang Nga",
           "description": "Scenic coastal transfer to Krabi. Check into Ao Nang beachfront resort with evening leisure at the beach.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Resort in Krabi",
           "meals": "Breakfast"
         },
@@ -272,7 +272,7 @@ module.exports = {
           "day": 5,
           "title": "Krabi Famous 4-Island Speedboat Tour",
           "description": "Explore Phra Nang Cave beach, Koh Poda, Chicken Island sandbar, and snorkeling in crystal waters with picnic lunch.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Resort in Krabi",
           "meals": "Breakfast & Picnic Lunch"
         },
@@ -280,7 +280,7 @@ module.exports = {
           "day": 6,
           "title": "Fly to Bangkok – Evening River Cruise",
           "description": "Transfer to Krabi airport for domestic flight to Bangkok. Check-in and evening Chao Phraya River Dinner Cruise.",
-          "image": "bangkok",
+          "image": "bangkok.png",
           "hotel": "4★ Hotel in Bangkok",
           "meals": "Breakfast & Dinner Cruise"
         },
@@ -288,7 +288,7 @@ module.exports = {
           "day": 7,
           "title": "Bangkok City & Safari Exploration",
           "description": "Temple tour of Wat Traimit & Wat Arun, followed by shopping at ICONSIAM and MBK Center.",
-          "image": "bangkok",
+          "image": "bangkok.png",
           "hotel": "4★ Hotel in Bangkok",
           "meals": "Breakfast"
         },
@@ -296,7 +296,7 @@ module.exports = {
           "day": 8,
           "title": "Bangkok Departure",
           "description": "Breakfast at hotel, free time for souvenir shopping, and private transfer to Bangkok Airport.",
-          "image": "bangkok",
+          "image": "bangkok.png",
           "meals": "Breakfast"
         }
       ],
@@ -326,7 +326,7 @@ module.exports = {
       "slug": "phuket-krabi-delights-romantic-seaside-retreat",
       "title": "Phuket & Krabi Delights – Romantic Seaside Retreat",
       "destination": "Phuket & Krabi",
-      "destinationSlug": "thailand",
+      "destinationSlug": "thailand.png",
       "country": "Thailand",
       "travelType": "Honeymoon Tour",
       "packageType": "International",
@@ -337,11 +337,11 @@ module.exports = {
       "reviews": 96,
       "featured": false,
       "popular": true,
-      "image": "thailand",
+      "image": "thailand.png",
       "gallery": [
-        "thailand",
-        "bangkok",
-        "maldives"
+        "thailand.png",
+        "bangkok.png",
+        "maldives.png"
       ],
       "hotel": "3 Nights Deluxe Resort Phuket + 2 Nights Deluxe Resort Krabi",
       "shortDescription": "A dreamy seaside romantic retreat featuring candlelit beachfront dinners, private island cruises, and luxury spa treatments.",
@@ -358,7 +358,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Phuket – Romantic Welcome",
           "description": "Private luxury car pick-up at Phuket Airport, floral garland greeting, check into deluxe sea-view resort with honeymoon bed setup.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4.5★ Resort in Phuket",
           "meals": "Self / Welcome Drink"
         },
@@ -366,7 +366,7 @@ module.exports = {
           "day": 2,
           "title": "Private Sunset Catamaran Cruise",
           "description": "Relaxed morning at resort infinity pool. In the late afternoon, board a luxury catamaran cruise to Promthep Cape with sunset champagne toast.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4.5★ Resort in Phuket",
           "meals": "Breakfast & Sunset Toast"
         },
@@ -374,7 +374,7 @@ module.exports = {
           "day": 3,
           "title": "Phi Phi Island & Maya Bay Tour",
           "description": "Speedboat trip to Maya Bay and emerald lagoons with private beach picnic setup and snorkeling.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4.5★ Resort in Phuket",
           "meals": "Breakfast & Island Lunch"
         },
@@ -382,7 +382,7 @@ module.exports = {
           "day": 4,
           "title": "Scenic Drive to Krabi & Couple Spa",
           "description": "Transfer to Krabi along scenic limestone routes. Afternoon 90-minute couple rejuvenating aromatherapy massage at resort spa.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4.5★ Resort in Krabi",
           "meals": "Breakfast"
         },
@@ -390,7 +390,7 @@ module.exports = {
           "day": 5,
           "title": "Hong Island Day Tour & Candlelight Dinner",
           "description": "Excursion to Hong Island's hidden lagoon. Evening private candlelight dinner by the sea with wine.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4.5★ Resort in Krabi",
           "meals": "Breakfast & Candlelight Dinner"
         },
@@ -398,7 +398,7 @@ module.exports = {
           "day": 6,
           "title": "Departure",
           "description": "Breakfast at resort, leisure check-out, and private transfer to Krabi or Phuket Airport.",
-          "image": "thailand",
+          "image": "thailand.png",
           "meals": "Breakfast"
         }
       ],
@@ -427,7 +427,7 @@ module.exports = {
       "slug": "dubai-extravaganza-with-abu-dhabi",
       "title": "Dubai Extravaganza with Abu Dhabi",
       "destination": "Dubai & Abu Dhabi",
-      "destinationSlug": "dubai",
+      "destinationSlug": "dubai.png",
       "country": "UAE",
       "travelType": "International Tour",
       "packageType": "International",
@@ -438,11 +438,11 @@ module.exports = {
       "reviews": 320,
       "featured": true,
       "popular": true,
-      "image": "dubai",
+      "image": "dubai.png",
       "gallery": [
-        "dubai",
-        "turkey",
-        "singapore"
+        "dubai.png",
+        "turkey.png",
+        "singapore.png"
       ],
       "hotel": "4 Nights in Dubai + 2 Nights in Abu Dhabi",
       "shortDescription": "Marvel at the futuristic skyline of Dubai, conquer golden desert dunes, and explore cultural wonders in Abu Dhabi.",
@@ -460,7 +460,7 @@ module.exports = {
           "day": 1,
           "title": "Welcome to Dubai & Marina Dhow Cruise",
           "description": "Arrive at Dubai International Airport, private transfer to hotel. Evening romantic Dhow Dinner Cruise across Dubai Marina.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "4★ Hotel in Dubai",
           "meals": "Dhow Cruise Dinner"
         },
@@ -468,7 +468,7 @@ module.exports = {
           "day": 2,
           "title": "Half-Day Dubai City Tour & Burj Khalifa",
           "description": "Explore Dubai Frame photo stop, Burj Al Arab, Jumeirah Mosque, and ascend Burj Khalifa 124th floor followed by Dubai Mall Fountain Show.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "4★ Hotel in Dubai",
           "meals": "Breakfast"
         },
@@ -476,7 +476,7 @@ module.exports = {
           "day": 3,
           "title": "Desert Safari with BBQ Dinner",
           "description": "Morning at leisure, afternoon 4x4 Land Cruiser desert safari with dune bashing, sunset photography, henna painting, belly dance, and BBQ banquet under the stars.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "4★ Hotel in Dubai",
           "meals": "Breakfast & Desert BBQ Dinner"
         },
@@ -484,7 +484,7 @@ module.exports = {
           "day": 4,
           "title": "Miracle Garden & Global Village",
           "description": "Witness 150 million blooming flowers at Dubai Miracle Garden, then explore world cultures and shopping at Global Village.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "4★ Hotel in Dubai",
           "meals": "Breakfast"
         },
@@ -492,7 +492,7 @@ module.exports = {
           "day": 5,
           "title": "Abu Dhabi Grand Mosque & Ferrari World",
           "description": "Transfer to Abu Dhabi, tour the magnificent Sheikh Zayed Grand Mosque, and thrill rides at Ferrari World on Yas Island.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "4★ Hotel in Abu Dhabi",
           "meals": "Breakfast"
         },
@@ -500,7 +500,7 @@ module.exports = {
           "day": 6,
           "title": "BAPS Hindu Mandir Abu Dhabi & Yas Mall",
           "description": "Visit the newly inaugurated BAPS Hindu Mandir, Louvre Abu Dhabi photo stop, and evening shopping at Yas Mall.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "4★ Hotel in Abu Dhabi",
           "meals": "Breakfast"
         },
@@ -508,7 +508,7 @@ module.exports = {
           "day": 7,
           "title": "Departure",
           "description": "Breakfast, souvenir shopping at Gold & Spice Souks, private transfer to Dubai International Airport.",
-          "image": "dubai",
+          "image": "dubai.png",
           "meals": "Breakfast"
         }
       ],
@@ -538,7 +538,7 @@ module.exports = {
       "slug": "luxury-dubai-honeymoon-experience",
       "title": "Luxury Dubai Honeymoon Experience",
       "destination": "Dubai",
-      "destinationSlug": "dubai",
+      "destinationSlug": "dubai.png",
       "country": "UAE",
       "travelType": "Honeymoon Tour",
       "packageType": "International",
@@ -549,11 +549,11 @@ module.exports = {
       "reviews": 112,
       "featured": false,
       "popular": true,
-      "image": "dubai",
+      "image": "dubai.png",
       "gallery": [
-        "dubai",
-        "maldives",
-        "singapore"
+        "dubai.png",
+        "maldives.png",
+        "singapore.png"
       ],
       "hotel": "5 Nights in Luxury Hotel – Dubai",
       "shortDescription": "A glamorous couple's getaway featuring private yacht cruising, desert glamping dinners, and sky-high dining.",
@@ -570,7 +570,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Dubai – Private Limousine Transfer",
           "description": "VIP airport arrival, welcome mocktails, private transfer to 5-star hotel in Downtown Dubai.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "5★ Hotel in Dubai",
           "meals": "Self / Welcome Drink"
         },
@@ -578,7 +578,7 @@ module.exports = {
           "day": 2,
           "title": "Private Yacht Cruise & The Palm View",
           "description": "Morning 2-hour private yacht cruise along Dubai Marina, afternoon panoramic view from The View at The Palm.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "5★ Hotel in Dubai",
           "meals": "Breakfast"
         },
@@ -586,7 +586,7 @@ module.exports = {
           "day": 3,
           "title": "Burj Khalifa & Romantic Fountain Dinner",
           "description": "Ascend Burj Khalifa top observation deck, evening 3-course dinner overlooking the illuminated Dubai Fountains.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "5★ Hotel in Dubai",
           "meals": "Breakfast & Romantic Dinner"
         },
@@ -594,7 +594,7 @@ module.exports = {
           "day": 4,
           "title": "Premium VIP Desert Safari & Stargazing",
           "description": "Luxury 4x4 desert ride, sunset falcon photography, and private candlelit dinner in royal desert camp.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "5★ Hotel in Dubai",
           "meals": "Breakfast & Desert Dinner"
         },
@@ -602,7 +602,7 @@ module.exports = {
           "day": 5,
           "title": "Dubai Miracle Garden & Leisure Shopping",
           "description": "Visit the vibrant Miracle Garden, followed by couples shopping and spa at Mall of the Emirates.",
-          "image": "dubai",
+          "image": "dubai.png",
           "hotel": "5★ Hotel in Dubai",
           "meals": "Breakfast"
         },
@@ -610,7 +610,7 @@ module.exports = {
           "day": 6,
           "title": "Departure",
           "description": "Breakfast, leisure morning, private airport transfer for your departure flight.",
-          "image": "dubai",
+          "image": "dubai.png",
           "meals": "Breakfast"
         }
       ],
@@ -637,7 +637,7 @@ module.exports = {
       "slug": "couples-paradise-in-bali",
       "title": "Couples Paradise in Bali",
       "destination": "Bali",
-      "destinationSlug": "bali",
+      "destinationSlug": "bali.png",
       "country": "Indonesia",
       "travelType": "Honeymoon Tour",
       "packageType": "International",
@@ -648,11 +648,11 @@ module.exports = {
       "reviews": 178,
       "featured": true,
       "popular": true,
-      "image": "bali",
+      "image": "bali.png",
       "gallery": [
-        "bali",
-        "thailand",
-        "maldives"
+        "bali.png",
+        "thailand.png",
+        "maldives.png"
       ],
       "hotel": "3 Nights Private Pool Villa Seminyak + 2 Nights Jungle Resort Ubud",
       "shortDescription": "An idyllic Indonesian honeymoon featuring private pool villas, floating breakfasts, Ubud swings, and clifftop sunsets.",
@@ -669,7 +669,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Bali – Villa Check-In",
           "description": "Airport greeting with flower lei, transfer to private pool villa in Seminyak, romantic floral bath setup.",
-          "image": "bali",
+          "image": "bali.png",
           "hotel": "Private Pool Villa Seminyak",
           "meals": "Welcome Drink"
         },
@@ -677,7 +677,7 @@ module.exports = {
           "day": 2,
           "title": "Tanah Lot & Seminyak Beach Sunset",
           "description": "Visit Tanah Lot sea temple, afternoon couple massage, and sunset drinks on Seminyak beach.",
-          "image": "bali",
+          "image": "bali.png",
           "hotel": "Private Pool Villa Seminyak",
           "meals": "Breakfast"
         },
@@ -685,7 +685,7 @@ module.exports = {
           "day": 3,
           "title": "Uluwatu Temple & Jimbaran Seafood Dinner",
           "description": "Relax in villa, afternoon tour to Uluwatu clifftop temple, Kecak Fire Dance, candlelit beachfront dinner at Jimbaran Bay.",
-          "image": "bali",
+          "image": "bali.png",
           "hotel": "Private Pool Villa Seminyak",
           "meals": "Breakfast & Jimbaran Dinner"
         },
@@ -693,7 +693,7 @@ module.exports = {
           "day": 4,
           "title": "Transfer to Ubud – Bali Swing & Rice Terraces",
           "description": "Check into jungle resort Ubud, soar over emerald valleys on the Bali Swing, visit coffee plantations.",
-          "image": "bali",
+          "image": "bali.png",
           "hotel": "4★ Jungle Resort in Ubud",
           "meals": "Breakfast & Coffee Tasting"
         },
@@ -701,7 +701,7 @@ module.exports = {
           "day": 5,
           "title": "Ubud Royal Palace, Monkey Forest & Waterfalls",
           "description": "Guided visit to Ubud Sacred Monkey Forest, Tegenungan Waterfall, and Ubud Art Market.",
-          "image": "bali",
+          "image": "bali.png",
           "hotel": "4★ Jungle Resort in Ubud",
           "meals": "Breakfast"
         },
@@ -709,7 +709,7 @@ module.exports = {
           "day": 6,
           "title": "Departure",
           "description": "Floating breakfast in villa, leisure check-out, transfer to Ngurah Rai Airport.",
-          "image": "bali",
+          "image": "bali.png",
           "meals": "Floating Breakfast"
         }
       ],
@@ -738,7 +738,7 @@ module.exports = {
       "slug": "ultimate-bali-highlights",
       "title": "Ultimate Bali Highlights",
       "destination": "Bali",
-      "destinationSlug": "bali",
+      "destinationSlug": "bali.png",
       "country": "Indonesia",
       "travelType": "International Tour",
       "packageType": "International",
@@ -749,11 +749,11 @@ module.exports = {
       "reviews": 145,
       "featured": false,
       "popular": true,
-      "image": "bali",
+      "image": "bali.png",
       "gallery": [
-        "bali",
-        "singapore",
-        "thailand"
+        "bali.png",
+        "singapore.png",
+        "thailand.png"
       ],
       "hotel": "4 Nights in 4★ Deluxe Resort – Bali (Kuta / Legian)",
       "shortDescription": "Experience Bali's highlights from Nusa Penida's dramatic cliffs to Tanjung Benoa watersports and Ubud's cultural heart.",
@@ -770,7 +770,7 @@ module.exports = {
           "day": 1,
           "title": "Arrival in Bali",
           "description": "Warm airport pick-up and transfer to resort in Kuta / Legian. Evening at leisure.",
-          "image": "bali",
+          "image": "bali.png",
           "hotel": "4★ Resort in Kuta",
           "meals": "Self"
         },
@@ -778,7 +778,7 @@ module.exports = {
           "day": 2,
           "title": "Watersports & Tanah Lot Sunset",
           "description": "Tanjung Benoa water sports in the morning, afternoon excursion to iconic Tanah Lot Temple.",
-          "image": "bali",
+          "image": "bali.png",
           "hotel": "4★ Resort in Kuta",
           "meals": "Breakfast"
         },
@@ -786,7 +786,7 @@ module.exports = {
           "day": 3,
           "title": "Full Day Nusa Penida Island Speedboat Excursion",
           "description": "Speedboat to Nusa Penida, marvel at Kelingking Beach cliffs, swim at Angel's Billabong, lunch included.",
-          "image": "bali",
+          "image": "bali.png",
           "hotel": "4★ Resort in Kuta",
           "meals": "Breakfast & Island Lunch"
         },
@@ -794,7 +794,7 @@ module.exports = {
           "day": 4,
           "title": "Kintamani Volcano & Ubud Culture Tour",
           "description": "Batur Volcano viewpoint, Celuk & Mas craft villages, Monkey Forest, and Ubud Market.",
-          "image": "bali",
+          "image": "bali.png",
           "hotel": "4★ Resort in Kuta",
           "meals": "Breakfast"
         },
@@ -802,7 +802,7 @@ module.exports = {
           "day": 5,
           "title": "Departure",
           "description": "Breakfast, shopping for souvenirs, transfer to Denpasar Airport.",
-          "image": "bali",
+          "image": "bali.png",
           "meals": "Breakfast"
         }
       ],
@@ -829,7 +829,7 @@ module.exports = {
       "slug": "valleys-meadows-of-kashmir",
       "title": "Valleys & Meadows of Kashmir",
       "destination": "Srinagar, Gulmarg & Pahalgam",
-      "destinationSlug": "kashmir",
+      "destinationSlug": "kashmir.png",
       "country": "India",
       "travelType": "Domestic Holiday",
       "packageType": "Domestic",
@@ -840,11 +840,11 @@ module.exports = {
       "reviews": 260,
       "featured": true,
       "popular": true,
-      "image": "kashmir",
+      "image": "kashmir.png",
       "gallery": [
-        "kashmir",
-        "himachal",
-        "goa"
+        "kashmir.png",
+        "himachal.png",
+        "goa.png"
       ],
       "hotel": "2 Nights in Hotel – Srinagar + 2 Nights in Hotel – Pahalgam + 1 Night Deluxe Houseboat – Srinagar",
       "shortDescription": "Immerse yourself in Paradise on Earth with Dal Lake Shikara rides, Gulmarg snow meadows, and Pahalgam river valleys.",
@@ -861,7 +861,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Srinagar – Shikara Ride on Dal Lake",
           "description": "Airport pick-up, check into houseboat, relaxing Shikara ride passing floating vegetable gardens and Char Chinar.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "hotel": "Deluxe Houseboat in Srinagar",
           "meals": "Dinner"
         },
@@ -869,7 +869,7 @@ module.exports = {
           "day": 2,
           "title": "Srinagar to Gulmarg Day Trip",
           "description": "Scenic drive to Gulmarg Meadow of Flowers, ride the world's highest Gondola cable car, return to Srinagar hotel.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "hotel": "4★ Hotel in Srinagar",
           "meals": "Breakfast & Dinner"
         },
@@ -877,7 +877,7 @@ module.exports = {
           "day": 3,
           "title": "Srinagar to Pahalgam Valley of Shepherds",
           "description": "Drive through saffron fields of Pampore, check into Pahalgam riverfront hotel, visit Lidder River.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "hotel": "4★ Hotel in Pahalgam",
           "meals": "Breakfast & Dinner"
         },
@@ -885,7 +885,7 @@ module.exports = {
           "day": 4,
           "title": "Pahalgam Sightseeing – Betaab & Aru Valley",
           "description": "Explore Betaab Valley, Aru Valley alpine pastures, and Chandanwari.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "hotel": "4★ Hotel in Pahalgam",
           "meals": "Breakfast & Dinner"
         },
@@ -893,7 +893,7 @@ module.exports = {
           "day": 5,
           "title": "Pahalgam to Srinagar – Mughal Gardens Tour",
           "description": "Return to Srinagar, tour Mughal Gardens (Nishat & Shalimar), Shankaracharya Temple.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "hotel": "4★ Hotel in Srinagar",
           "meals": "Breakfast & Dinner"
         },
@@ -901,7 +901,7 @@ module.exports = {
           "day": 6,
           "title": "Departure",
           "description": "Breakfast, shopping for Kashmiri saffron, walnuts, and pashmina shawls, airport drop.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "meals": "Breakfast"
         }
       ],
@@ -930,7 +930,7 @@ module.exports = {
       "slug": "glorious-kashmir-escape",
       "title": "Glorious Kashmir Escape",
       "destination": "Srinagar & Gulmarg",
-      "destinationSlug": "kashmir",
+      "destinationSlug": "kashmir.png",
       "country": "India",
       "travelType": "Domestic Holiday",
       "packageType": "Domestic",
@@ -941,11 +941,11 @@ module.exports = {
       "reviews": 140,
       "featured": false,
       "popular": true,
-      "image": "kashmir",
+      "image": "kashmir.png",
       "gallery": [
-        "kashmir",
-        "himachal",
-        "goa"
+        "kashmir.png",
+        "himachal.png",
+        "goa.png"
       ],
       "hotel": "1 Night in Deluxe Houseboat + 2 Nights in Hotel – Srinagar",
       "shortDescription": "A compact, enchanting 4-day Kashmir holiday featuring Dal Lake houseboats, Mughal gardens, and snow-capped Gulmarg.",
@@ -961,7 +961,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Srinagar & Dal Lake Houseboat Check-in",
           "description": "Airport pick-up, welcome Kahwa tea on Houseboat, 1-hour sunset Shikara cruise.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "hotel": "Deluxe Houseboat in Srinagar",
           "meals": "Dinner"
         },
@@ -969,7 +969,7 @@ module.exports = {
           "day": 2,
           "title": "Day Trip to Gulmarg",
           "description": "Excursion to Gulmarg meadows, optional Gondola cable car ride, return to Srinagar hotel.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "hotel": "3★ Hotel in Srinagar",
           "meals": "Breakfast & Dinner"
         },
@@ -977,7 +977,7 @@ module.exports = {
           "day": 3,
           "title": "Srinagar Local Sightseeing",
           "description": "Mughal Gardens (Nishat Bagh, Shalimar Bagh), Chashme Shahi, Shankaracharya Temple, evening shopping at Lal Chowk.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "hotel": "3★ Hotel in Srinagar",
           "meals": "Breakfast & Dinner"
         },
@@ -985,7 +985,7 @@ module.exports = {
           "day": 4,
           "title": "Srinagar Departure",
           "description": "Breakfast, transfer to Srinagar Airport with unforgettable memories.",
-          "image": "kashmir",
+          "image": "kashmir.png",
           "meals": "Breakfast"
         }
       ],
@@ -1012,7 +1012,7 @@ module.exports = {
       "slug": "ultimate-goa-discovery-tour",
       "title": "Ultimate Goa Discovery Tour",
       "destination": "North & South Goa",
-      "destinationSlug": "goa",
+      "destinationSlug": "goa.png",
       "country": "India",
       "travelType": "Domestic Holiday",
       "packageType": "Domestic",
@@ -1023,11 +1023,11 @@ module.exports = {
       "reviews": 210,
       "featured": true,
       "popular": true,
-      "image": "goa",
+      "image": "goa.png",
       "gallery": [
-        "goa",
-        "kerala",
-        "rajasthan"
+        "goa.png",
+        "kerala.png",
+        "rajasthan.png"
       ],
       "hotel": "5 Nights in 4-Star Premium Hotel near the Beach – Goa",
       "shortDescription": "Comprehensive Goa getaway covering North Goa historic forts, lively beach shacks, South Goa Portuguese churches, and river cruises.",
@@ -1044,7 +1044,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Goa – Welcome & Beach Evening",
           "description": "Airport/railway station pick-up, transfer to 4-star resort, leisure evening on Candolim beach.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "4★ Beach Resort in Goa",
           "meals": "Self"
         },
@@ -1052,7 +1052,7 @@ module.exports = {
           "day": 2,
           "title": "North Goa Forts & Beaches",
           "description": "Fort Aguada lighthouse, Sinquerim beach, Calangute, Baga watersports, and Vagator cliff viewpoint.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "4★ Beach Resort in Goa",
           "meals": "Breakfast"
         },
@@ -1060,7 +1060,7 @@ module.exports = {
           "day": 3,
           "title": "South Goa Heritage & Sunset Cruise",
           "description": "Old Goa churches (Basilica of Bom Jesus), vibrant Fontainhas Latin Quarter, Mangueshi Temple, and evening Mandovi sunset boat cruise.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "4★ Beach Resort in Goa",
           "meals": "Breakfast"
         },
@@ -1068,7 +1068,7 @@ module.exports = {
           "day": 4,
           "title": "Dudhsagar Waterfalls & Spice Plantation",
           "description": "4x4 Jeep safari through jungle rivers to Dudhsagar Falls, spice plantation tour with buffet lunch on banana leaves.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "4★ Beach Resort in Goa",
           "meals": "Breakfast & Plantation Lunch"
         },
@@ -1076,7 +1076,7 @@ module.exports = {
           "day": 5,
           "title": "South Goa Beach Leisure & Cafe Hopping",
           "description": "Relax at Palolem or Colva beach, sunset beach shack dining, nightlife exploration.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "4★ Beach Resort in Goa",
           "meals": "Breakfast"
         },
@@ -1084,7 +1084,7 @@ module.exports = {
           "day": 6,
           "title": "Departure",
           "description": "Breakfast, shopping at Panaji municipal market for cashews & feni, airport drop.",
-          "image": "goa",
+          "image": "goa.png",
           "meals": "Breakfast"
         }
       ],
@@ -1112,7 +1112,7 @@ module.exports = {
       "slug": "majestic-goa-a-romantic-honeymoon-retreat",
       "title": "Majestic Goa – A Romantic Honeymoon Retreat",
       "destination": "Goa",
-      "destinationSlug": "goa",
+      "destinationSlug": "goa.png",
       "country": "India",
       "travelType": "Honeymoon Tour",
       "packageType": "Domestic",
@@ -1123,11 +1123,11 @@ module.exports = {
       "reviews": 165,
       "featured": false,
       "popular": true,
-      "image": "goa",
+      "image": "goa.png",
       "gallery": [
-        "goa",
-        "kerala",
-        "kashmir"
+        "goa.png",
+        "kerala.png",
+        "kashmir.png"
       ],
       "hotel": "4 Nights in Luxury Beachside Hotel/Resort – Goa",
       "shortDescription": "A romantic coastal getaway with private sunset boat cruises, candlelight dinners on sandy shores, and couple spa sessions.",
@@ -1144,7 +1144,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Goa – Romantic Welcome",
           "description": "Private pick-up, room decorated with fresh flowers, evening stroll on beach.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "4★ Romantic Resort in Goa",
           "meals": "Welcome Drink"
         },
@@ -1152,7 +1152,7 @@ module.exports = {
           "day": 2,
           "title": "North Goa Sightseeing & Dolphin Trip",
           "description": "Morning dolphin cruise, Fort Aguada, Anjuna cliff, sunset at Chapora Fort.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "4★ Romantic Resort in Goa",
           "meals": "Breakfast"
         },
@@ -1160,7 +1160,7 @@ module.exports = {
           "day": 3,
           "title": "South Goa Historic Charms & Mandovi Cruise",
           "description": "Visit Portuguese heritage sites, evening sunset river cruise, followed by romantic candlelight dinner on the beach.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "4★ Romantic Resort in Goa",
           "meals": "Breakfast & Candlelight Dinner"
         },
@@ -1168,7 +1168,7 @@ module.exports = {
           "day": 4,
           "title": "Couple Spa & Sunset at Vagator",
           "description": "Pampering couple massage at resort spa, afternoon relaxed sunbathing, evening dinner at a clifftop lounge.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "4★ Romantic Resort in Goa",
           "meals": "Breakfast"
         },
@@ -1176,7 +1176,7 @@ module.exports = {
           "day": 5,
           "title": "Departure",
           "description": "Breakfast in bed, check-out, transfer to Dabolim / Mopa airport.",
-          "image": "goa",
+          "image": "goa.png",
           "meals": "Breakfast"
         }
       ],
@@ -1203,7 +1203,7 @@ module.exports = {
       "slug": "sun-sand-serenity-goa-tour",
       "title": "Sun, Sand & Serenity – Goa Tour",
       "destination": "Goa",
-      "destinationSlug": "goa",
+      "destinationSlug": "goa.png",
       "country": "India",
       "travelType": "Domestic Holiday",
       "packageType": "Domestic",
@@ -1214,11 +1214,11 @@ module.exports = {
       "reviews": 120,
       "featured": false,
       "popular": true,
-      "image": "goa",
+      "image": "goa.png",
       "gallery": [
-        "goa",
-        "kerala",
-        "kashmir"
+        "goa.png",
+        "kerala.png",
+        "kashmir.png"
       ],
       "hotel": "4 Nights in Hotel – Goa",
       "shortDescription": "An affordable beach vacation soaking up Goa’s sun, sand, shacks, flea markets, and coastal tranquility.",
@@ -1234,7 +1234,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Goa",
           "description": "Transfer to hotel, evening leisure on nearby beach.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "3★ Hotel in Goa",
           "meals": "Self"
         },
@@ -1242,7 +1242,7 @@ module.exports = {
           "day": 2,
           "title": "North Goa Explorer",
           "description": "Fort Aguada, Calangute, Baga, and evening nightlife.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "3★ Hotel in Goa",
           "meals": "Breakfast"
         },
@@ -1250,7 +1250,7 @@ module.exports = {
           "day": 3,
           "title": "South Goa Tour",
           "description": "Old Goa churches, Miramar beach, and Mandovi river cruise.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "3★ Hotel in Goa",
           "meals": "Breakfast"
         },
@@ -1258,7 +1258,7 @@ module.exports = {
           "day": 4,
           "title": "Leisure & Watersports Day",
           "description": "Indulge in parasailing, jet skiing, or flea market shopping at Anjuna.",
-          "image": "goa",
+          "image": "goa.png",
           "hotel": "3★ Hotel in Goa",
           "meals": "Breakfast"
         },
@@ -1266,7 +1266,7 @@ module.exports = {
           "day": 5,
           "title": "Departure",
           "description": "Breakfast, transfer to airport/station.",
-          "image": "goa",
+          "image": "goa.png",
           "meals": "Breakfast"
         }
       ],
@@ -1292,7 +1292,7 @@ module.exports = {
       "slug": "royal-rajasthan-grand-discovery",
       "title": "Royal Rajasthan Grand Discovery",
       "destination": "Jaipur, Bikaner, Jaisalmer, Jodhpur & Udaipur",
-      "destinationSlug": "rajasthan",
+      "destinationSlug": "rajasthan.png",
       "country": "India",
       "travelType": "Heritage Tour",
       "packageType": "Domestic",
@@ -1303,11 +1303,11 @@ module.exports = {
       "reviews": 340,
       "featured": true,
       "popular": true,
-      "image": "rajasthan",
+      "image": "rajasthan.png",
       "gallery": [
-        "rajasthan",
-        "kashmir",
-        "pilgrim"
+        "rajasthan.png",
+        "kashmir.png",
+        "pilgrim.png"
       ],
       "hotel": "2N Jaipur + 1N Bikaner + 1N Jaisalmer + 1N Desert Camp + 1N Jodhpur + 2N Udaipur",
       "shortDescription": "A grand 9-day royal voyage through the majestic forts, golden sand dunes, and romantic lake palaces of Rajasthan.",
@@ -1324,7 +1324,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Jaipur – The Pink City",
           "description": "Airport/station pick-up, check into heritage hotel, evening visit to Birla Temple & Chokhi Dhani.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Heritage Hotel in Jaipur",
           "meals": "Dinner"
         },
@@ -1332,7 +1332,7 @@ module.exports = {
           "day": 2,
           "title": "Jaipur Royal Sightseeing",
           "description": "Amber Fort, Jal Mahal photo stop, City Palace, Jantar Mantar observatory, and Hawa Mahal.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Heritage Hotel in Jaipur",
           "meals": "Breakfast & Dinner"
         },
@@ -1340,7 +1340,7 @@ module.exports = {
           "day": 3,
           "title": "Jaipur to Bikaner",
           "description": "Drive to Bikaner, visit Junagarh Fort, Lalgarh Palace, and the famous camel breeding farm.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "3★ Heritage Haveli in Bikaner",
           "meals": "Breakfast & Dinner"
         },
@@ -1348,7 +1348,7 @@ module.exports = {
           "day": 4,
           "title": "Bikaner to Jaisalmer – The Golden City",
           "description": "Travel through the Thar Desert to Jaisalmer, evening sunset view of Jaisalmer Fort from Gadisar Lake.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "3★ Fort Hotel in Jaisalmer",
           "meals": "Breakfast & Dinner"
         },
@@ -1356,7 +1356,7 @@ module.exports = {
           "day": 5,
           "title": "Jaisalmer Fort & Sam Sand Dunes Desert Camp",
           "description": "Tour Jaisalmer Golden Fort and ornate Havelis; evening transfer to Sam Sand Dunes for camel ride, sunset dunes, Kalbeliya folk dance & luxury tent stay.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "Luxury Swiss Desert Camp",
           "meals": "Breakfast & Gala Dinner"
         },
@@ -1364,7 +1364,7 @@ module.exports = {
           "day": 6,
           "title": "Jaisalmer to Jodhpur – The Blue City",
           "description": "Drive to Jodhpur, explore Mehrangarh Fort dominating the skyline, Jaswant Thada, and Umaid Bhawan Palace museum.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Heritage Hotel in Jodhpur",
           "meals": "Breakfast & Dinner"
         },
@@ -1372,7 +1372,7 @@ module.exports = {
           "day": 7,
           "title": "Jodhpur to Udaipur via Ranakpur Jain Temples",
           "description": "Drive to Udaipur with visit to 15th-century marble carved Ranakpur Jain Temple, evening arrive at Lake City Udaipur.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Lake View Resort in Udaipur",
           "meals": "Breakfast & Dinner"
         },
@@ -1380,7 +1380,7 @@ module.exports = {
           "day": 8,
           "title": "Udaipur Sightseeing & Lake Pichola Boat Cruise",
           "description": "Visit City Palace, Saheliyon Ki Bari, Jagdish Temple, and a romantic sunset boat ride on Lake Pichola.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Lake View Resort in Udaipur",
           "meals": "Breakfast & Dinner"
         },
@@ -1388,7 +1388,7 @@ module.exports = {
           "day": 9,
           "title": "Udaipur Departure",
           "description": "Breakfast, last-minute handicraft shopping at Hathi Pol bazaar, transfer to Udaipur Airport / Railway station.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "meals": "Breakfast"
         }
       ],
@@ -1420,7 +1420,7 @@ module.exports = {
       "slug": "golden-triangle-of-rajasthan-heritage-tour-jaipur-jodhpur-udaipur",
       "title": "Golden Triangle of Rajasthan Heritage Tour",
       "destination": "Jaipur, Jodhpur & Udaipur",
-      "destinationSlug": "rajasthan",
+      "destinationSlug": "rajasthan.png",
       "country": "India",
       "travelType": "Heritage Tour",
       "packageType": "Domestic",
@@ -1431,11 +1431,11 @@ module.exports = {
       "reviews": 190,
       "featured": false,
       "popular": true,
-      "image": "rajasthan",
+      "image": "rajasthan.png",
       "gallery": [
-        "rajasthan",
-        "kashmir",
-        "pilgrim"
+        "rajasthan.png",
+        "kashmir.png",
+        "pilgrim.png"
       ],
       "hotel": "2 Nights in Hotel – Jaipur + 1 Night in Hotel – Jodhpur + 2 Nights in Hotel – Udaipur",
       "shortDescription": "Trace the heritage arc of Rajasthan connecting the pink architecture of Jaipur, the blue citadel of Jodhpur, and the white palaces of Udaipur.",
@@ -1451,7 +1451,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Jaipur",
           "description": "Airport pick-up, check-in, visit Albert Hall Museum and Chokhi Dhani.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Heritage Hotel in Jaipur",
           "meals": "Dinner"
         },
@@ -1459,7 +1459,7 @@ module.exports = {
           "day": 2,
           "title": "Jaipur Heritage Tour",
           "description": "Amber Fort, Jal Mahal, City Palace, and Jantar Mantar.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Heritage Hotel in Jaipur",
           "meals": "Breakfast & Dinner"
         },
@@ -1467,7 +1467,7 @@ module.exports = {
           "day": 3,
           "title": "Jaipur to Jodhpur",
           "description": "Travel to Jodhpur, tour Mehrangarh Fort and Jaswant Thada, explore local spice markets.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Hotel in Jodhpur",
           "meals": "Breakfast & Dinner"
         },
@@ -1475,7 +1475,7 @@ module.exports = {
           "day": 4,
           "title": "Jodhpur to Udaipur via Ranakpur",
           "description": "Scenic drive to Udaipur stopping at Ranakpur temples, check into Udaipur hotel.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Hotel in Udaipur",
           "meals": "Breakfast & Dinner"
         },
@@ -1483,7 +1483,7 @@ module.exports = {
           "day": 5,
           "title": "Udaipur City & Lake Cruise",
           "description": "City Palace, Saheliyon Ki Bari, Jagdish Temple, sunset Lake Pichola boat ride.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "hotel": "4★ Hotel in Udaipur",
           "meals": "Breakfast & Dinner"
         },
@@ -1491,7 +1491,7 @@ module.exports = {
           "day": 6,
           "title": "Departure",
           "description": "Breakfast, transfer to Udaipur Airport or station.",
-          "image": "rajasthan",
+          "image": "rajasthan.png",
           "meals": "Breakfast"
         }
       ],
@@ -1517,7 +1517,7 @@ module.exports = {
       "slug": "unleashed-north-east-family-adventure",
       "title": "Unleashed North East Family Adventure",
       "destination": "Darjeeling, Pelling, Gangtok & Lachung",
-      "destinationSlug": "kashmir",
+      "destinationSlug": "kashmir.png",
       "country": "India",
       "travelType": "Family Adventure",
       "packageType": "Domestic",
@@ -1528,11 +1528,11 @@ module.exports = {
       "reviews": 145,
       "featured": true,
       "popular": true,
-      "image": "himachal",
+      "image": "himachal.png",
       "gallery": [
-        "himachal",
-        "kashmir",
-        "goa"
+        "himachal.png",
+        "kashmir.png",
+        "goa.png"
       ],
       "hotel": "2N Darjeeling + 2N Pelling + 3N Gangtok + 2N Lachung",
       "shortDescription": "A grand 10-day Himalayan family journey through misty tea gardens, sacred monasteries, and snow peaks of Sikkim.",
@@ -1549,7 +1549,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive Bagdogra / NJP – Transfer to Darjeeling",
           "description": "Drive through rolling tea hills to Darjeeling (Queen of Hills).",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Darjeeling",
           "meals": "Dinner"
         },
@@ -1557,7 +1557,7 @@ module.exports = {
           "day": 2,
           "title": "Tiger Hill Sunrise & Darjeeling Sightseeing",
           "description": "4:00 AM Tiger Hill sunrise, Batasia Loop, Ghoom Monastery, Himalayan Mountaineering Institute, and tea estate.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Darjeeling",
           "meals": "Breakfast & Dinner"
         },
@@ -1565,7 +1565,7 @@ module.exports = {
           "day": 3,
           "title": "Darjeeling to Pelling",
           "description": "Scenic drive past river valleys to Pelling, visit Rabdentse ruins.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Pelling",
           "meals": "Breakfast & Dinner"
         },
@@ -1573,7 +1573,7 @@ module.exports = {
           "day": 4,
           "title": "Pelling Sightseeing",
           "description": "Glass Skywalk, Pemayangtse Monastery, Rimbi Waterfalls, and Khecheopalri Sacred Wish Lake.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Pelling",
           "meals": "Breakfast & Dinner"
         },
@@ -1581,7 +1581,7 @@ module.exports = {
           "day": 5,
           "title": "Pelling to Gangtok",
           "description": "Drive to Sikkim’s capital Gangtok, evening walk along pedestrian MG Marg.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Gangtok",
           "meals": "Breakfast & Dinner"
         },
@@ -1589,7 +1589,7 @@ module.exports = {
           "day": 6,
           "title": "Excursion to Tsomgo Lake & Baba Mandir",
           "description": "High-altitude glacial Tsomgo Lake (12,400 ft) and patriotic Baba Harbhajan Singh Shrine.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Gangtok",
           "meals": "Breakfast & Dinner"
         },
@@ -1597,7 +1597,7 @@ module.exports = {
           "day": 7,
           "title": "Gangtok to Lachung (North Sikkim)",
           "description": "Scenic drive past Singhik viewpoint, Seven Sister Waterfalls, and Chungthang to alpine Lachung.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "Alpine Lodge in Lachung",
           "meals": "All Meals"
         },
@@ -1605,7 +1605,7 @@ module.exports = {
           "day": 8,
           "title": "Yumthang Valley of Flowers & Return to Gangtok",
           "description": "Visit Yumthang Valley hot springs, optional Zero Point (snow point), return drive to Gangtok.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Gangtok",
           "meals": "All Meals"
         },
@@ -1613,7 +1613,7 @@ module.exports = {
           "day": 9,
           "title": "Gangtok Sightseeing",
           "description": "Banjhakri waterfalls, Rumtek Monastery, Do Drul Chorten, cable car ropeway.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Gangtok",
           "meals": "Breakfast & Dinner"
         },
@@ -1621,7 +1621,7 @@ module.exports = {
           "day": 10,
           "title": "Departure to Bagdogra / NJP",
           "description": "Breakfast, scenic return drive to Bagdogra Airport (IXB) / NJP railway station.",
-          "image": "himachal",
+          "image": "himachal.png",
           "meals": "Breakfast"
         }
       ],
@@ -1647,7 +1647,7 @@ module.exports = {
       "slug": "central-vietnam-grandeur-escape",
       "title": "Central Vietnam Grandeur Escape",
       "destination": "Da Nang, Ba Na Hills & Hoi An",
-      "destinationSlug": "vietnam",
+      "destinationSlug": "vietnam.png",
       "country": "Vietnam",
       "travelType": "International Tour",
       "packageType": "International",
@@ -1658,11 +1658,11 @@ module.exports = {
       "reviews": 155,
       "featured": true,
       "popular": true,
-      "image": "vietnam",
+      "image": "vietnam.png",
       "gallery": [
-        "vietnam",
-        "singapore",
-        "thailand"
+        "vietnam.png",
+        "singapore.png",
+        "thailand.png"
       ],
       "hotel": "4 Nights in 4★ Beachside Hotel – Da Nang & Hoi An",
       "shortDescription": "Walk the iconic Golden Bridge held by Giant Hands in Ba Na Hills, explore ancient Hoi An lantern streets, and relax on My Khe Beach.",
@@ -1679,7 +1679,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Da Nang – My Khe Beach",
           "description": "Airport welcome, transfer to hotel overlooking My Khe Beach, evening Dragon Bridge walk.",
-          "image": "vietnam",
+          "image": "vietnam.png",
           "hotel": "4★ Beach Hotel in Da Nang",
           "meals": "Self"
         },
@@ -1687,7 +1687,7 @@ module.exports = {
           "day": 2,
           "title": "Full Day Sun World Ba Na Hills & Golden Bridge",
           "description": "Ride world-record cable car, photograph the surreal Golden Bridge held by stone hands, French village, buffet lunch.",
-          "image": "vietnam",
+          "image": "vietnam.png",
           "hotel": "4★ Beach Hotel in Da Nang",
           "meals": "Breakfast & Ba Na Buffet Lunch"
         },
@@ -1695,7 +1695,7 @@ module.exports = {
           "day": 3,
           "title": "Marble Mountains & Hoi An Ancient Town",
           "description": "Morning Marble Mountains limestone caves, afternoon Cam Thanh round basket boat ride through coconut canals, evening walking tour of magical lantern-lit Hoi An.",
-          "image": "vietnam",
+          "image": "vietnam.png",
           "hotel": "4★ Beach Hotel in Da Nang",
           "meals": "Breakfast"
         },
@@ -1703,7 +1703,7 @@ module.exports = {
           "day": 4,
           "title": "Son Tra Peninsula & Lady Buddha",
           "description": "Morning leisure on beach, afternoon visit to Son Tra Peninsula & Linh Ung Pagoda Lady Buddha.",
-          "image": "vietnam",
+          "image": "vietnam.png",
           "hotel": "4★ Beach Hotel in Da Nang",
           "meals": "Breakfast"
         },
@@ -1711,7 +1711,7 @@ module.exports = {
           "day": 5,
           "title": "Departure",
           "description": "Breakfast, shopping at Han Market for Vietnamese coffee and souvenirs, airport transfer.",
-          "image": "vietnam",
+          "image": "vietnam.png",
           "meals": "Breakfast"
         }
       ],
@@ -1738,7 +1738,7 @@ module.exports = {
       "slug": "hanoi-super-saver-tour",
       "title": "Hanoi Super Saver Tour",
       "destination": "Hanoi & Halong Bay",
-      "destinationSlug": "vietnam",
+      "destinationSlug": "vietnam.png",
       "country": "Vietnam",
       "travelType": "International Tour",
       "packageType": "International",
@@ -1749,11 +1749,11 @@ module.exports = {
       "reviews": 130,
       "featured": false,
       "popular": true,
-      "image": "vietnam",
+      "image": "vietnam.png",
       "gallery": [
-        "vietnam",
-        "singapore",
-        "thailand"
+        "vietnam.png",
+        "singapore.png",
+        "thailand.png"
       ],
       "hotel": "3 Nights in 4★ Hotel – Hanoi",
       "shortDescription": "Cruise through emerald limestone karsts in UNESCO Halong Bay, ride cyclos in Hanoi Old Quarter, and explore ancient Ninh Binh.",
@@ -1769,7 +1769,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Hanoi",
           "description": "Airport pick-up, hotel check-in in Old Quarter, evening stroll around Hoan Kiem Lake & Ngoc Son Temple.",
-          "image": "vietnam",
+          "image": "vietnam.png",
           "hotel": "4★ Old Quarter Hotel in Hanoi",
           "meals": "Self"
         },
@@ -1777,7 +1777,7 @@ module.exports = {
           "day": 2,
           "title": "Full Day UNESCO Halong Bay Cruise",
           "description": "Expressway transfer to Halong Bay, board cruise, sail past Fighting Cocks islet, explore Sung Sot Cave, kayaking, and sunset party.",
-          "image": "vietnam",
+          "image": "vietnam.png",
           "hotel": "4★ Old Quarter Hotel in Hanoi",
           "meals": "Breakfast & Seafood Buffet Lunch"
         },
@@ -1785,7 +1785,7 @@ module.exports = {
           "day": 3,
           "title": "Day Tour to Ninh Binh – Trang An",
           "description": "Rowboat ride through dramatic river caves in Trang An, climb 500 steps up Mua Cave for dragon viewpoint over river valley.",
-          "image": "vietnam",
+          "image": "vietnam.png",
           "hotel": "4★ Old Quarter Hotel in Hanoi",
           "meals": "Breakfast & Local Lunch"
         },
@@ -1793,7 +1793,7 @@ module.exports = {
           "day": 4,
           "title": "Hanoi City Sightseeing & Departure",
           "description": "Ho Chi Minh Mausoleum, One Pillar Pagoda, Tran Quoc Pagoda, shopping, transfer to Noi Bai Airport.",
-          "image": "vietnam",
+          "image": "vietnam.png",
           "meals": "Breakfast"
         }
       ],
@@ -1820,7 +1820,7 @@ module.exports = {
       "slug": "exotic-sri-lanka-grand-tour",
       "title": "Exotic Sri Lanka Grand Tour",
       "destination": "Kandy, Nuwara Eliya, Bentota, Galle & Colombo",
-      "destinationSlug": "srilanka",
+      "destinationSlug": "srilanka.png",
       "country": "Sri Lanka",
       "travelType": "International Tour",
       "packageType": "International",
@@ -1831,11 +1831,11 @@ module.exports = {
       "reviews": 180,
       "featured": true,
       "popular": true,
-      "image": "srilanka",
+      "image": "srilanka.png",
       "gallery": [
-        "srilanka",
-        "kerala",
-        "maldives"
+        "srilanka.png",
+        "kerala.png",
+        "maldives.png"
       ],
       "hotel": "2N Kandy + 1N Nuwara Eliya + 2N Bentota + 1N Galle + 1N Colombo",
       "shortDescription": "A mesmerizing Sri Lankan voyage through ancient hill kingdoms, rolling Ceylon tea estates, golden palm beaches, and Dutch colonial forts.",
@@ -1853,7 +1853,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive Colombo – Transfer to Kandy",
           "description": "Airport greeting, scenic drive to cultural capital Kandy, visit elephant sanctuary.",
-          "image": "srilanka",
+          "image": "srilanka.png",
           "hotel": "4★ Hotel in Kandy",
           "meals": "Dinner"
         },
@@ -1861,7 +1861,7 @@ module.exports = {
           "day": 2,
           "title": "Kandy City & Cultural Dance Show",
           "description": "Visit Temple of the Tooth Relic, Peradeniya Botanical Gardens, Kandy Lake, and evening traditional Kandyan dance show.",
-          "image": "srilanka",
+          "image": "srilanka.png",
           "hotel": "4★ Hotel in Kandy",
           "meals": "Breakfast & Dinner"
         },
@@ -1869,7 +1869,7 @@ module.exports = {
           "day": 3,
           "title": "Kandy to Nuwara Eliya",
           "description": "Drive through emerald hills, visit tea factory and plantations, marvel at Ramboda waterfalls, check into colonial hotel in Nuwara Eliya.",
-          "image": "srilanka",
+          "image": "srilanka.png",
           "hotel": "4★ Hotel in Nuwara Eliya",
           "meals": "Breakfast & Dinner"
         },
@@ -1877,7 +1877,7 @@ module.exports = {
           "day": 4,
           "title": "Nuwara Eliya to Bentota Beach",
           "description": "Scenic descent from highlands to southern beach paradise Bentota, relax on golden sands.",
-          "image": "srilanka",
+          "image": "srilanka.png",
           "hotel": "4★ Beach Resort in Bentota",
           "meals": "Breakfast & Dinner"
         },
@@ -1885,7 +1885,7 @@ module.exports = {
           "day": 5,
           "title": "Bentota Water Adventures & Turtle Conservation",
           "description": "Madu River boat safari with fish therapy, visit Kosgoda sea turtle hatchery, afternoon water sports.",
-          "image": "srilanka",
+          "image": "srilanka.png",
           "hotel": "4★ Beach Resort in Bentota",
           "meals": "Breakfast & Dinner"
         },
@@ -1893,7 +1893,7 @@ module.exports = {
           "day": 6,
           "title": "Day Excursion to Galle Fort",
           "description": "Tour 17th-century Galle Dutch Fort, lighthouse, maritime museum, and cobblestone artisan boutiques.",
-          "image": "srilanka",
+          "image": "srilanka.png",
           "hotel": "4★ Hotel in Galle",
           "meals": "Breakfast & Dinner"
         },
@@ -1901,7 +1901,7 @@ module.exports = {
           "day": 7,
           "title": "Bentota to Colombo City Tour",
           "description": "Drive to commercial capital Colombo, explore Independence Memorial, Gangaramaya Temple, BMICH, and shopping at Odel.",
-          "image": "srilanka",
+          "image": "srilanka.png",
           "hotel": "4★ Hotel in Colombo",
           "meals": "Breakfast & Dinner"
         },
@@ -1909,7 +1909,7 @@ module.exports = {
           "day": 8,
           "title": "Departure",
           "description": "Breakfast, transfer to Bandaranaike International Airport (CMB) for flight home.",
-          "image": "srilanka",
+          "image": "srilanka.png",
           "meals": "Breakfast"
         }
       ],
@@ -1937,7 +1937,7 @@ module.exports = {
       "slug": "classic-manali-mountain-break",
       "title": "Classic Manali Mountain Break",
       "destination": "Manali & Solang Valley",
-      "destinationSlug": "himachal",
+      "destinationSlug": "himachal.png",
       "country": "India",
       "travelType": "Mountain Holiday",
       "packageType": "Domestic",
@@ -1948,11 +1948,11 @@ module.exports = {
       "reviews": 150,
       "featured": false,
       "popular": true,
-      "image": "himachal",
+      "image": "himachal.png",
       "gallery": [
-        "himachal",
-        "kashmir",
-        "rajasthan"
+        "himachal.png",
+        "kashmir.png",
+        "rajasthan.png"
       ],
       "hotel": "3 Nights in Hotel – Manali",
       "shortDescription": "A revitalizing alpine break among deodar cedar forests, Solang snow adventures, Atal Tunnel, and Old Manali cafes.",
@@ -1969,7 +1969,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Manali",
           "description": "Pick-up from Volvo bus stand or airport, check-in, visit 500-year-old wooden Hadimba Temple, Club House, and Mall Road.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3.5★ Resort in Manali",
           "meals": "Dinner"
         },
@@ -1977,7 +1977,7 @@ module.exports = {
           "day": 2,
           "title": "Solang Valley & Atal Tunnel Excursion",
           "description": "Adventure day at Solang Valley, drive through Atal Tunnel to majestic Sissu waterfall in Lahaul.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3.5★ Resort in Manali",
           "meals": "Breakfast & Dinner"
         },
@@ -1985,7 +1985,7 @@ module.exports = {
           "day": 3,
           "title": "Vashisht Village & Jogini Waterfall",
           "description": "Visit hot springs in Vashisht, scenic 3 km pine walk to Jogini Waterfall, afternoon at leisure in Old Manali.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3.5★ Resort in Manali",
           "meals": "Breakfast & Dinner"
         },
@@ -1993,7 +1993,7 @@ module.exports = {
           "day": 4,
           "title": "Departure",
           "description": "Breakfast, check-out, souvenir shopping, drop at bus stand / airport.",
-          "image": "himachal",
+          "image": "himachal.png",
           "meals": "Breakfast"
         }
       ],
@@ -2019,7 +2019,7 @@ module.exports = {
       "slug": "shimla-weekend-escape",
       "title": "Shimla Weekend Escape",
       "destination": "Shimla & Kufri",
-      "destinationSlug": "himachal",
+      "destinationSlug": "himachal.png",
       "country": "India",
       "travelType": "Mountain Holiday",
       "packageType": "Domestic",
@@ -2030,11 +2030,11 @@ module.exports = {
       "reviews": 110,
       "featured": false,
       "popular": true,
-      "image": "himachal",
+      "image": "himachal.png",
       "gallery": [
-        "himachal",
-        "kashmir",
-        "rajasthan"
+        "himachal.png",
+        "kashmir.png",
+        "rajasthan.png"
       ],
       "hotel": "2 Nights in Hotel – Shimla",
       "shortDescription": "Refresh your senses in the historic Queen of Hills with views from The Ridge, colonial heritage, and Kufri pine heights.",
@@ -2050,7 +2050,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Shimla",
           "description": "Pick-up and check-in, evening stroll on Mall Road, Lakkar Bazaar, and The Ridge.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Shimla",
           "meals": "Dinner"
         },
@@ -2058,7 +2058,7 @@ module.exports = {
           "day": 2,
           "title": "Kufri & Jakhoo Temple Excursion",
           "description": "Morning visit to Kufri for horse riding and panoramic views, afternoon ropeway to Jakhoo Temple, visit Christ Church.",
-          "image": "himachal",
+          "image": "himachal.png",
           "hotel": "3★ Hotel in Shimla",
           "meals": "Breakfast & Dinner"
         },
@@ -2066,7 +2066,7 @@ module.exports = {
           "day": 3,
           "title": "Viceregal Lodge & Departure",
           "description": "Breakfast, tour historic Viceregal Lodge, drop at railway station / bus stand.",
-          "image": "himachal",
+          "image": "himachal.png",
           "meals": "Breakfast"
         }
       ],
@@ -2091,7 +2091,7 @@ module.exports = {
       "slug": "kerala-backwaters",
       "title": "Kerala Backwaters & Hills Delight",
       "destination": "Munnar, Thekkady & Alleppey",
-      "destinationSlug": "kerala",
+      "destinationSlug": "kerala.png",
       "country": "India",
       "travelType": "Domestic Holiday",
       "packageType": "Domestic",
@@ -2102,11 +2102,11 @@ module.exports = {
       "reviews": 275,
       "featured": true,
       "popular": true,
-      "image": "kerala",
+      "image": "kerala.png",
       "gallery": [
-        "kerala",
-        "goa",
-        "srilanka"
+        "kerala.png",
+        "goa.png",
+        "srilanka.png"
       ],
       "hotel": "2N Munnar + 1N Thekkady + 1N Deluxe Houseboat Alleppey + 1N Kochi",
       "shortDescription": "God's Own Country in all its glory — misty tea estates of Munnar, wildlife in Thekkady, and overnight houseboat cruising in Alleppey.",
@@ -2123,7 +2123,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Kochi – Drive to Munnar",
           "description": "Airport pick-up, drive past Cheeyappara and Valara waterfalls, check into Munnar hill resort.",
-          "image": "kerala",
+          "image": "kerala.png",
           "hotel": "4★ Hill Resort in Munnar",
           "meals": "Dinner"
         },
@@ -2131,7 +2131,7 @@ module.exports = {
           "day": 2,
           "title": "Full Day Munnar Tea Hills Tour",
           "description": "Eravikulam National Park, Tea Museum, Mattupetty Dam, Echo Point, and Kundala Lake.",
-          "image": "kerala",
+          "image": "kerala.png",
           "hotel": "4★ Hill Resort in Munnar",
           "meals": "Breakfast & Dinner"
         },
@@ -2139,7 +2139,7 @@ module.exports = {
           "day": 3,
           "title": "Munnar to Thekkady",
           "description": "Drive through cardamom hills to Thekkady, afternoon boat safari on Periyar Lake, evening spice plantation walk.",
-          "image": "kerala",
+          "image": "kerala.png",
           "hotel": "4★ Resort in Thekkady",
           "meals": "Breakfast & Dinner"
         },
@@ -2147,7 +2147,7 @@ module.exports = {
           "day": 4,
           "title": "Thekkady to Alleppey Houseboat",
           "description": "Board private traditional houseboat at noon, cruise through narrow village canals, traditional Kerala lunch & dinner onboard.",
-          "image": "kerala",
+          "image": "kerala.png",
           "hotel": "Private Deluxe Houseboat",
           "meals": "All Meals Onboard"
         },
@@ -2155,7 +2155,7 @@ module.exports = {
           "day": 5,
           "title": "Alleppey to Fort Kochi",
           "description": "Cruise ends after breakfast, transfer to Fort Kochi, explore Chinese Fishing Nets, St. Francis Church, Jew Town.",
-          "image": "kerala",
+          "image": "kerala.png",
           "hotel": "4★ Hotel in Kochi",
           "meals": "Breakfast & Dinner"
         },
@@ -2163,7 +2163,7 @@ module.exports = {
           "day": 6,
           "title": "Departure",
           "description": "Breakfast, transfer to Cochin International Airport (COK).",
-          "image": "kerala",
+          "image": "kerala.png",
           "meals": "Breakfast"
         }
       ],
@@ -2189,7 +2189,7 @@ module.exports = {
       "slug": "singapore-escape",
       "title": "Singapore City & Sentosa Extravaganza",
       "destination": "Singapore",
-      "destinationSlug": "singapore",
+      "destinationSlug": "singapore.png",
       "country": "Singapore",
       "travelType": "International Tour",
       "packageType": "International",
@@ -2200,11 +2200,11 @@ module.exports = {
       "reviews": 230,
       "featured": true,
       "popular": true,
-      "image": "singapore",
+      "image": "singapore.png",
       "gallery": [
-        "singapore",
-        "malaysia",
-        "thailand"
+        "singapore.png",
+        "malaysia.png",
+        "thailand.png"
       ],
       "hotel": "4 Nights in 4★ Hotel in Singapore",
       "shortDescription": "A world-class futuristic city holiday featuring Universal Studios, Gardens by the Bay, Night Safari, and Sentosa Island.",
@@ -2221,7 +2221,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Singapore – Night Safari",
           "description": "Changi airport welcome, check into central hotel, evening Night Safari tram adventure.",
-          "image": "singapore",
+          "image": "singapore.png",
           "hotel": "4★ Hotel in Singapore",
           "meals": "Welcome Drink"
         },
@@ -2229,7 +2229,7 @@ module.exports = {
           "day": 2,
           "title": "City Highlights & Gardens by the Bay",
           "description": "Merlion Park, Little India, Chinatown, afternoon at Gardens by the Bay Flower Dome & Cloud Forest, Supertree light show.",
-          "image": "singapore",
+          "image": "singapore.png",
           "hotel": "4★ Hotel in Singapore",
           "meals": "Breakfast"
         },
@@ -2237,7 +2237,7 @@ module.exports = {
           "day": 3,
           "title": "Full Day Universal Studios Singapore",
           "description": "Thrill rides across Hollywood, Sci-Fi City (Transformers 3D), Ancient Egypt, and The Lost World.",
-          "image": "singapore",
+          "image": "singapore.png",
           "hotel": "4★ Hotel in Singapore",
           "meals": "Breakfast"
         },
@@ -2245,7 +2245,7 @@ module.exports = {
           "day": 4,
           "title": "Sentosa Island & Marina Bay Sands",
           "description": "Cable car ride to Sentosa, S.E.A. Aquarium, Madame Tussauds, evening Wings of Time laser show, visit MBS Skypark.",
-          "image": "singapore",
+          "image": "singapore.png",
           "hotel": "4★ Hotel in Singapore",
           "meals": "Breakfast"
         },
@@ -2253,7 +2253,7 @@ module.exports = {
           "day": 5,
           "title": "Departure",
           "description": "Breakfast, shopping on Orchard Road or Jewel Changi vortex waterfall, airport departure.",
-          "image": "singapore",
+          "image": "singapore.png",
           "meals": "Breakfast"
         }
       ],
@@ -2281,7 +2281,7 @@ module.exports = {
       "slug": "malaysia-explorer",
       "title": "Malaysia Explorer – Kuala Lumpur & Langkawi",
       "destination": "Kuala Lumpur & Langkawi",
-      "destinationSlug": "malaysia",
+      "destinationSlug": "malaysia.png",
       "country": "Malaysia",
       "travelType": "International Tour",
       "packageType": "International",
@@ -2292,11 +2292,11 @@ module.exports = {
       "reviews": 124,
       "featured": true,
       "popular": true,
-      "image": "malaysia",
+      "image": "malaysia.png",
       "gallery": [
-        "malaysia",
-        "singapore",
-        "thailand"
+        "malaysia.png",
+        "singapore.png",
+        "thailand.png"
       ],
       "hotel": "4★ hotels in Kuala Lumpur (3N) & Langkawi (2N)",
       "shortDescription": "Kuala Lumpur city lights, Genting Highlands cable car, Batu Caves, and the idyllic island beaches of Langkawi.",
@@ -2313,7 +2313,7 @@ module.exports = {
           "day": 1,
           "title": "Arrive in Kuala Lumpur",
           "description": "Airport pick-up, hotel check-in, evening at Bukit Bintang.",
-          "image": "malaysia",
+          "image": "malaysia.png",
           "hotel": "4★ Hotel in Kuala Lumpur",
           "meals": "Self"
         },
@@ -2321,7 +2321,7 @@ module.exports = {
           "day": 2,
           "title": "Kuala Lumpur City Tour & Batu Caves",
           "description": "Petronas Towers, King’s Palace, Merdeka Square, Batu Caves rainbow staircase.",
-          "image": "singapore",
+          "image": "singapore.png",
           "hotel": "4★ Hotel in Kuala Lumpur",
           "meals": "Breakfast"
         },
@@ -2329,7 +2329,7 @@ module.exports = {
           "day": 3,
           "title": "Genting Highlands Day Trip",
           "description": "Cable car ride, Chin Swee Temple, Genting SkyWorlds theme park.",
-          "image": "thailand",
+          "image": "thailand.png",
           "hotel": "4★ Hotel in Kuala Lumpur",
           "meals": "Breakfast"
         },
@@ -2337,7 +2337,7 @@ module.exports = {
           "day": 4,
           "title": "Fly to Langkawi",
           "description": "Flight to Langkawi, check into beachfront resort, sunset at Pantai Cenang.",
-          "image": "malaysia",
+          "image": "malaysia.png",
           "hotel": "4★ Beach Resort in Langkawi",
           "meals": "Breakfast"
         },
@@ -2345,7 +2345,7 @@ module.exports = {
           "day": 5,
           "title": "Langkawi Island Hopping",
           "description": "Speedboat tour visiting Dayang Bunting lake, eagle feeding point, and Beras Basah beach.",
-          "image": "singapore",
+          "image": "singapore.png",
           "hotel": "4★ Beach Resort in Langkawi",
           "meals": "Breakfast"
         },
@@ -2353,7 +2353,7 @@ module.exports = {
           "day": 6,
           "title": "Departure",
           "description": "Breakfast, check-out, airport drop for flight home.",
-          "image": "thailand",
+          "image": "thailand.png",
           "meals": "Breakfast"
         }
       ],
@@ -2380,65 +2380,65 @@ module.exports = {
   ],
   "destinations": [
     {
-      "slug": "malaysia",
+      "slug": "malaysia.png",
       "name": "Malaysia",
       "country": "Malaysia",
       "region": "International",
-      "image": "malaysia",
+      "image": "malaysia.png",
       "featured": true,
       "description": "Twin-tower skylines, rainforest highlands and island beaches in one easy trip."
     },
     {
-      "slug": "bangkok",
+      "slug": "bangkok.png",
       "name": "Bangkok",
       "country": "Thailand",
       "region": "International",
-      "image": "bangkok",
+      "image": "bangkok.png",
       "featured": true,
       "description": "Golden temples, floating markets and Bangkok’s legendary street food."
     },
     {
-      "slug": "vietnam",
+      "slug": "vietnam.png",
       "name": "Vietnam",
       "country": "Vietnam",
       "region": "International",
-      "image": "vietnam",
+      "image": "vietnam.png",
       "featured": true,
       "description": "Cruise emerald Ha Long Bay and wander lantern-lit Hoi An."
     },
     {
-      "slug": "singapore",
+      "slug": "singapore.png",
       "name": "Singapore",
       "country": "Singapore",
       "region": "International",
-      "image": "singapore",
+      "image": "singapore.png",
       "featured": true,
       "description": "Gardens by the Bay, Sentosa and a city built for families."
     },
     {
-      "slug": "dubai",
+      "slug": "dubai.png",
       "name": "Dubai",
       "country": "UAE",
       "region": "International",
-      "image": "dubai",
+      "image": "dubai.png",
       "featured": true,
       "description": "Desert safaris, sky-high views and world-class shopping."
     },
     {
-      "slug": "bali",
+      "slug": "bali.png",
       "name": "Bali",
       "country": "Indonesia",
       "region": "International",
-      "image": "bali",
+      "image": "bali.png",
       "featured": false,
       "description": "Rice terraces, cliff temples and slow island mornings."
     },
     {
-      "slug": "thailand",
+      "slug": "thailand.png",
       "name": "Thailand",
       "country": "Thailand",
       "region": "International",
-      "image": "thailand",
+      "image": "thailand.png",
       "featured": false,
       "description": "Phuket, Krabi and the Phi Phi islands in turquoise water."
     },
@@ -2447,61 +2447,61 @@ module.exports = {
       "name": "Sri Lanka",
       "country": "Sri Lanka",
       "region": "International",
-      "image": "srilanka",
+      "image": "srilanka.png",
       "featured": false,
       "description": "Tea-country trains, ancient cities and southern beaches."
     },
     {
-      "slug": "turkey",
+      "slug": "turkey.png",
       "name": "Turkey",
       "country": "Turkey",
       "region": "International",
-      "image": "turkey",
+      "image": "turkey.png",
       "featured": false,
       "description": "Cappadocia balloons, Istanbul bazaars and Aegean coastlines."
     },
     {
-      "slug": "maldives",
+      "slug": "maldives.png",
       "name": "Maldives",
       "country": "Maldives",
       "region": "International",
-      "image": "maldives",
+      "image": "maldives.png",
       "featured": false,
       "description": "Overwater villas, house reefs and barefoot island luxury."
     },
     {
-      "slug": "kashmir",
+      "slug": "kashmir.png",
       "name": "Kashmir",
       "country": "India",
       "region": "Domestic",
-      "image": "kashmir",
+      "image": "kashmir.png",
       "featured": false,
       "description": "Shikara rides on Dal Lake and meadows of Gulmarg & Pahalgam."
     },
     {
-      "slug": "kerala",
+      "slug": "kerala.png",
       "name": "Kerala",
       "country": "India",
       "region": "Domestic",
-      "image": "kerala",
+      "image": "kerala.png",
       "featured": false,
       "description": "Houseboat backwaters, Munnar tea hills and Ayurveda retreats."
     },
     {
-      "slug": "goa",
+      "slug": "goa.png",
       "name": "Goa",
       "country": "India",
       "region": "Domestic",
-      "image": "goa",
+      "image": "goa.png",
       "featured": false,
       "description": "Sun, sand, Portuguese lanes and sunset beach shacks."
     },
     {
-      "slug": "rajasthan",
+      "slug": "rajasthan.png",
       "name": "Rajasthan",
       "country": "India",
       "region": "Domestic",
-      "image": "rajasthan",
+      "image": "rajasthan.png",
       "featured": false,
       "description": "Forts, palaces and desert camps across the royal state."
     },
@@ -2510,7 +2510,7 @@ module.exports = {
       "name": "Himachal Pradesh",
       "country": "India",
       "region": "Domestic",
-      "image": "himachal",
+      "image": "himachal.png",
       "featured": false,
       "description": "Manali, Shimla and snow-capped Himalayan valleys."
     },
@@ -2519,7 +2519,7 @@ module.exports = {
       "name": "North East India",
       "country": "India",
       "region": "Domestic",
-      "image": "kashmir",
+      "image": "kashmir.png",
       "featured": false,
       "description": "Meghalaya’s living root bridges, Sikkim and Kaziranga."
     },
@@ -2528,7 +2528,7 @@ module.exports = {
       "name": "Pilgrim India",
       "country": "India",
       "region": "Domestic",
-      "image": "pilgrim",
+      "image": "pilgrim.png",
       "featured": false,
       "description": "Tirupati, Varanasi, Ayodhya, Shirdi and more sacred journeys."
     }
@@ -2718,77 +2718,77 @@ module.exports = {
   ],
   "gallery": [
     {
-      "image": "hero",
+      "image": "hero.png",
       "title": "Tropical Island Sunrise",
       "category": "International"
     },
     {
-      "image": "maldives",
+      "image": "maldives.png",
       "title": "Luxury Overwater Villas, Maldives",
       "category": "International"
     },
     {
-      "image": "bali",
+      "image": "bali.png",
       "title": "Sacred Gate & Lush Tropics, Bali",
       "category": "International"
     },
     {
-      "image": "dubai",
+      "image": "dubai.png",
       "title": "Futuristic Skyline & Safari, Dubai",
       "category": "International"
     },
     {
-      "image": "singapore",
+      "image": "singapore.png",
       "title": "Marina Bay Sands & Gardens, Singapore",
       "category": "International"
     },
     {
-      "image": "thailand",
+      "image": "thailand.png",
       "title": "Emerald Waters, Thailand",
       "category": "International"
     },
     {
-      "image": "turkey",
+      "image": "turkey.png",
       "title": "Hot Air Balloons, Cappadocia",
       "category": "Travel Moments"
     },
     {
-      "image": "kashmir",
+      "image": "kashmir.png",
       "title": "Dal Lake Shikara, Kashmir",
       "category": "Destinations"
     },
     {
-      "image": "kerala",
+      "image": "kerala.png",
       "title": "Backwaters Houseboat, Alleppey",
       "category": "Destinations"
     },
     {
-      "image": "himachal",
+      "image": "himachal.png",
       "title": "Snow-Capped Peaks, Himachal",
       "category": "Destinations"
     },
     {
-      "image": "goa",
+      "image": "goa.png",
       "title": "Golden Coastline, Goa",
       "category": "Destinations"
     },
     {
-      "image": "rajasthan",
+      "image": "rajasthan.png",
       "title": "Royal Forts & Palaces, Rajasthan",
       "category": "Destinations"
     },
     {
-      "image": "pilgrim",
+      "image": "pilgrim.png",
       "title": "Divine Darshan, Tirupati",
       "category": "Destinations"
     },
     {
-      "image": "srilanka",
+      "image": "srilanka.png",
       "title": "Misty Tea Plantations, Sri Lanka",
       "category": "International"
     },
     {
-      "image": "vietnam",
+      "image": "vietnam.png",
       "title": "Halong Bay Limestone Karsts, Vietnam",
       "category": "International"
     }

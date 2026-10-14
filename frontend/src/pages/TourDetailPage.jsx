@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import travelData from '../data/travelData';
 import TourCard from '../components/TourCard';
+import { getAssetImageUrl } from '../utils/imageHelper';
 
 export default function TourDetailPage({ onBookTour }) {
   const { slug } = useParams();
@@ -71,7 +72,7 @@ export default function TourDetailPage({ onBookTour }) {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-[#fafbf9] text-[#17231d]">
+    <div className="min-h-screen bg-[#fafbf9] text-[#17231d] pb-24 lg:pb-0">
       {/* 1. Breadcrumbs Strip */}
       <div className="pt-28 pb-4 bg-[#17231d]/5 border-b border-[#17231d]/5">
         <div className="container mx-auto">
@@ -89,7 +90,7 @@ export default function TourDetailPage({ onBookTour }) {
       <section className="relative overflow-hidden bg-[#17231d] text-white py-16 sm:py-24">
         <div className="absolute inset-0 -z-10">
           <img
-            src={activeImage?.startsWith('/') || activeImage?.startsWith('http') ? activeImage : `/images/${activeImage || 'hero'}.png`}
+            src={getAssetImageUrl(activeImage)}
             alt={tour.title}
             onError={(e) => { e.currentTarget.src = '/images/hero.png'; }}
             className="w-full h-full object-cover opacity-40"
@@ -153,7 +154,7 @@ export default function TourDetailPage({ onBookTour }) {
                     activeImage === img ? 'border-[#168447] scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
                   }`}
                 >
-                  <img src={`/images/${img}.png`} alt="thumbnail" className="w-full h-full object-cover" />
+                  <img src={getAssetImageUrl(img)} alt="thumbnail" className="w-full h-full object-cover" />
                 </button>
               ))}
             </div>
@@ -409,6 +410,37 @@ export default function TourDetailPage({ onBookTour }) {
           </div>
         )}
       </section>
+
+      {/* 5. Sticky Mobile Consultation & Booking Bar */}
+      <aside aria-label="Quick booking actions" className="lg:hidden fixed bottom-0 inset-x-0 z-40 bg-[#0d1612]/95 backdrop-blur-lg border-t border-white/10 px-4 py-3 shadow-[0_-10px_25px_rgba(0,0,0,0.3)]">
+        <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
+          <div>
+            <div className="text-[0.68rem] text-slate-300 uppercase tracking-wider font-semibold">Starting from</div>
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-xl font-bold font-display text-amber-300">₹{tour.price?.toLocaleString('en-IN')}</span>
+              <span className="text-[0.65rem] text-slate-400">/ person</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={handleWhatsApp}
+              className="btn btn-wa !py-2.5 !px-3 text-xs font-bold shadow-md cursor-pointer flex items-center gap-1.5"
+              aria-label="WhatsApp Inquiry"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>WhatsApp</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => onBookTour(tour)}
+              className="btn btn-primary !py-2.5 !px-4 text-xs font-bold shadow-md cursor-pointer flex items-center gap-1.5"
+            >
+              <span>Book Now</span>
+            </button>
+          </div>
+        </div>
+      </aside>
     </div>
   );
 }

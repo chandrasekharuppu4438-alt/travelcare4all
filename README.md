@@ -498,3 +498,41 @@ NODE_ENV=development
 * **Phone Numbers**: `+91 73861 33399` / `+91 70136 39149`
 * **Email**: `travelcare4all@gmail.com`
 * **WhatsApp**: `+91 73861 33399`
+
+---
+
+## 🚀 Render.com Deployment Setup
+
+You can deploy the complete MERN application to Render in **2 simple ways**:
+
+### Option 1: Automatic Blueprint (Recommended)
+1. Push your repository to GitHub.
+2. Log into [Render Dashboard](https://dashboard.render.com).
+3. Click **New +** > **Blueprint**.
+4. Connect this GitHub repository (`travelcare4all`).
+5. Render reads `render.yaml` automatically and configures your service.
+6. When prompted for `MONGODB_URI`, paste:
+   ```
+   mongodb+srv://travelcare4all_admin:Travelcare4all2004@travelcare4all.5uwf1eb.mongodb.net/travelcare4all?retryWrites=true&w=majority&appName=Travelcare4all
+   ```
+7. Click **Apply**. Render will build and deploy your entire full-stack app at `https://travelcare4all.onrender.com`!
+
+### Option 2: Manual Web Service Setup
+1. On [Render Dashboard](https://dashboard.render.com), click **New +** > **Web Service**.
+2. Connect your GitHub repository.
+3. Configure the following fields:
+   * **Name**: `travelcare4all`
+   * **Language / Runtime**: `Node`
+   * **Branch**: `main`
+   * **Build Command**: `npm run build`
+   * **Start Command**: `npm start`
+   * **Plan**: `Free`
+4. Add **Environment Variables**:
+   * `NODE_ENV` = `production`
+   * `PORT` = `5000`
+   * `MONGODB_URI` = `mongodb+srv://travelcare4all_admin:Travelcare4all2004@travelcare4all.5uwf1eb.mongodb.net/travelcare4all?retryWrites=true&w=majority&appName=Travelcare4all`
+   * `JWT_SECRET` = *(Click Generate or enter a secure random string)*
+   * `CLIENT_URL` = `https://travelcare4all.onrender.com` *(or your custom domain)*
+   * `INITIAL_ADMIN_EMAIL` = `admin@travelcare4all.com`
+   * `INITIAL_ADMIN_PASSWORD` = `Admin@TravelCare2026`
+5. Click **Deploy Web Service**.

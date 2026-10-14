@@ -218,8 +218,8 @@ export default function AdminDashboardPage() {
       {/* Sidebar */}
       <aside className="w-full md:w-64 bg-[#0a1422] border-r border-white/10 flex flex-col shrink-0">
         <div className="p-6 border-b border-white/10">
-          <Link to="/" className="flex items-center gap-3">
-            <BrandLogo className="h-9 w-9 shrink-0" />
+          <Link to="/" className="flex items-center gap-3 group">
+            <BrandLogo className="h-10 w-10 shrink-0 transition-transform group-hover:scale-105" />
             <div>
               <span className="block font-display font-bold text-lg text-white leading-tight">
                 Travel Care

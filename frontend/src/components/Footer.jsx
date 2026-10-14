@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, MessageSquare, Heart, ShieldCheck, Clock, ExternalLink } from 'lucide-react';
-import { BrandLogo } from './Navbar';
+import { BrandLogo, BrandFullLogo } from './Navbar';
 import travelData from '../data/travelData';
 
 export default function Footer({ onOpenAdmin }) {
@@ -19,16 +19,11 @@ export default function Footer({ onOpenAdmin }) {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-10">
           {/* Col 1: Brand & Managing Consultant */}
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <BrandLogo className="h-11 w-11 shrink-0 transition-transform duration-300 group-hover:scale-105" />
-              <span className="leading-none">
-                <span className="block font-display font-bold text-2xl text-white tracking-tight">
-                  Travel Care
-                </span>
-                <span className="mt-0.5 block text-[0.7rem] font-extrabold uppercase tracking-[0.32em] text-[#e66a2c]">
-                  4 All
-                </span>
-              </span>
+            <Link to="/" className="inline-flex items-center gap-2.5 group py-1">
+              <BrandFullLogo
+                variant="horizontal-white"
+                className="h-12 w-auto max-h-12 transition-transform duration-300 group-hover:scale-105"
+              />
             </Link>
             
             <p className="text-sm text-white/70 leading-relaxed">
