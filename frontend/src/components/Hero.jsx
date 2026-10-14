@@ -30,25 +30,41 @@ export default function Hero({ onOpenCustomTrip }) {
         {/* Content container */}
         <div className="container mx-auto w-full">
           <div className="max-w-3xl">
-            {/* Tagline pill */}
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-amber-200 ring-1 ring-white/25 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#e66a2c]" />
+            {/* Tagline pill with shimmer */}
+            <p className="mb-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-amber-200 ring-1 ring-white/25 backdrop-blur shimmer-badge">
+              <span className="h-2 w-2 rounded-full bg-[#e66a2c] animate-ping" />
               <span>All Travel Solutions &amp; Fast Track Visa Services</span>
             </p>
 
             {/* Headline */}
             <h1 className="text-[2.6rem] font-semibold leading-[1.04] sm:text-6xl lg:text-7xl font-display">
               Explore the World with{' '}
-              <span className="italic text-amber-300">Travel Care</span> 4 All
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-400">
+                Travel Care
+              </span> 4 All
             </h1>
 
             {/* Subtitle */}
-            <p className="mt-6 max-w-xl text-base text-white/85 sm:text-lg">
-              From unforgettable holidays to hassle-free visas, tickets and personalized travel experiences, we take care of every step of your journey.
+            <p className="mt-6 max-w-xl text-base text-white/90 sm:text-lg leading-relaxed">
+              From handcrafted holidays to hassle-free fast-track visas, flights and personalized itineraries, B. Vidya Sagar and our Vijayawada desk take care of every detail.
             </p>
 
+            {/* Trending Destination Quick Pills */}
+            <div className="mt-6 flex flex-wrap items-center gap-2 text-xs">
+              <span className="text-white/60 font-medium">Trending Now:</span>
+              {['Kashmir', 'Dubai', 'Bali', 'Goa', 'Thailand'].map((city) => (
+                <a
+                  key={city}
+                  href={`/tours?destination=${city}`}
+                  className="px-2.5 py-1 rounded-full bg-white/10 hover:bg-amber-400 hover:text-slate-950 border border-white/20 text-white/90 font-semibold transition-all duration-200"
+                >
+                  {city}
+                </a>
+              ))}
+            </div>
+
             {/* Action buttons */}
-            <div className="mt-9 flex flex-wrap items-center gap-3">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
               <a className="btn btn-primary shadow-lg shadow-[#e66a2c]/30" href="#featured-tours">
                 <span>Explore Packages</span>
                 <ArrowRight className="h-4 w-4 ml-1" />

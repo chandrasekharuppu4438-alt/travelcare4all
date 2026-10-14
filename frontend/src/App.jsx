@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppFloating from './components/WhatsAppFloating';
+import LiveBookingSocialProof from './components/LiveBookingSocialProof';
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoute from './components/ProtectedRoute';
 import TourDetailsModal from './components/TourDetailsModal';
@@ -138,6 +139,9 @@ export default function App() {
 
       {/* Floating WhatsApp Action Button (Only on Public Pages) */}
       {!isAdminRoute && <WhatsAppFloating />}
+
+      {/* Live Social Proof Notification Toast (Only on Public Pages) */}
+      {!isAdminRoute && <LiveBookingSocialProof />}
 
       {/* Tour Itinerary Details Modal */}
       {selectedTourForDetails && (

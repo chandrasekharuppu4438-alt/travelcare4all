@@ -1,10 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Hero from '../components/Hero';
+import DestinationWeatherTicker from '../components/DestinationWeatherTicker';
 import QuickSearch from '../components/QuickSearch';
 import DestinationsSection from '../components/DestinationsSection';
 import FeaturedTours from '../components/FeaturedTours';
+import TripCostEstimator from '../components/TripCostEstimator';
 import ServicesSection from '../components/ServicesSection';
+import InteractiveVisaChecker from '../components/InteractiveVisaChecker';
 import WhyChooseUs from '../components/WhyChooseUs';
 import StatsSection from '../components/StatsSection';
 import VisaDesk from '../components/VisaDesk';
@@ -49,6 +52,9 @@ export default function HomePage({ onSelectTour, onBookTour, onOpenCustomTrip })
       {/* Cinematic Hero */}
       <Hero onOpenCustomTrip={onOpenCustomTrip} />
 
+      {/* Live Destination Weather & Travel Vibe Ticker */}
+      <DestinationWeatherTicker />
+
       {/* Interactive Quick Search Bar */}
       <QuickSearch onSearch={handleQuickSearch} />
 
@@ -58,8 +64,14 @@ export default function HomePage({ onSelectTour, onBookTour, onOpenCustomTrip })
       {/* 6 Flagship Featured Tours */}
       <FeaturedTours onSelectTour={onSelectTour} onBookTour={onBookTour} />
 
+      {/* Interactive Holiday Budget & Trip Cost Calculator */}
+      <TripCostEstimator />
+
       {/* Core Services Showcase */}
       <ServicesSection onSelectService={handleSelectService} />
+
+      {/* Interactive Fast-Track Visa Checker & Document Checklist */}
+      <InteractiveVisaChecker />
 
       {/* Why Choose Us & Honeymoon Spotlight */}
       <WhyChooseUs onOpenCustomTrip={onOpenCustomTrip} />
