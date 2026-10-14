@@ -10,9 +10,12 @@ const Admin = require('../models/Admin');
 const seedData = require('../data/seedData');
 
 const seedDB = async () => {
-  const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/travelcare4all';
+  let uri = process.env.MONGODB_URI;
+  if (!uri || uri.includes('travelcare4all_admin') || uri.includes('<db_password>') || uri.includes('127.0.0.1')) {
+    uri = 'mongodb+srv://Travelcare_db:Bethamvidyasagar200426@travelcare4all.5uwf1eb.mongodb.net/travelcare4all?retryWrites=true&w=majority&appName=Travelcare4all';
+  }
   try {
-    console.log(`Connecting to MongoDB at: ${uri}`);
+    console.log(`Connecting to MongoDB...`);
     await mongoose.connect(uri);
     console.log('Connected to MongoDB successfully!');
 

@@ -13,7 +13,7 @@ services:
       - key: NODE_VERSION
         value: 20.18.0
       - key: MONGODB_URI
-        sync: false
+        value: mongodb+srv://Travelcare_db:Bethamvidyasagar200426@travelcare4all.5uwf1eb.mongodb.net/travelcare4all?retryWrites=true&w=majority&appName=Travelcare4all
       - key: JWT_SECRET
         generateValue: true
       - key: CLIENT_URL
